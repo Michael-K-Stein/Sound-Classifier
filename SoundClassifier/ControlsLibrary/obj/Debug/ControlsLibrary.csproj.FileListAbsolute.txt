@@ -1,0 +1,11 @@
+C:\Users\stein\Desktop\Research Project 2020\SoundClassifier\ControlsLibrary\bin\Debug\ControlsLibrary.dll
+C:\Users\stein\Desktop\Research Project 2020\SoundClassifier\ControlsLibrary\bin\Debug\ControlsLibrary.pdb
+C:\Users\stein\Desktop\Research Project 2020\SoundClassifier\ControlsLibrary\obj\Debug\SoundClassifier.Form_Parts.LoadSoundFileTab.resources
+C:\Users\stein\Desktop\Research Project 2020\SoundClassifier\ControlsLibrary\obj\Debug\ControlsLibrary.csproj.GenerateResource.cache
+C:\Users\stein\Desktop\Research Project 2020\SoundClassifier\ControlsLibrary\obj\Debug\ControlsLibrary.csproj.CoreCompileInputs.cache
+C:\Users\stein\Desktop\Research Project 2020\SoundClassifier\ControlsLibrary\obj\Debug\ControlsLibrary.dll
+C:\Users\stein\Desktop\Research Project 2020\SoundClassifier\ControlsLibrary\obj\Debug\ControlsLibrary.pdb
+C:\Users\stein\Desktop\Research Project 2020\SoundClassifier\ControlsLibrary\bin\Debug\LoadSoundFileTab.resx
+C:\Users\stein\Desktop\Research Project 2020\SoundClassifier\ControlsLibrary\bin\Debug\LoadSoundFileTab.cs
+C:\Users\stein\Desktop\Research Project 2020\SoundClassifier\ControlsLibrary\bin\Debug\LoadSoundFileTab.Designer.cs
+C:\Users\stein\Desktop\Research Project 2020\SoundClassifier\ControlsLibrary\obj\Debug\ControlsLibrary.csproj.ResolveComReference.cache

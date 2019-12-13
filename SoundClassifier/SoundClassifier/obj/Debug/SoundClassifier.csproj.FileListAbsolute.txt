@@ -1,0 +1,16 @@
+C:\Users\stein\Desktop\Research Project 2020\SoundClassifier\SoundClassifier\bin\Debug\SoundClassifier.exe.config
+C:\Users\stein\Desktop\Research Project 2020\SoundClassifier\SoundClassifier\bin\Debug\SoundClassifier.exe
+C:\Users\stein\Desktop\Research Project 2020\SoundClassifier\SoundClassifier\bin\Debug\SoundClassifier.pdb
+C:\Users\stein\Desktop\Research Project 2020\SoundClassifier\SoundClassifier\obj\Debug\SoundClassifier.csprojAssemblyReference.cache
+C:\Users\stein\Desktop\Research Project 2020\SoundClassifier\SoundClassifier\obj\Debug\SoundClassifier.MainForm.resources
+C:\Users\stein\Desktop\Research Project 2020\SoundClassifier\SoundClassifier\obj\Debug\SoundClassifier.Properties.Resources.resources
+C:\Users\stein\Desktop\Research Project 2020\SoundClassifier\SoundClassifier\obj\Debug\SoundClassifier.csproj.GenerateResource.cache
+C:\Users\stein\Desktop\Research Project 2020\SoundClassifier\SoundClassifier\obj\Debug\SoundClassifier.csproj.CoreCompileInputs.cache
+C:\Users\stein\Desktop\Research Project 2020\SoundClassifier\SoundClassifier\obj\Debug\SoundClassifier.exe
+C:\Users\stein\Desktop\Research Project 2020\SoundClassifier\SoundClassifier\obj\Debug\SoundClassifier.pdb
+C:\Users\stein\Desktop\Research Project 2020\SoundClassifier\SoundClassifier\bin\Debug\LoadSoundFileTab.resx
+C:\Users\stein\Desktop\Research Project 2020\SoundClassifier\SoundClassifier\bin\Debug\LoadSoundFileTab.cs
+C:\Users\stein\Desktop\Research Project 2020\SoundClassifier\SoundClassifier\bin\Debug\LoadSoundFileTab.Designer.cs
+C:\Users\stein\Desktop\Research Project 2020\SoundClassifier\SoundClassifier\bin\Debug\ControlsLibrary.dll
+C:\Users\stein\Desktop\Research Project 2020\SoundClassifier\SoundClassifier\bin\Debug\ControlsLibrary.pdb
+C:\Users\stein\Desktop\Research Project 2020\SoundClassifier\SoundClassifier\obj\Debug\SoundClassifier.csproj.CopyComplete
