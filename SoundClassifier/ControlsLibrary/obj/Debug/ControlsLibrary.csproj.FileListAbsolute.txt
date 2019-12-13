@@ -9,3 +9,6 @@ C:\Users\stein\Desktop\Research Project 2020\SoundClassifier\ControlsLibrary\bin
 C:\Users\stein\Desktop\Research Project 2020\SoundClassifier\ControlsLibrary\bin\Debug\LoadSoundFileTab.cs
 C:\Users\stein\Desktop\Research Project 2020\SoundClassifier\ControlsLibrary\bin\Debug\LoadSoundFileTab.Designer.cs
 C:\Users\stein\Desktop\Research Project 2020\SoundClassifier\ControlsLibrary\obj\Debug\ControlsLibrary.csproj.ResolveComReference.cache
+C:\Users\stein\Desktop\Research Project 2020\SoundClassifier\ControlsLibrary\bin\Debug\AxInterop.WMPLib.dll
+C:\Users\stein\Desktop\Research Project 2020\SoundClassifier\ControlsLibrary\obj\Debug\ControlsLibrary.csprojAssemblyReference.cache
+C:\Users\stein\Desktop\Research Project 2020\SoundClassifier\ControlsLibrary\obj\Debug\ControlsLibrary.csproj.CopyComplete

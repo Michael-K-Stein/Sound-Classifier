@@ -1,24 +1,18 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.IO;
-using System.Runtime.InteropServices;
-using System.Text;
+using ControlsLibrary;
 
 namespace SoundClassifier.Form_Parts
 {
     public partial class LoadSoundFileTab : UserControl
     { 
-
         public string filePath = "";
+        public MediaFileData fileData;
 
         public LoadSoundFileTab()
         {
             InitializeComponent();
-        }
-
-        public static double GetSoundLength(string fileName)
-        {
-            return 0;
         }
 
         private void bLoadFile_Click(object sender, EventArgs e)
@@ -45,9 +39,10 @@ namespace SoundClassifier.Form_Parts
 
         void LoadFileData()
         {
+            fileData = new ControlsLibrary.MediaFileData(filePath);
             lSelectedFile.Text = filePath;
-            lFDSize.Text = "Size: " + fileSizes(new FileInfo(filePath).Length);
-            lFDLength.Text = "Length: " + GetSoundLength(filePath).ToString() + " sec";
+            lFDSize.Text = "Size: " +  fileData.getFileSizeFancy();
+            lFDLength.Text = "Length: " + fileData.getSoundLengthFancy();
         }
 
         void UnloadFileData()
@@ -57,21 +52,6 @@ namespace SoundClassifier.Form_Parts
             lFDLength.Text = "Length: 0 sec";
         }
 
-        public static string fileSizes(Int64 size)
-        {
-            const int sizeMult = 1;
-            if (size < 1024 * sizeMult) {
-                return size + " B";
-            } else if (size < 1048576 * sizeMult) {
-                return Math.Round(size / 1024.0, 2) + " KB";
-            } else if (size < 1073741824.0 * sizeMult) {
-                return Math.Round(size / 1048576.0, 2) + " MB";
-            } else if (size < 1099511600000 * sizeMult) {
-                return Math.Round(size / 1073741824.0, 2) + " GB";
-            } else if (size > 1099511600000 * sizeMult) {
-                return "Too big :(";
-            }
-            return 0 + " B";
-        }
+
     }
 }

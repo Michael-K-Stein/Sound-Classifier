@@ -19,7 +19,7 @@ namespace SoundClassifier
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            //tbLoadFIle = new SoundClassifier.Form_Parts.LoadSoundFileTab();
+
         }
     }
 }
