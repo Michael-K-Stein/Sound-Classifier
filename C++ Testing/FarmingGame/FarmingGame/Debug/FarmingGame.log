@@ -1,0 +1,24 @@
+﻿main.obj : error LNK2019: unresolved external symbol "public: float __thiscall sf::Time::asSeconds(void)const " (?asSeconds@Time@sf@@QBEMXZ) referenced in function _main
+main.obj : error LNK2019: unresolved external symbol "public: __thiscall sf::Clock::Clock(void)" (??0Clock@sf@@QAE@XZ) referenced in function _main
+main.obj : error LNK2019: unresolved external symbol "public: class sf::Time __thiscall sf::Clock::getElapsedTime(void)const " (?getElapsedTime@Clock@sf@@QBE?AVTime@2@XZ) referenced in function _main
+main.obj : error LNK2019: unresolved external symbol "public: class sf::Time __thiscall sf::Clock::restart(void)" (?restart@Clock@sf@@QAE?AVTime@2@XZ) referenced in function _main
+main.obj : error LNK2019: unresolved external symbol "public: __thiscall sf::String::String(char const *,class std::locale const &)" (??0String@sf@@QAE@PBDABVlocale@std@@@Z) referenced in function _main
+main.obj : error LNK2019: unresolved external symbol "public: static bool __cdecl sf::Keyboard::isKeyPressed(enum sf::Keyboard::Key)" (?isKeyPressed@Keyboard@sf@@SA_NW4Key@12@@Z) referenced in function _main
+main.obj : error LNK2019: unresolved external symbol "public: __thiscall sf::VideoMode::VideoMode(unsigned int,unsigned int,unsigned int)" (??0VideoMode@sf@@QAE@III@Z) referenced in function _main
+main.obj : error LNK2019: unresolved external symbol "public: void __thiscall sf::Window::close(void)" (?close@Window@sf@@QAEXXZ) referenced in function _main
+main.obj : error LNK2019: unresolved external symbol "public: bool __thiscall sf::Window::isOpen(void)const " (?isOpen@Window@sf@@QBE_NXZ) referenced in function _main
+main.obj : error LNK2019: unresolved external symbol "public: bool __thiscall sf::Window::pollEvent(class sf::Event &)" (?pollEvent@Window@sf@@QAE_NAAVEvent@2@@Z) referenced in function _main
+main.obj : error LNK2019: unresolved external symbol "public: void __thiscall sf::Window::display(void)" (?display@Window@sf@@QAEXXZ) referenced in function _main
+main.obj : error LNK2019: unresolved external symbol "public: virtual __thiscall sf::Transformable::~Transformable(void)" (??1Transformable@sf@@UAE@XZ) referenced in function "public: virtual __thiscall sf::Sprite::~Sprite(void)" (??1Sprite@sf@@UAE@XZ)
+main.obj : error LNK2019: unresolved external symbol "public: void __thiscall sf::Transformable::setPosition(float,float)" (?setPosition@Transformable@sf@@QAEXMM@Z) referenced in function _main
+main.obj : error LNK2019: unresolved external symbol "public: __thiscall sf::Color::Color(unsigned char,unsigned char,unsigned char,unsigned char)" (??0Color@sf@@QAE@EEEE@Z) referenced in function _main
+main.obj : error LNK2019: unresolved external symbol "public: __thiscall sf::Texture::Texture(void)" (??0Texture@sf@@QAE@XZ) referenced in function _main
+main.obj : error LNK2019: unresolved external symbol "public: __thiscall sf::Texture::~Texture(void)" (??1Texture@sf@@QAE@XZ) referenced in function _main
+main.obj : error LNK2019: unresolved external symbol "public: bool __thiscall sf::Texture::loadFromFile(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,class sf::Rect<int> const &)" (?loadFromFile@Texture@sf@@QAE_NABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@ABV?$Rect@H@2@@Z) referenced in function _main
+main.obj : error LNK2019: unresolved external symbol "public: void __thiscall sf::RenderTarget::clear(class sf::Color const &)" (?clear@RenderTarget@sf@@QAEXABVColor@2@@Z) referenced in function _main
+main.obj : error LNK2019: unresolved external symbol "public: void __thiscall sf::RenderTarget::draw(class sf::Drawable const &,class sf::RenderStates const &)" (?draw@RenderTarget@sf@@QAEXABVDrawable@2@ABVRenderStates@2@@Z) referenced in function _main
+main.obj : error LNK2019: unresolved external symbol "public: __thiscall sf::RenderWindow::RenderWindow(class sf::VideoMode,class sf::String const &,unsigned int,struct sf::ContextSettings const &)" (??0RenderWindow@sf@@QAE@VVideoMode@1@ABVString@1@IABUContextSettings@1@@Z) referenced in function _main
+main.obj : error LNK2019: unresolved external symbol "public: virtual __thiscall sf::RenderWindow::~RenderWindow(void)" (??1RenderWindow@sf@@UAE@XZ) referenced in function _main
+main.obj : error LNK2019: unresolved external symbol "public: __thiscall sf::Sprite::Sprite(class sf::Texture const &)" (??0Sprite@sf@@QAE@ABVTexture@1@@Z) referenced in function _main
+main.obj : error LNK2001: unresolved external symbol "public: static class sf::RenderStates const sf::RenderStates::Default" (?Default@RenderStates@sf@@2V12@B)
+C:\Users\stein\Desktop\Research Project 2020\C++ Testing\FarmingGame\Debug\FarmingGame.exe : fatal error LNK1120: 23 unresolved externals

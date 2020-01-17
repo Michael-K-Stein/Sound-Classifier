@@ -19,6 +19,7 @@ namespace SoundClassifier
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+
         }
     }
 }

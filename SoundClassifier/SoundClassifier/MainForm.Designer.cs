@@ -74,7 +74,6 @@
             this.loadSoundFileTab1.Name = "loadSoundFileTab1";
             this.loadSoundFileTab1.Size = new System.Drawing.Size(876, 535);
             this.loadSoundFileTab1.TabIndex = 0;
-            //this.loadSoundFileTab1.Load += new System.EventHandler(this.loadSoundFileTab1_Load);
             // 
             // MainForm
             // 

@@ -1,0 +1,25 @@
+﻿  Barn.cpp
+  Carrot.cpp
+  Farmland.cpp
+c:\users\stein\desktop\research project 2020\c++ testing\farminggame\farminggame\farmland.cpp(40): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\stein\desktop\research project 2020\c++ testing\farminggame\farminggame\farmland.cpp(45): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\stein\desktop\research project 2020\c++ testing\farminggame\farminggame\farmland.cpp(48): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\stein\desktop\research project 2020\c++ testing\farminggame\farminggame\farmland.cpp(51): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\stein\desktop\research project 2020\c++ testing\farminggame\farminggame\farmland.cpp(54): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  GameItem.cpp
+c:\users\stein\desktop\research project 2020\c++ testing\farminggame\farminggame\gameitem.cpp(18): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\stein\desktop\research project 2020\c++ testing\farminggame\farminggame\gameitem.cpp(22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\stein\desktop\research project 2020\c++ testing\farminggame\farminggame\gameitem.cpp(29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\stein\desktop\research project 2020\c++ testing\farminggame\farminggame\gameitem.cpp(33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Inventory.cpp
+c:\users\stein\desktop\research project 2020\c++ testing\farminggame\farminggame\inventory.cpp(19): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\stein\desktop\research project 2020\c++ testing\farminggame\farminggame\inventory.cpp(29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\stein\desktop\research project 2020\c++ testing\farminggame\farminggame\inventory.cpp(38): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  main.cpp
+c:\users\stein\desktop\research project 2020\c++ testing\farminggame\farminggame\main.cpp(28): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\stein\desktop\research project 2020\c++ testing\farminggame\farminggame\main.cpp(56): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\stein\desktop\research project 2020\c++ testing\farminggame\farminggame\main.cpp(126): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Potato.cpp
+  Wheat.cpp
+  Generating Code...
+  FarmingGame.vcxproj -> C:\Users\stein\Desktop\Research Project 2020\C++ Testing\FarmingGame\x64\Debug\FarmingGame.exe

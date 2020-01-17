@@ -4,42 +4,42 @@ using namespace sf;
 
 int bW = 30; // Amount of blocks horizontally
 int bH = 20; // Amount of blocks vertically
-int bFact = 25; // Pixels per length of block
-int width = bW * bFact;
-int height = bH * bFact;
+int bFact = 25; // Pixels per length of block. Depends on the graphics
+int width = bW * bFact;  // Width of the screen.
+int height = bH * bFact; // Height of the screen.
 
 int sDir = 1; // The direction snake is moving
 int sLength = 4; // The length of the snake
 
-int restarting = 0;
+int restarting = 0; // Is zero when game-play is normal, changes to higher number to indicate the game is restarting.
 
-struct Snake {
+struct Snake { // The structure of a snake body part as a vector of the x and y coordinates,
     int x;
     int y;
-} s[100];
+} s[100]; // Initialize a full 'Snake' as an array of 100 snake body parts. Notice: There is a limitation of the maximum size of the snake. (The world record is 252, I think this is fine...)
 
-struct Fruit {
+struct Fruit { // The structure of a fruit. A vector of it's x and y coordinates.
     int x;
     int y;
 } f;
 
-bool isSamePoint(Snake iS, Fruit iF) {
+bool isSamePoint(Snake iS, Fruit iF) { // Is an object of type Snake on the same 'block' as an object of type Fruit.
     return ((iS.x == iF.x) && (iS.y == iF.y));
 }
-bool isSamePoint(Snake iS, Snake iS2) {
+bool isSamePoint(Snake iS, Snake iS2) { // Same as previous function, except for 2 Snake objects.
     return ((iS.x == iS2.x) && (iS.y == iS2.y));
 }
 
-void GenFruit(int x, int y) { f.x = x; f.y = y; }
-void GenFruit() {
+void GenFruit(int x, int y) { f.x = x; f.y = y; } // Adds a fruit at point.
+void GenFruit() { // Adds a fruit at a random point.
     // Generate Fruit
     f.x = rand() % bW;
     f.y = rand() % bH;
 }
 
-void RestartGame() {
+void RestartGame() { // Restarts the game
     sLength = 4;
-    restarting = 250;
+    restarting = 250; // This is to make the fact that the player lost more prominent by making the timeout longer.
 }
 
 void GameTick() {
@@ -59,10 +59,12 @@ void GameTick() {
     if (isSamePoint(s[0], f)) {
         sLength++; // Make the snake longer
 
-        GenFruit();
+        GenFruit(); // Generate a new fruit, at a random location.
     }
 
-    // Fix snake out of bounds
+    /* Fix snake out of bounds. (In the original game, when the snake went out of bounds, it would die.
+       However, I am not very good at this game so when going out of bounds,
+       the snake will come out the other side, like in Pac-Man */
     if (s[0].x > bW) { s[0].x = 0; }
     if (s[0].x < 0) { s[0].x = bW; }
     if (s[0].y > bH) { s[0].y = 0; }
@@ -80,7 +82,7 @@ int main()
 {
     srand(time(0)); // Random seed
 
-    RenderWindow window(VideoMode(width, height), "Snake!");
+    RenderWindow window(VideoMode(width, height), "Snake!"); // Open a new window of the desired dimensions with the title "Snake!".
 
     // Load graphics
     Texture tRed, tGreen, tGray;
@@ -95,16 +97,16 @@ int main()
 
     //Create game Clock object
     Clock gClock;
-    float gTimer = 0;
+    float gTimer = 0; // Game Timer
     float timeDelay = 0.1;
 
-    GenFruit();
+    GenFruit(); // Add the initial fruit at a random location
 
     while (window.isOpen()) {
-        gTimer += gClock.getElapsedTime().asSeconds(); // Get game time
-        gClock.restart();
+        gTimer += gClock.getElapsedTime().asSeconds(); // Get time since last clock check and add it to the game timer.
+        gClock.restart(); // Set clock time to 0
 
-        Event e;
+        Event e; // SFML Window event
         while (window.pollEvent(e)){ // If an event needs to happen
             if (e.type == Event::Closed){ // If user wants to exit
                 window.close(); // Exit
@@ -122,7 +124,7 @@ int main()
             GameTick(); // Do tick
         }
 
-        window.clear();
+        window.clear(); // Remove all window graphics
 
         if (restarting > 0) {
             // Draw Red graphic everywhere
@@ -144,15 +146,15 @@ int main()
         }
 
         for (int i = 0; i < sLength; i++) { // Loop through the snake parts
-            sGreen.setPosition(s[i].x * bFact, s[i].y * bFact);
-            window.draw(sGreen);
+            sGreen.setPosition(s[i].x * bFact, s[i].y * bFact); // Set the position of the Green drawable graphics to the current snake part's location.
+            window.draw(sGreen); // Draw the Green graphics onto the screen.
         }
 
         // Draw Fruit
         sRed.setPosition(f.x * bFact, f.y * bFact);
         window.draw(sRed);
 
-        window.display();
+        window.display(); // Show the new display
     }
 
     return EXIT_SUCCESS;
