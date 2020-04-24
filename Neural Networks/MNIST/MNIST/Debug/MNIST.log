@@ -1,0 +1,11 @@
+﻿  data_handler.cpp
+c:\users\stein\desktop\research project 2020\neural networks\mnist\mnist\data_handler.cpp(29): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\desktop\research project 2020\neural networks\mnist\mnist\data_handler.cpp(35): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\desktop\research project 2020\neural networks\mnist\mnist\data_handler.cpp(69): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\desktop\research project 2020\neural networks\mnist\mnist\data_handler.cpp(90): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\stein\desktop\research project 2020\neural networks\mnist\mnist\data_handler.cpp(91): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\stein\desktop\research project 2020\neural networks\mnist\mnist\data_handler.cpp(92): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\stein\desktop\research project 2020\neural networks\mnist\mnist\data_handler.cpp(97): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\desktop\research project 2020\neural networks\mnist\mnist\data_handler.cpp(110): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\desktop\research project 2020\neural networks\mnist\mnist\data_handler.cpp(123): warning C4018: '<': signed/unsigned mismatch
+  MNIST.vcxproj -> C:\Users\stein\Desktop\Research Project 2020\Neural Networks\MNIST\Debug\MNIST.exe

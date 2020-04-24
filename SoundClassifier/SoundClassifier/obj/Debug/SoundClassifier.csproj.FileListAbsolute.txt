@@ -14,3 +14,5 @@ C:\Users\stein\Desktop\Research Project 2020\SoundClassifier\SoundClassifier\bin
 C:\Users\stein\Desktop\Research Project 2020\SoundClassifier\SoundClassifier\bin\Debug\ControlsLibrary.dll
 C:\Users\stein\Desktop\Research Project 2020\SoundClassifier\SoundClassifier\bin\Debug\ControlsLibrary.pdb
 C:\Users\stein\Desktop\Research Project 2020\SoundClassifier\SoundClassifier\obj\Debug\SoundClassifier.csproj.CopyComplete
+C:\Users\stein\Desktop\Research Project 2020\SoundClassifier\SoundClassifier\bin\Debug\NAudio.dll
+C:\Users\stein\Desktop\Research Project 2020\SoundClassifier\SoundClassifier\bin\Debug\NAudio.xml

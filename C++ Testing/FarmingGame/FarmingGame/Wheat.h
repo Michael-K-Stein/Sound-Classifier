@@ -10,4 +10,3 @@ public:
 	const static int ticksToGrow = 2000;
 private:
 };
-

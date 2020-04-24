@@ -43,6 +43,17 @@ namespace SoundClassifier.Form_Parts
             lSelectedFile.Text = filePath;
             lFDSize.Text = "Size: " +  fileData.getFileSizeFancy();
             lFDLength.Text = "Length: " + fileData.getSoundLengthFancy();
+            NAudioFileData();
+        }
+
+        void NAudioFileData()
+        {
+            NAudio.Wave.WaveStream waveStream = new NAudio.Wave.WaveFileReader(filePath);
+
+            waveViewer1.SamplesPerPixel = 400;
+            waveViewer1.StartPosition = 40000;
+
+            waveViewer1.WaveStream = waveStream;
         }
 
         void UnloadFileData()

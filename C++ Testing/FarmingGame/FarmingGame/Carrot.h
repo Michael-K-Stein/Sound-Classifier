@@ -9,4 +9,3 @@ public:
 	int getTicksToGrow();
 	const static int ticksToGrow = 5000;
 };
-

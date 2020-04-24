@@ -1,0 +1,15 @@
+﻿  Layer.cpp
+c:\users\stein\desktop\research project 2020\neural networks\neuralnet_isrectangle\neuralnet_isrectangle\layer.cpp(33): warning C4244: 'argument': conversion from 'float' to '_Elem', possible loss of data
+          with
+          [
+              _Elem=char
+          ]
+c:\users\stein\desktop\research project 2020\neural networks\neuralnet_isrectangle\neuralnet_isrectangle\layer.cpp(35): warning C4244: 'argument': conversion from 'float' to '_Elem', possible loss of data
+          with
+          [
+              _Elem=char
+          ]
+  NeuralNet_IsRectangle.cpp
+c:\users\stein\desktop\research project 2020\neural networks\neuralnet_isrectangle\neuralnet_isrectangle\neuralnet_isrectangle.cpp(11): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Generating Code...
+  NeuralNet_IsRectangle.vcxproj -> C:\Users\stein\Desktop\Research Project 2020\Neural Networks\NeuralNet_IsRectangle\Debug\NeuralNet_IsRectangle.exe

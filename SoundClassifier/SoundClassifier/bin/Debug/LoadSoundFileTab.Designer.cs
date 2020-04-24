@@ -33,6 +33,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lFDLength = new System.Windows.Forms.Label();
             this.lFDSize = new System.Windows.Forms.Label();
+            this.waveViewer1 = new NAudio.Gui.WaveViewer();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -89,8 +90,19 @@
             this.lFDSize.TabIndex = 0;
             this.lFDSize.Text = "Size: 0 KB";
             // 
+            // waveViewer1
+            // 
+            this.waveViewer1.Location = new System.Drawing.Point(3, 107);
+            this.waveViewer1.Name = "waveViewer1";
+            this.waveViewer1.SamplesPerPixel = 128;
+            this.waveViewer1.Size = new System.Drawing.Size(870, 425);
+            this.waveViewer1.StartPosition = ((long)(0));
+            this.waveViewer1.TabIndex = 3;
+            this.waveViewer1.WaveStream = null;
+            // 
             // LoadSoundFileTab
             // 
+            this.Controls.Add(this.waveViewer1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lSelectedFile);
             this.Controls.Add(this.bLoadFile);
@@ -110,5 +122,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lFDLength;
         private System.Windows.Forms.Label lFDSize;
+        private NAudio.Gui.WaveViewer waveViewer1;
     }
 }

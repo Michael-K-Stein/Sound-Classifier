@@ -18,10 +18,8 @@ const int height = 720;
 int Game::InventoryX = 238;
 int Game::InventoryY = 630;
 int Game::InventoryItemSize = 64;
-int Game::maxInventoryItems = 69;
+int Game::maxInventoryItems = 64;
 sf::Font Game::font = sf::Font();
-
-//sf::RenderWindow Game::window;//= sf::RenderWindow::RenderWindow();
 
 int main()
 {

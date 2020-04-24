@@ -2,10 +2,10 @@
 
 Carrot::Carrot()
 {
-	sf::Texture tWheat;
-	tWheat.loadFromFile("graphics/Items/Inventory/Carrot.png");
+	sf::Texture tCarrot;
+	tCarrot.loadFromFile("graphics/Items/Inventory/Carrot.png");
 
-	GameItem::itemTexture = tWheat;
+	GameItem::itemTexture = tCarrot;
 }
 
 

@@ -1,0 +1,5 @@
+﻿  main.cpp
+c:\users\stein\desktop\research project 2020\c++ testing\cargame\cargame\main.cpp(20): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\stein\desktop\research project 2020\c++ testing\cargame\cargame\main.cpp(29): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\stein\desktop\research project 2020\c++ testing\cargame\cargame\main.cpp(34): warning C4305: 'argument': truncation from 'double' to 'float'
+  CarGame.vcxproj -> C:\Users\stein\Desktop\Research Project 2020\C++ Testing\CarGame\x64\Debug\CarGame.exe
