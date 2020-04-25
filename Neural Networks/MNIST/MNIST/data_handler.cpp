@@ -16,7 +16,7 @@ data_handler::~data_handler()
 void data_handler::read_feature_vector(std::string filePath) {
 	uint32_t		header[4]; // Magic | Num Images | Row Size | Col Size 
 	unsigned char	bytes[4];
-	FILE *f = fopen(filePath.c_str(), "r");
+	FILE *f = fopen(filePath.c_str(), "rb");
 	if (f) {
 		for (int i = 0; i < 4; i++) {
 			if (fread(bytes, sizeof(bytes), 1, f)) {
@@ -26,16 +26,26 @@ void data_handler::read_feature_vector(std::string filePath) {
 		printf("Done getting input file header.\n");
 		uint32_t image_size = header[2] * header[3];
 		
-		for (int i = 0; i < header[1]; i++)
+		uint32_t image_count = std::min(header[1], max_image_array);
+
+		for (int i = 0; i < image_count; i++)
 		{
 			data *d = new data();
 			d->set_feature_vector(new std::vector<uint8_t>());
-			uint8_t element[1];
-			//fread(element, 1, image_size, f);
+			uint8_t element[784];
+			fread(element, 1, image_size, f);
 			for (int j = 0; j < image_size; j++)
 			{
-				d->append_to_feature_vector(element[j]);
+				if (true) {
+					d->append_to_feature_vector(element[j]);
+				}
+				else {
+					printf("Error reading from file.\n");
+				}
 			}
+
+			//Graphic::drawImage(d);
+
 			data_array->push_back(d);
 		}
 
@@ -48,6 +58,10 @@ void data_handler::read_feature_vector(std::string filePath) {
 		//	}
 		//	data_array->push_back(d);
 		//}
+
+
+
+
 		printf("Successfully read and stored %lu feature vectors.\n", data_array->size());
 	} else {
 		printf("Could not find file.\n");
@@ -55,9 +69,9 @@ void data_handler::read_feature_vector(std::string filePath) {
 }
 
 void data_handler::read_feature_labels(std::string filePath) {
-	uint32_t		header[4]; // Magic | Num Images
+	uint32_t		header[2]; // Magic | Num Images
 	unsigned char	bytes[4];
-	FILE *f = fopen(filePath.c_str(), "r");
+	FILE *f = fopen(filePath.c_str(), "rb");
 	if (f) {
 		for (int i = 0; i < 2; i++) {
 			if (fread(bytes, sizeof(bytes), 1, f)) {
@@ -66,7 +80,9 @@ void data_handler::read_feature_labels(std::string filePath) {
 		}
 		printf("Done getting label file header.\n");
 
-		for (int i = 0; i < header[1]; i++) {
+		uint32_t image_count = std::min(header[1], max_image_array);
+
+		for (int i = 0; i < image_count; i++) {
 			data *d = new data();
 			uint8_t element[1];
 
@@ -160,17 +176,4 @@ std::vector<data *> * data_handler::get_test_data() {
 }
 std::vector<data *> * data_handler::get_validation_data() {
 	return validation_data;
-}
-
-
-
-
-int main() {
-	data_handler *dh = new data_handler();
-	//dh->read_feature_vector("C:/Users/stein/Desktop/Research Project 2020/Neural Networks/MNIST/Training Data/Training Data/train-images.idx3-ubyte");
-	dh->read_feature_vector("./train-images.idx3-ubyte");
-	//dh->read_feature_labels("C:/Users/stein/Desktop/Research Project 2020/Neural Networks/MNIST/Training Data/Training Data/train-labels.idx1-ubyte");
-	dh->read_feature_labels("./train-labels.idx1-ubyte");
-	dh->split_data();
-	dh->count_classes();
 }

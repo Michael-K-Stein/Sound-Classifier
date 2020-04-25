@@ -13,6 +13,15 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="KNN">
+      <UniqueIdentifier>{eeece25b-e495-4a1c-8c54-a7d2e1e60949}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KNN\include">
+      <UniqueIdentifier>{50d84de2-5138-4079-916c-9eaade908837}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KNN\src">
+      <UniqueIdentifier>{958d6fac-e248-4feb-9354-808eab430b61}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="data.h">
@@ -21,12 +30,24 @@
     <ClInclude Include="data_handler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="knn.h">
+      <Filter>KNN\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphic.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="data.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="data_handler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="knn.cpp">
+      <Filter>KNN\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphic.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

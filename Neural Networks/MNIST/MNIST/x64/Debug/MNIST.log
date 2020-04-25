@@ -1,0 +1,4 @@
+﻿  knn.cpp
+c:\users\stein\desktop\research project 2020\neural networks\mnist\mnist\graphic.h(1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\stein\desktop\research project 2020\neural networks\mnist\mnist\knn.cpp(100): warning C4018: '<': signed/unsigned mismatch
+  MNIST.vcxproj -> C:\Users\stein\Desktop\Research Project 2020\Neural Networks\MNIST\x64\Debug\MNIST.exe

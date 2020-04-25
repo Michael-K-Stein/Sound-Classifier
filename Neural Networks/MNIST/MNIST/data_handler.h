@@ -8,6 +8,8 @@
 #include <string>
 #include <map>
 #include <unordered_set>
+#include <algorithm> 
+#include "Graphic.h"
 
 #pragma once
 class data_handler
@@ -42,6 +44,8 @@ class data_handler
 	std::vector<data *> * get_test_data();
 	std::vector<data *> * get_validation_data();
 
+	private:
+	uint32_t max_image_array = 1000;
 };
 
 #endif
