@@ -13,42 +13,36 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="KNN">
+      <UniqueIdentifier>{2ebdaa16-a85c-4ab8-9bf9-6264c46bdcbf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KNN\src">
+      <UniqueIdentifier>{7cff0fa5-dc9f-43a7-8773-43d4bbf5438b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KNN\include">
+      <UniqueIdentifier>{30199f3d-b50f-418c-91f5-44e05b58c78e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="pch.h">
+    <ClInclude Include="data.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Node.h">
+    <ClInclude Include="data_handler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Layer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="LayerConnections.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Network.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="knn.h">
+      <Filter>KNN\include</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="pch.cpp">
+    <ClCompile Include="data.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="NeuralNet_IsRectangle.cpp">
+    <ClCompile Include="data_handler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Node.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Layer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="LayerConnections.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Network.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="knn.cpp">
+      <Filter>KNN\src</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

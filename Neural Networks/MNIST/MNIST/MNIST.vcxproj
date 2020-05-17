@@ -133,16 +133,31 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="common_data.h" />
     <ClInclude Include="data.h" />
     <ClInclude Include="data_handler.h" />
     <ClInclude Include="Graphic.h" />
+    <ClInclude Include="hidden_layer.h" />
+    <ClInclude Include="input_layer.h" />
+    <ClInclude Include="kmeans.h" />
     <ClInclude Include="knn.h" />
+    <ClInclude Include="layer.h" />
+    <ClInclude Include="network.h" />
+    <ClInclude Include="neuron.h" />
+    <ClInclude Include="output_layer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="common_data.cpp" />
     <ClCompile Include="data.cpp" />
     <ClCompile Include="data_handler.cpp" />
     <ClCompile Include="Graphic.cpp" />
+    <ClCompile Include="hidden_layer.cpp" />
+    <ClCompile Include="input_layer.cpp" />
+    <ClCompile Include="kmeans.cpp" />
     <ClCompile Include="knn.cpp" />
+    <ClCompile Include="layer.cpp" />
+    <ClCompile Include="network.cpp" />
+    <ClCompile Include="neuron.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

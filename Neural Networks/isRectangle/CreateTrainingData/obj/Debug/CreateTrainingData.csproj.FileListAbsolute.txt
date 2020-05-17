@@ -1,0 +1,7 @@
+C:\Users\stein\Desktop\Research Project 2020\Neural Networks\isRectangle\CreateTrainingData\bin\Debug\CreateTrainingData.exe.config
+C:\Users\stein\Desktop\Research Project 2020\Neural Networks\isRectangle\CreateTrainingData\bin\Debug\CreateTrainingData.exe
+C:\Users\stein\Desktop\Research Project 2020\Neural Networks\isRectangle\CreateTrainingData\bin\Debug\CreateTrainingData.pdb
+C:\Users\stein\Desktop\Research Project 2020\Neural Networks\isRectangle\CreateTrainingData\obj\Debug\CreateTrainingData.csprojAssemblyReference.cache
+C:\Users\stein\Desktop\Research Project 2020\Neural Networks\isRectangle\CreateTrainingData\obj\Debug\CreateTrainingData.csproj.CoreCompileInputs.cache
+C:\Users\stein\Desktop\Research Project 2020\Neural Networks\isRectangle\CreateTrainingData\obj\Debug\CreateTrainingData.exe
+C:\Users\stein\Desktop\Research Project 2020\Neural Networks\isRectangle\CreateTrainingData\obj\Debug\CreateTrainingData.pdb

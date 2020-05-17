@@ -1,0 +1,22 @@
+﻿  data_handler.cpp
+c:\users\stein\desktop\research project 2020\neural networks\isrectangle\isrectangle\data_handler.cpp(40): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\desktop\research project 2020\neural networks\isrectangle\isrectangle\data_handler.cpp(46): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\desktop\research project 2020\neural networks\isrectangle\isrectangle\data_handler.cpp(60): warning C4477: 'printf' : format string '%lu' requires an argument of type 'unsigned long', but variadic argument 1 has type 'unsigned __int64'
+  c:\users\stein\desktop\research project 2020\neural networks\isrectangle\isrectangle\data_handler.cpp(60): note: consider using '%zu' in the format string
+c:\users\stein\desktop\research project 2020\neural networks\isrectangle\isrectangle\data_handler.cpp(78): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\desktop\research project 2020\neural networks\isrectangle\isrectangle\data_handler.cpp(99): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\stein\desktop\research project 2020\neural networks\isrectangle\isrectangle\data_handler.cpp(100): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\stein\desktop\research project 2020\neural networks\isrectangle\isrectangle\data_handler.cpp(101): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\stein\desktop\research project 2020\neural networks\isrectangle\isrectangle\data_handler.cpp(106): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\desktop\research project 2020\neural networks\isrectangle\isrectangle\data_handler.cpp(119): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\desktop\research project 2020\neural networks\isrectangle\isrectangle\data_handler.cpp(132): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\desktop\research project 2020\neural networks\isrectangle\isrectangle\data_handler.cpp(142): warning C4477: 'printf' : format string '%lu' requires an argument of type 'unsigned long', but variadic argument 1 has type 'unsigned __int64'
+  c:\users\stein\desktop\research project 2020\neural networks\isrectangle\isrectangle\data_handler.cpp(142): note: consider using '%zu' in the format string
+c:\users\stein\desktop\research project 2020\neural networks\isrectangle\isrectangle\data_handler.cpp(143): warning C4477: 'printf' : format string '%lu' requires an argument of type 'unsigned long', but variadic argument 1 has type 'unsigned __int64'
+  c:\users\stein\desktop\research project 2020\neural networks\isrectangle\isrectangle\data_handler.cpp(143): note: consider using '%zu' in the format string
+c:\users\stein\desktop\research project 2020\neural networks\isrectangle\isrectangle\data_handler.cpp(144): warning C4477: 'printf' : format string '%lu' requires an argument of type 'unsigned long', but variadic argument 1 has type 'unsigned __int64'
+  c:\users\stein\desktop\research project 2020\neural networks\isrectangle\isrectangle\data_handler.cpp(144): note: consider using '%zu' in the format string
+  knn.cpp
+c:\users\stein\desktop\research project 2020\neural networks\isrectangle\isrectangle\knn.cpp(99): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
+  isRectangle.vcxproj -> C:\Users\stein\Desktop\Research Project 2020\Neural Networks\isRectangle\x64\Debug\isRectangle.exe

@@ -2,16 +2,15 @@
 #define __KNN_H
 #pragma once
 
-#include <vector>
-#include "data.h"
+#include "common_data.h"
 
-class knn {
+class knn : public common_data {
 
 	int k;
 	std::vector <data *> * neighbors;
-	std::vector <data *> * training_data;
+	/*std::vector <data *> * training_data;
 	std::vector <data *> * test_data;
-	std::vector <data *> * validation_data;
+	std::vector <data *> * validation_data;*/
 	
 	public:
 	knn(int);
@@ -19,9 +18,9 @@ class knn {
 	~knn();
 
 	void find_knearest(data * query_point);
-	void set_training_Data(std::vector<data *> * vect);
+	/*void set_training_Data(std::vector<data *> * vect);
 	void set_test_Data(std::vector<data *> * vect);
-	void set_validation_Data(std::vector<data *> * vect);
+	void set_validation_Data(std::vector<data *> * vect);*/
 	void set_k(int val);
 
 	int predict();

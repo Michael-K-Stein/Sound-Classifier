@@ -48,7 +48,7 @@ void knn::find_knearest(data * query_point) {
 		}
 	}
 }
-
+/*
 void knn::set_training_Data(std::vector<data *> * vect) {
 	training_data = vect;
 }
@@ -60,7 +60,7 @@ void knn::set_test_Data(std::vector<data *> * vect) {
 void knn::set_validation_Data(std::vector<data *> * vect) {
 	validation_data = vect;
 }
-
+*/
 void knn::set_k(int val) {
 	k = val;
 }
@@ -98,13 +98,6 @@ double knn::calculate_distance(data * query_point, data * input) {
 //#ifdef EUCLID
 
 	for (unsigned i = 0; i < query_point->get_feature_vector_size(); i++) {
-	//int i = query_point->get_feature_vector_size() - 1;
-
-		double v1 = query_point->get_feature_vector()->at(i);
-		double v2 = input->get_feature_vector()->at(i);
-
-		double v3 = v1 - v2;
-
 		distance += pow(query_point->get_feature_vector()->at(i) - input->get_feature_vector()->at(i),2);
 	}
 	distance = sqrt(distance);
@@ -160,7 +153,7 @@ double knn::test_performance() {
 	return current_performance;
 }
 
-int main() {
+/*int main() {
 	data_handler *dh = new data_handler();
 	//dh->read_feature_vector("C:/Users/stein/Desktop/Research Project 2020/Neural Networks/MNIST/Training Data/Training Data/train-images.idx3-ubyte");
 	dh->read_feature_vector("../Training Data/train-images.idx3-ubyte");
@@ -178,7 +171,7 @@ int main() {
 	double best_performance = 0;
 	int best_k = 1;
 	
-	for (int k = 1; k <= 4; k++) {
+	for (int k = 4; k <= 8; k++) {
 		if (k == 1) {
 			knearest->set_k(k);
 			performance = knearest->validate_performance();
@@ -198,4 +191,4 @@ int main() {
 	knearest->test_performance();
 
 	printf("Closing...");
-}
+}*/

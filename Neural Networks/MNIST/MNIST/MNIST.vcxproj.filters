@@ -22,6 +22,24 @@
     <Filter Include="KNN\src">
       <UniqueIdentifier>{958d6fac-e248-4feb-9354-808eab430b61}</UniqueIdentifier>
     </Filter>
+    <Filter Include="KMEANS">
+      <UniqueIdentifier>{9487aab1-397b-4783-a29b-aee4e39bd51a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KMEANS\src">
+      <UniqueIdentifier>{65a60cfb-5bb3-4f44-a199-4bdaebc8965a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KMEANS\include">
+      <UniqueIdentifier>{98ecb13a-33c1-4dcf-96a2-9619bd231095}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Neural_Network">
+      <UniqueIdentifier>{89d5d473-1bec-487b-91b3-e37494c61b25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Neural_Network\include">
+      <UniqueIdentifier>{858358c2-2e73-41ca-837f-ea35e64ddfeb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Neural_Network\src">
+      <UniqueIdentifier>{19ff9fd5-b82f-4970-80b0-d3900c3d0e1a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="data.h">
@@ -36,6 +54,30 @@
     <ClInclude Include="Graphic.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="common_data.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="kmeans.h">
+      <Filter>KMEANS\include</Filter>
+    </ClInclude>
+    <ClInclude Include="layer.h">
+      <Filter>Neural_Network\include</Filter>
+    </ClInclude>
+    <ClInclude Include="input_layer.h">
+      <Filter>Neural_Network\include</Filter>
+    </ClInclude>
+    <ClInclude Include="hidden_layer.h">
+      <Filter>Neural_Network\include</Filter>
+    </ClInclude>
+    <ClInclude Include="output_layer.h">
+      <Filter>Neural_Network\include</Filter>
+    </ClInclude>
+    <ClInclude Include="neuron.h">
+      <Filter>Neural_Network\include</Filter>
+    </ClInclude>
+    <ClInclude Include="network.h">
+      <Filter>Neural_Network\include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="data.cpp">
@@ -49,6 +91,27 @@
     </ClCompile>
     <ClCompile Include="Graphic.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="common_data.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="kmeans.cpp">
+      <Filter>KMEANS\src</Filter>
+    </ClCompile>
+    <ClCompile Include="layer.cpp">
+      <Filter>Neural_Network\src</Filter>
+    </ClCompile>
+    <ClCompile Include="hidden_layer.cpp">
+      <Filter>Neural_Network\src</Filter>
+    </ClCompile>
+    <ClCompile Include="input_layer.cpp">
+      <Filter>Neural_Network\src</Filter>
+    </ClCompile>
+    <ClCompile Include="network.cpp">
+      <Filter>Neural_Network\src</Filter>
+    </ClCompile>
+    <ClCompile Include="neuron.cpp">
+      <Filter>Neural_Network\src</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

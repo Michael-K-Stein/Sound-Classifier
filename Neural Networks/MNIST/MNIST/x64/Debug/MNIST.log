@@ -1,4 +1,7 @@
-﻿  knn.cpp
+﻿  network.cpp
 c:\users\stein\desktop\research project 2020\neural networks\mnist\mnist\graphic.h(1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-c:\users\stein\desktop\research project 2020\neural networks\mnist\mnist\knn.cpp(100): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\desktop\research project 2020\neural networks\mnist\mnist\network.cpp(16): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+c:\users\stein\desktop\research project 2020\neural networks\mnist\mnist\network.cpp(19): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+c:\users\stein\desktop\research project 2020\neural networks\mnist\mnist\network.cpp(46): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+c:\users\stein\desktop\research project 2020\neural networks\mnist\mnist\network.cpp(207): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   MNIST.vcxproj -> C:\Users\stein\Desktop\Research Project 2020\Neural Networks\MNIST\x64\Debug\MNIST.exe
