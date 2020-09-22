@@ -188,8 +188,7 @@ void Network::validate()
 	//fprintf(stderr, "Validation Performance: %.4f\n", numCorrect / count);
 }
 
-int
-main(int argc, char const *argv[])
+int mainNetwork(int argc, char const *argv[])
 {
 	data_handler *dh = new data_handler();
 	//#ifdef MNIST
@@ -232,4 +231,5 @@ main(int argc, char const *argv[])
 		th.join();
 	}
 
+	return EXIT_SUCCESS;
 }

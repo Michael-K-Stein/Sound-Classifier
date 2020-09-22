@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Game Files">
+      <UniqueIdentifier>{f147a9ee-eebf-4f20-bf15-26517e7993d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ML Files">
+      <UniqueIdentifier>{730cc98d-3d7f-48d6-b771-93ef7a1fd504}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ML Files\Network">
+      <UniqueIdentifier>{0b6cb851-f825-405d-8622-ca369fecf153}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KNN Files">
+      <UniqueIdentifier>{a5de53f6-c67c-4a00-8094-126d5b01f298}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Game Files\SnakeGame.cpp">
+      <Filter>Game Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ML Files\ML.cpp">
+      <Filter>ML Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ML Files\Network\hidden_layer.cpp">
+      <Filter>ML Files\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="ML Files\Network\input_layer.cpp">
+      <Filter>ML Files\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="ML Files\Network\layer.cpp">
+      <Filter>ML Files\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="ML Files\Network\network.cpp">
+      <Filter>ML Files\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="ML Files\Network\neuron.cpp">
+      <Filter>ML Files\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="ML Files\Network\data.cpp">
+      <Filter>ML Files\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="ML Files\Network\common_data.cpp">
+      <Filter>ML Files\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="KNN Files\knn.cpp">
+      <Filter>KNN Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Game Files\SnakeGame.h">
+      <Filter>Game Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ML Files\ML.h">
+      <Filter>ML Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ML Files\Network\hidden_layer.h">
+      <Filter>ML Files\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="ML Files\Network\input_layer.h">
+      <Filter>ML Files\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="ML Files\Network\layer.h">
+      <Filter>ML Files\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="ML Files\Network\network.h">
+      <Filter>ML Files\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="ML Files\Network\neuron.h">
+      <Filter>ML Files\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="ML Files\Network\data.h">
+      <Filter>ML Files\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="ML Files\Network\common_data.h">
+      <Filter>ML Files\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="KNN Files\knn.h">
+      <Filter>KNN Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

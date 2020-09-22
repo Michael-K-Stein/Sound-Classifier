@@ -72,8 +72,6 @@ void data_handler::read_feature_vector(std::string filePath) {
 				}
 			}
 
-			//Graphic::drawImage(d);
-
 			data_array->push_back(d);
 		}
 
@@ -178,7 +176,7 @@ void data_handler::split_data() {
 	uint32_t count = 0;
 	while (count < train_size) {
 		uint32_t rand_index = count;
-		//uint32_t rand_index = rand() % data_array->size();
+		//uint32_t rand_index = rand() % data_array->size();  // Takes too long
 		if (used_indexes.find(rand_index) == used_indexes.end()) {
 			training_data->push_back(data_array->at(rand_index));
 			used_indexes.insert(rand_index);
@@ -190,7 +188,7 @@ void data_handler::split_data() {
 
 	count = 0;
 	while (count < test_size) {
-		//uint32_t rand_index = rand() % data_array->size();
+		//uint32_t rand_index = rand() % data_array->size();  // Takes too long
 		uint32_t rand_index = train_size + count;
 		if (used_indexes.find(rand_index) == used_indexes.end()) {
 			test_data->push_back(data_array->at(rand_index));
@@ -203,7 +201,7 @@ void data_handler::split_data() {
 
 	count = 0;
 	while (count < valid_size) {
-		//uint32_t rand_index = rand() % data_array->size();
+		//uint32_t rand_index = rand() % data_array->size();  // Takes too long
 		uint32_t rand_index = train_size + test_size + count;
 		if (used_indexes.find(rand_index) == used_indexes.end()) {
 			validation_data->push_back(data_array->at(rand_index));
@@ -227,9 +225,7 @@ void data_handler::count_classes() {
 		}
 	}
 	num_classes = count;
-	/*for (data * data : *data_array) {
-		data->set_class_vector(num_classes);
-	}*/
+
 	printf("Extracted %d unique classes.\n", num_classes);
 }
 

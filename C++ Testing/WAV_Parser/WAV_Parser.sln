@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.902
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WAV_Parser", "WAV_Parser\WAV_Parser.vcxproj", "{1CEFA40E-D303-4984-8039-8C20ED01193B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1CEFA40E-D303-4984-8039-8C20ED01193B}.Debug|x64.ActiveCfg = Debug|x64
+		{1CEFA40E-D303-4984-8039-8C20ED01193B}.Debug|x64.Build.0 = Debug|x64
+		{1CEFA40E-D303-4984-8039-8C20ED01193B}.Debug|x86.ActiveCfg = Debug|Win32
+		{1CEFA40E-D303-4984-8039-8C20ED01193B}.Debug|x86.Build.0 = Debug|Win32
+		{1CEFA40E-D303-4984-8039-8C20ED01193B}.Release|x64.ActiveCfg = Release|x64
+		{1CEFA40E-D303-4984-8039-8C20ED01193B}.Release|x64.Build.0 = Release|x64
+		{1CEFA40E-D303-4984-8039-8C20ED01193B}.Release|x86.ActiveCfg = Release|Win32
+		{1CEFA40E-D303-4984-8039-8C20ED01193B}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D34EE516-43AD-4614-A3BB-A6E0FAE0EC50}
+	EndGlobalSection
+EndGlobal

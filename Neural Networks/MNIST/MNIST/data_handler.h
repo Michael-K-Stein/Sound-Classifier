@@ -50,7 +50,7 @@ class data_handler
 	std::vector<data *> * get_validation_data();
 
 	private:
-	uint32_t max_image_array = 1000;
+	uint32_t max_image_array = 10000; // To keep the program from hogging the RAM
 };
 
 #endif

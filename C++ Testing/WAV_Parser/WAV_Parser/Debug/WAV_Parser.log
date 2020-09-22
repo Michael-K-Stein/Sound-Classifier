@@ -1,0 +1,18 @@
+﻿  main.cpp
+c:\users\stein\desktop\research project 2020\c++ testing\wav_parser\wav_parser\audiofile.h(1185): warning C4018: '<': signed/unsigned mismatch
+  c:\users\stein\desktop\research project 2020\c++ testing\wav_parser\wav_parser\audiofile.h(1176): note: while compiling class template member function 'int AudioFile<double>::getIndexOfChunk(std::vector<uint8_t,std::allocator<_Ty>> &,const std::string &,int,AudioFile<double>::Endianness)'
+          with
+          [
+              _Ty=uint8_t
+          ]
+  c:\users\stein\desktop\research project 2020\c++ testing\wav_parser\wav_parser\audiofile.h(484): note: see reference to function template instantiation 'int AudioFile<double>::getIndexOfChunk(std::vector<uint8_t,std::allocator<_Ty>> &,const std::string &,int,AudioFile<double>::Endianness)' being compiled
+          with
+          [
+              _Ty=uint8_t
+          ]
+  c:\users\stein\desktop\research project 2020\c++ testing\wav_parser\wav_parser\audiofile.h(322): note: while compiling class template member function 'double AudioFile<double>::getLengthInSeconds(void) const'
+  c:\users\stein\desktop\research project 2020\c++ testing\wav_parser\wav_parser\audiofile.h(335): note: see reference to function template instantiation 'double AudioFile<double>::getLengthInSeconds(void) const' being compiled
+  c:\users\stein\desktop\research project 2020\c++ testing\wav_parser\wav_parser\audiofile.h(264): note: while compiling class template member function 'AudioFile<double>::AudioFile(void)'
+  c:\users\stein\desktop\research project 2020\c++ testing\wav_parser\wav_parser\main.cpp(9): note: see reference to function template instantiation 'AudioFile<double>::AudioFile(void)' being compiled
+  c:\users\stein\desktop\research project 2020\c++ testing\wav_parser\wav_parser\main.cpp(9): note: see reference to class template instantiation 'AudioFile<double>' being compiled
+  WAV_Parser.vcxproj -> C:\Users\stein\Desktop\Research Project 2020\C++ Testing\WAV_Parser\Debug\WAV_Parser.exe

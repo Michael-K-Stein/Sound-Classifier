@@ -60,14 +60,14 @@ void knn::set_test_Data(std::vector<data *> * vect) {
 void knn::set_validation_Data(std::vector<data *> * vect) {
 	validation_data = vect;
 }
-*/
+*/  // Now in common_data
 void knn::set_k(int val) {
 	k = val;
 }
 
 int knn::predict() {
 	std::map<uint8_t, int> class_freq;
-	for (int i = 0; i < neighbors->size(); i++) {
+	for (int i = 0; i < neighbors->size(); i++) { // Count the frequency of a class in the neighboring points
 		if (class_freq.find(neighbors->at(i)->get_label()) == class_freq.end()) {
 			class_freq[neighbors->at(i)->get_label()] = 1;
 		} else {
@@ -78,7 +78,7 @@ int knn::predict() {
 	int best = 0;
 	int max = 0;
 
-	for (std::pair<uint8_t, int> kv : class_freq) {
+	for (std::pair<uint8_t, int> kv : class_freq) { // Find the most frequent class
 		if (kv.second > max) {
 			max = kv.second;
 			best = kv.first;
@@ -115,7 +115,7 @@ double knn::validate_performance() {
 		find_knearest(query_point);
 		int prediction = predict();
 		int asciiPred = prediction + 48;
-		Graphic::drawImage(query_point, &asciiPred);
+		//Graphic::drawImage(query_point, &asciiPred);
 		printf("Guessed %d for %d\n", prediction, query_point->get_label());
 		if (prediction == query_point->get_label()) {
 			count++;
@@ -153,7 +153,7 @@ double knn::test_performance() {
 	return current_performance;
 }
 
-/*int main() {
+int main() {
 	data_handler *dh = new data_handler();
 	//dh->read_feature_vector("C:/Users/stein/Desktop/Research Project 2020/Neural Networks/MNIST/Training Data/Training Data/train-images.idx3-ubyte");
 	dh->read_feature_vector("../Training Data/train-images.idx3-ubyte");
@@ -171,7 +171,7 @@ double knn::test_performance() {
 	double best_performance = 0;
 	int best_k = 1;
 	
-	for (int k = 4; k <= 8; k++) {
+	for (int k = 1; k <= 20; k++) {
 		if (k == 1) {
 			knearest->set_k(k);
 			performance = knearest->validate_performance();
@@ -187,8 +187,10 @@ double knn::test_performance() {
 		}
 	}
 
+	printf("Best K: %d", best_k);
+
 	knearest->set_k(best_k);
 	knearest->test_performance();
 
 	printf("Closing...");
-}*/
+}

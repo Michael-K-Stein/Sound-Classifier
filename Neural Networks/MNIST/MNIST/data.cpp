@@ -28,15 +28,6 @@ void data::set_double_feature_vector(std::vector<double> * vect) {
 }
 
 void data::set_class_vector(int count) {
-	/*class_vector = new std::vector<int>();
-	for (int i = 0; i < count; i++) {
-		if (i == label) {
-			class_vector->at(i) = 1;
-		}
-		else {
-			class_vector->at(i) = 0;
-		}
-	}*/
 	class_vector = new std::vector<int>();
 	for (int i = 0; i < count; i++)
 	{

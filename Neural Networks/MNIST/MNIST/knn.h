@@ -10,7 +10,7 @@ class knn : public common_data {
 	std::vector <data *> * neighbors;
 	/*std::vector <data *> * training_data;
 	std::vector <data *> * test_data;
-	std::vector <data *> * validation_data;*/
+	std::vector <data *> * validation_data;*/  // Now in common_data
 	
 	public:
 	knn(int);
@@ -20,7 +20,7 @@ class knn : public common_data {
 	void find_knearest(data * query_point);
 	/*void set_training_Data(std::vector<data *> * vect);
 	void set_test_Data(std::vector<data *> * vect);
-	void set_validation_Data(std::vector<data *> * vect);*/
+	void set_validation_Data(std::vector<data *> * vect);*/  // Now in common_data
 	void set_k(int val);
 
 	int predict();
