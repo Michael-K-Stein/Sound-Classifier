@@ -4,15 +4,26 @@ FFT::FFT()
 {
     //ctor
     ActualValues = new std::vector<double>();
-    peaks = new std::vector<std::vector<double>*>();
-    std::vector<double> * demoPeak = new std::vector<double>(); demoPeak->push_back(-1.0); demoPeak->push_back(-DBL_MAX);
-    for (int i = 0; i < k; i++) { peaks->push_back(demoPeak); }
+    ResetPeaks();
+    ResetNormalizedPeaks();
 }
 
 
 FFT::~FFT()
 {
     //dtor
+}
+
+void FFT::ResetPeaks() {
+    peaks = new std::vector<std::vector<double>>();
+    std::vector<double> demoPeak = std::vector<double>(); demoPeak.push_back(-1.0); demoPeak.push_back(-DBL_MAX);
+    for (int i = 0; i < k; i++) { peaks->push_back(demoPeak); }
+}
+
+void FFT::ResetNormalizedPeaks() {
+    NormalizedPeaks = new std::vector<std::vector<double>>();
+    std::vector<double> demoPeak2 = std::vector<double>(); demoPeak2.push_back(-1.0); demoPeak2.push_back(-DBL_MAX);
+    for (int i = 0; i < k; i++) { NormalizedPeaks->push_back(demoPeak2); }
 }
 
 int FFT::fft(CArray& x)
@@ -90,6 +101,8 @@ std::vector<Complex> * FFT::FourierTransfer() {
     double pHigh = data[0].real();
     double pLow = data[0].real();
 
+    ResetNormalizedPeaks();
+
     for (int i = 0; i < sizeof(originalWave) / sizeof(originalWave[0]); i++){
         pHigh = std::max(pHigh, data[i].real());
         pLow = std::min(pLow, data[i].real());
@@ -99,6 +112,7 @@ std::vector<Complex> * FFT::FourierTransfer() {
 
     peakHigh = pHigh;
     peakLow = pLow;
+    range = pHigh - pLow;
     return FrequencyOutput;
 }
 
@@ -137,16 +151,64 @@ int FFT::ReloadArrays(){
 
 
 std::vector<double> * FFT::getNormalizedFrequency() {
+    // Absolute Value EVERYTHING
+    std::vector<double> * ABSFrequencyOutput = new std::vector<double>();
+    double pHigh = -1;
+    double pLow = -1;
+    for (int i = 0; i < FrequencyOutput->size(); i++) {
+        double NormalizedValue = std::abs(FrequencyOutput->at(i).real());
+        ABSFrequencyOutput->push_back(NormalizedValue);
+        pHigh = std::max(pHigh, NormalizedValue);
+        pLow = std::min(pLow, NormalizedValue);
+    }
 
+
+    std::vector<double> * NormalizedFrequencies = new std::vector<double>();
+    for (int i = 0; i < FrequencyOutput->size(); i++) {
+        double NormalizedValue = ( ( ABSFrequencyOutput->at(i) - pLow ) / ( pHigh - pLow ) ) * 100;
+        NormalizedFrequencies->push_back(NormalizedValue);
+        ValidateNormalizedPeak((double)i, NormalizedValue);
+    }
+
+    return NormalizedFrequencies;
 }
 
 void FFT::ValidatePeak(double ind, double p) {
     bool repl = false;
     for (int i = 0; i < k; i++) {
-        if (p > peaks->at(i)->at(1) && !repl) {
-            peaks->at(i)->at(0) = ind;
-            peaks->at(i)->at(1) = p;
+        if (p > peaks->at(i).at(1) && !repl) {
+
+            for (int ii = k-2; ii >= i; ii--) {
+                peaks->at(ii + 1).at(0) = peaks->at(ii).at(0);
+                peaks->at(ii + 1).at(1) = peaks->at(ii).at(1);
+            }
+
+            peaks->at(i).at(0) = ind;
+            peaks->at(i).at(1) = p;
             repl = true;
+            break;
+        }
+    }
+}
+
+void FFT::ValidateNormalizedPeak(double ind, double p) {
+    bool repl = false;
+    for (int i = 0; i < k; i++) {
+
+        std::vector<double> t1 = NormalizedPeaks->at(i);
+        double t2 = NormalizedPeaks->at(i).at(0);
+
+        if (p > NormalizedPeaks->at(i).at(1) && !repl) {
+
+            for (int ii = k-2; ii >= i; ii--) {
+                NormalizedPeaks->at(ii + 1).at(0) = NormalizedPeaks->at(ii).at(0);
+                NormalizedPeaks->at(ii + 1).at(1) = NormalizedPeaks->at(ii).at(1);
+            }
+
+            NormalizedPeaks->at(i).at(0) = ind;
+            NormalizedPeaks->at(i).at(1) = p;
+            repl = true;
+            break;
         }
     }
 }

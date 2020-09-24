@@ -9,6 +9,10 @@ uint8_t dstMult = 50;
 uint16_t baseLine = 100;
 uint16_t baseLine2 = 300;
 uint16_t baseLineY = 500;
+uint16_t baseLineN1 = 700;
+uint16_t baseLineN2 = 800;
+
+uint16_t baseLines[4] = { baseLine, baseLine2, baseLineN1, baseLineN2 };
 
 bool kilo = true;
 
@@ -147,8 +151,8 @@ int main()
     //double orig[10000];
     //Complex test[10000];
     //int ind = 0;
-    for (double i = 0; i < 10; i+= 0.001) {
-        std::complex<double> nP (0.8 * sin(80 * i) + 0.2 * sin(2 * i));
+    for (double i = 0; i < 1; i+= (1.0 / 44000.0)) {
+        std::complex<double> nP (1.0 * sin(6666 * i) + 0.0 * sin(200 * i));
         FT->AppendToWave(nP.real());
         //test[ind] = nP;
         //orig[ind] = nP.real();
@@ -162,7 +166,7 @@ int main()
     fft(data);*/
 
     // Create the main window
-    sf::RenderWindow app(sf::VideoMode(1000, 600), "SFML window");
+    sf::RenderWindow app(sf::VideoMode(1000, 850), "SFML window");
 
     FT->FourierTransfer();
 
@@ -170,9 +174,15 @@ int main()
 
     std::cout << "Peak High: " << FT->peakHigh << std::endl;
     std::cout << "Peak Low: " << FT->peakLow << std::endl;
-    std::cout << "Peaks: ";
-    for (int i = 0; i < FT->getK(); i++) { std::cout << FT->peaks->at(i)->at(0) << ", "; }
+    std::cout << "Peaks: \n\t";
+    for (int i = 0; i < FT->getK(); i++) { std::cout << FT->peaks->at(i).at(0) << " : " << FT->peaks->at(i).at(1) << ", \n\t"; }
     std::cout << std::endl;
+
+    std::vector<double> * NormalizedFrequencies = FT->getNormalizedFrequency();
+    std::cout << "Normalized Peaks: \n\t";
+    for (int i = 0; i < FT->getK(); i++) { std::cout << FT->NormalizedPeaks->at(i).at(0) << " : " << FT->NormalizedPeaks->at(i).at(1) << "%, \n\t"; }
+    std::cout << std::endl;
+
 
 	// Start the game loop
     while (app.isOpen())
@@ -215,12 +225,20 @@ int main()
             app.draw(t);
         }
 
-        sf::Vertex line2[2];
-        line2[0].position = sf::Vector2f(0, baseLine2);
-        line2[0].color  = sf::Color::White;
-        line2[1].position = sf::Vector2f(1000, baseLine2);
-        line2[1].color = sf::Color::White;
-        app.draw(line2, 2, sf::Lines);
+        for (int i = 0; i < sizeof(baseLines) / sizeof(baseLines[0]); i++) {
+            sf::Vertex line2[2];
+            line2[0].position = sf::Vector2f(0, baseLines[i]);
+            line2[0].color  = sf::Color::White;
+            line2[1].position = sf::Vector2f(1000, baseLines[i]);
+            line2[1].color = sf::Color::White;
+            app.draw(line2, 2, sf::Lines);
+        }
+
+        for (int i = 0; i < NormalizedFrequencies->size(); i++) {
+            sf::CircleShape c(2); c.setFillColor(sf::Color::Green);
+            c.setPosition(i, baseLineN2 - NormalizedFrequencies->at(i));
+            app.draw(c);
+        }
 
         //std::cout << "Size = " << FT->getOriginalWaveSize() << std::endl;
         if (kilo) {

@@ -29,12 +29,14 @@ class FFT
         std::vector<double> * ActualValues;
         std::vector<Complex> * FrequencyOutput;
 
-        std::vector<double> * getNormalizedFrequency();
+        std::vector<double> * getNormalizedFrequency(); // Frequencies ranged from 0 to 100 (as in percent). Relative to Frequency output, obviously.
 
         double peakHigh;
         double peakLow;
+        double range;
 
-        std::vector<std::vector<double>*> * peaks;
+        std::vector<std::vector<double>> * peaks;
+        std::vector<std::vector<double>> * NormalizedPeaks;
 
         int getK() { return k; }
 
@@ -47,9 +49,12 @@ class FFT
 
         int ReloadArrays();
 
-        int k = 3; // Amount of peaks to keep track of
+        int k = 5; // Amount of peaks to keep track of
 
         void ValidatePeak(double ind, double p);
+        void ValidateNormalizedPeak(double ind, double p);
+        void ResetPeaks();
+        void ResetNormalizedPeaks();
 
 };
 
