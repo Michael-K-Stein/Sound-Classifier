@@ -33,8 +33,9 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lFDLength = new System.Windows.Forms.Label();
             this.lFDSize = new System.Windows.Forms.Label();
-            this.waveViewer1 = new NAudio.Gui.WaveViewer();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // bLoadFile
@@ -90,19 +91,17 @@
             this.lFDSize.TabIndex = 0;
             this.lFDSize.Text = "Size: 0 KB";
             // 
-            // waveViewer1
+            // pictureBox1
             // 
-            this.waveViewer1.Location = new System.Drawing.Point(3, 107);
-            this.waveViewer1.Name = "waveViewer1";
-            this.waveViewer1.SamplesPerPixel = 128;
-            this.waveViewer1.Size = new System.Drawing.Size(870, 425);
-            this.waveViewer1.StartPosition = ((long)(0));
-            this.waveViewer1.TabIndex = 3;
-            this.waveViewer1.WaveStream = null;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 107);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(870, 425);
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
             // 
             // LoadSoundFileTab
             // 
-            this.Controls.Add(this.waveViewer1);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lSelectedFile);
             this.Controls.Add(this.bLoadFile);
@@ -110,6 +109,7 @@
             this.Size = new System.Drawing.Size(876, 535);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -122,6 +122,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lFDLength;
         private System.Windows.Forms.Label lFDSize;
-        private NAudio.Gui.WaveViewer waveViewer1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

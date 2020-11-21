@@ -1,26 +1,9 @@
-﻿  Barn.cpp
-  Carrot.cpp
-  Farmland.cpp
-c:\users\stein\desktop\research project 2020\c++ testing\farminggame\farminggame\farmland.cpp(40): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\stein\desktop\research project 2020\c++ testing\farminggame\farminggame\farmland.cpp(45): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\stein\desktop\research project 2020\c++ testing\farminggame\farminggame\farmland.cpp(48): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\stein\desktop\research project 2020\c++ testing\farminggame\farminggame\farmland.cpp(51): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\stein\desktop\research project 2020\c++ testing\farminggame\farminggame\farmland.cpp(54): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  Game.cpp
-  GameItem.cpp
-c:\users\stein\desktop\research project 2020\c++ testing\farminggame\farminggame\gameitem.cpp(18): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\stein\desktop\research project 2020\c++ testing\farminggame\farminggame\gameitem.cpp(22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\stein\desktop\research project 2020\c++ testing\farminggame\farminggame\gameitem.cpp(29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\stein\desktop\research project 2020\c++ testing\farminggame\farminggame\gameitem.cpp(33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  Inventory.cpp
-c:\users\stein\desktop\research project 2020\c++ testing\farminggame\farminggame\inventory.cpp(19): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\stein\desktop\research project 2020\c++ testing\farminggame\farminggame\inventory.cpp(29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\stein\desktop\research project 2020\c++ testing\farminggame\farminggame\inventory.cpp(38): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  Potato.cpp
-  Wheat.cpp
-  main.cpp
-c:\users\stein\desktop\research project 2020\c++ testing\farminggame\farminggame\main.cpp(26): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\stein\desktop\research project 2020\c++ testing\farminggame\farminggame\main.cpp(54): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\stein\desktop\research project 2020\c++ testing\farminggame\farminggame\main.cpp(124): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  Generating Code...
+﻿  main.cpp
+c:\users\stein\desktop\research project 2020\c++ testing\farminggame\farminggame\a_star.h(72): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+c:\users\stein\desktop\research project 2020\c++ testing\farminggame\farminggame\a_star.h(250): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+c:\users\stein\desktop\research project 2020\c++ testing\farminggame\farminggame\a_star.h(401): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\stein\desktop\research project 2020\c++ testing\farminggame\farminggame\main.cpp(35): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\stein\desktop\research project 2020\c++ testing\farminggame\farminggame\main.cpp(63): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\stein\desktop\research project 2020\c++ testing\farminggame\farminggame\main.cpp(133): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\stein\desktop\research project 2020\c++ testing\farminggame\farminggame\a_star.h(297): warning C4172: returning address of local variable or temporary: dest
   FarmingGame.vcxproj -> C:\Users\stein\Desktop\Research Project 2020\C++ Testing\FarmingGame\x64\Debug\FarmingGame.exe

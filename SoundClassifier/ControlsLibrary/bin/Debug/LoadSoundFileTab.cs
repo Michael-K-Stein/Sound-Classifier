@@ -2,6 +2,8 @@
 using System.Windows.Forms;
 using System.IO;
 using ControlsLibrary;
+using NAudio;
+using NAudio.Wave;
 
 namespace SoundClassifier.Form_Parts
 {
@@ -54,6 +56,35 @@ namespace SoundClassifier.Form_Parts
             waveViewer1.StartPosition = 40000;
 
             waveViewer1.WaveStream = waveStream;
+
+
+        }
+
+        void FourierIfy()
+        {
+            //NAudio.Dsp.FastFourierTransform.FFT(false, 1,);
+
+
+            //using (NAudio.Wave.WaveFileReader reader = new NAudio.Wave.WaveFileReader(filePath))
+            //{
+            //    NAudio.Wave.IWaveProvider stream32 = new NAudio.Wave.Wave16ToFloatProvider(reader);
+            //    NAudio.Wave.IWaveProvider streamEffect = new AutoTuneWaveProvider(stream32, autotuneSettings);
+            //    NAudio.Wave.IWaveProvider stream16 = new NAudio.Wave.WaveFloatTo16Provider(streamEffect);
+            //    using (NAudio.Wave.WaveFileWriter converted = new NAudio.Wave.WaveFileWriter(tempFile, stream16.WaveFormat))
+            //    {
+            //        // buffer length needs to be a power of 2 for FFT to work nicely
+            //        // however, make the buffer too long and pitches aren't detected fast enough
+            //        // successful buffer sizes: 8192, 4096, 2048, 1024
+            //        // (some pitch detection algorithms need at least 2048)
+            //        byte[] buffer = new byte[8192];
+            //        int bytesRead;
+            //        do
+            //        {
+            //            bytesRead = stream16.Read(buffer, 0, buffer.Length);
+            //            converted.Write(buffer, 0, bytesRead);
+            //        } while (bytesRead != 0 && converted.Length < reader.Length);
+            //    }
+            //}
         }
 
         void UnloadFileData()

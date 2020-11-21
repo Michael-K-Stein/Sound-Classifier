@@ -1,0 +1,4 @@
+﻿  Source.cpp
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\graphic.h(1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\kmeans.h(33): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  ClassifyFrequencyArray.vcxproj -> C:\Users\stein\Desktop\Research Project 2020\Neural Networks\ClassifyFrequencyArray\x64\Debug\ClassifyFrequencyArray.exe

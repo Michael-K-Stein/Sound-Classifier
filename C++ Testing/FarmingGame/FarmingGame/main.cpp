@@ -12,8 +12,10 @@
 #include "Carrot.h"
 #include "Potato.h"
 
-const int width = 1080;
-const int height = 720;
+#include "A_Star.h"
+
+const int width = 10;
+const int height = 10;
 
 int Game::InventoryX = 238;
 int Game::InventoryY = 630;
@@ -21,7 +23,14 @@ int Game::InventoryItemSize = 64;
 int Game::maxInventoryItems = 64;
 sf::Font Game::font = sf::Font();
 
-int main()
+
+int main() {
+	return A_Star_Demo();
+}
+
+
+
+int main_Shitty_Game()
 {
 	srand(time(0)); // Random seed
 

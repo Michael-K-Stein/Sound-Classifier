@@ -2,8 +2,6 @@
 using System.Windows.Forms;
 using System.IO;
 using ControlsLibrary;
-using NAudio;
-using NAudio.Wave;
 
 namespace SoundClassifier.Form_Parts
 {
@@ -45,24 +43,11 @@ namespace SoundClassifier.Form_Parts
             lSelectedFile.Text = filePath;
             lFDSize.Text = "Size: " +  fileData.getFileSizeFancy();
             lFDLength.Text = "Length: " + fileData.getSoundLengthFancy();
-            NAudioFileData();
-        }
-
-        void NAudioFileData()
-        {
-            NAudio.Wave.WaveStream waveStream = new NAudio.Wave.WaveFileReader(filePath);
-
-            waveViewer1.SamplesPerPixel = 400;
-            waveViewer1.StartPosition = 40000;
-
-            waveViewer1.WaveStream = waveStream;
-
-
         }
 
         void FourierIfy()
         {
-            NAudio.Dsp.FastFourierTransform.FFT(false, 1,  );
+            //NAudio.Dsp.FastFourierTransform.FFT(false, 1,);
 
 
             //using (NAudio.Wave.WaveFileReader reader = new NAudio.Wave.WaveFileReader(filePath))

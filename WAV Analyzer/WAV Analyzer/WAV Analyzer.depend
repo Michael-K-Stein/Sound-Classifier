@@ -1,0 +1,29 @@
+# depslib dependency file v1.0
+1601740015 source:c:\users\stein\desktop\research project 2020\wav analyzer\wav analyzer\fft.cpp
+	"FFT.h"
+
+1601736216 c:\users\stein\desktop\research project 2020\wav analyzer\wav analyzer\fft.h
+	<complex>
+	<iostream>
+	<valarray>
+	<float.h>
+
+1601740043 source:c:\users\stein\desktop\research project 2020\wav analyzer\wav analyzer\main.cpp
+	<iostream>
+	<time.h>
+	"AudioFile.h"
+	"FFT.h"
+	<direct.h>
+	<unistd.h>
+
+1598030158 c:\users\stein\desktop\research project 2020\wav analyzer\wav analyzer\audiofile.h
+	<iostream>
+	<vector>
+	<assert.h>
+	<string>
+	<fstream>
+	<unordered_map>
+	<iterator>
+	<algorithm>
+	<cstring>
+

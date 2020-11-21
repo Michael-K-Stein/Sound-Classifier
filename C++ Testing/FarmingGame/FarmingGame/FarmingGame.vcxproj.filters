@@ -76,6 +76,9 @@
     <ClInclude Include="Barn.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="A_Star.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="FarmingGame.rc" />
