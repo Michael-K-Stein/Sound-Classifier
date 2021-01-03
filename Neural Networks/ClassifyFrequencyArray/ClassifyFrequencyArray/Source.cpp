@@ -2,16 +2,7 @@
 #include "kmeans.h"
 #include "network.h"
 
-int main() {
-	data_handler *dh = new data_handler();
-	//dh->read_feature_vector("C:/Users/stein/Desktop/Research Project 2020/Neural Networks/MNIST/Training Data/Training Data/train-images.idx3-ubyte");
-	//dh->read_feature_vector("../Training Data/train-images.idx3-ubyte");
-	dh->read_feature_vector("../Training Data/TestOne.vectors");
-	//dh->read_feature_labels("C:/Users/stein/Desktop/Research Project 2020/Neural Networks/MNIST/Training Data/Training Data/train-labels.idx1-ubyte");
-	dh->read_feature_labels("../Training Data/TestOne.labels");
-	dh->split_data();
-	dh->count_classes();
-
+int mainKNN(data_handler *dh) {
 	knn * knearest = new knn();
 	knearest->set_training_Data(dh->get_training_data());
 	knearest->set_test_Data(dh->get_test_data());
@@ -21,7 +12,7 @@ int main() {
 	double best_performance = 0;
 	int best_k = 1;
 
-	for (int k = 1; k <= 2; k++) {
+	for (int k = 1; k <= 1; k++) {
 		if (k == 1) {
 			knearest->set_k(k);
 			performance = knearest->validate_performance();
@@ -37,7 +28,7 @@ int main() {
 		}
 	}
 
-	printf("Best K: %d", best_k);
+	printf("Best K: %d\n", best_k);
 
 	knearest->set_k(best_k);
 	knearest->test_performance();
@@ -49,16 +40,14 @@ int main() {
 	return 0;
 }
 
-int mainKMEANS() {
-	data_handler *dh = new data_handler();
-	//dh->read_feature_vector("C:/Users/stein/Desktop/Research Project 2020/Neural Networks/MNIST/Training Data/Training Data/train-images.idx3-ubyte");
-	dh->read_feature_vector("../Training Data/train-images.idx3-ubyte");
-	//dh->read_feature_labels("C:/Users/stein/Desktop/Research Project 2020/Neural Networks/MNIST/Training Data/Training Data/train-labels.idx1-ubyte");
-	dh->read_feature_labels("../Training Data/train-labels.idx1-ubyte");
-	dh->split_data();
-	dh->count_classes();
-
-
+int mainKMEANS(data_handler * dh) {
+	//data_handler *dh = new data_handler();
+	////dh->read_feature_vector("C:/Users/stein/Desktop/Research Project 2020/Neural Networks/MNIST/Training Data/Training Data/train-images.idx3-ubyte");
+	//dh->read_feature_vector("../Training Data/train-images.idx3-ubyte");
+	////dh->read_feature_labels("C:/Users/stein/Desktop/Research Project 2020/Neural Networks/MNIST/Training Data/Training Data/train-labels.idx1-ubyte");
+	//dh->read_feature_labels("../Training Data/train-labels.idx1-ubyte");
+	//dh->split_data();
+	//dh->count_classes();
 
 
 
@@ -66,7 +55,7 @@ int mainKMEANS() {
 	double best_performance = 0;
 	int best_k = 1;
 
-	for (int k = /*dh->get_class_count()*/462; k < dh->get_training_data()->size() * 0.1; k++) {
+	for (int k = dh->get_class_count(); k < dh->get_training_data()->size() * 0.1; k++) {
 
 		kmeans * kMeans = new kmeans(k);
 		kMeans->set_training_Data(dh->get_training_data());
@@ -91,6 +80,89 @@ int mainKMEANS() {
 	printf("Best (test) performance at K = %d: %.2f\n", best_k, performance);
 
 	printf("Closing...");
+
+	return 0;
+}
+
+int mainNetwork(data_handler *dh)
+{
+	uint32_t size = dh->get_training_data()->at(0)->getNormalizedFeatureVector()->size();
+	uint32_t class_count = dh->get_class_count();
+	std::vector<int> spec = { 2 };
+	auto lamba = [&](int target) {
+		Network * net = new Network(spec, size, class_count);
+		net->target = target;
+		net->set_training_Data(dh->get_training_data());
+		net->set_test_Data(dh->get_test_data());
+		net->set_validation_Data(dh->get_validation_data());
+		printf("Size of net %d: %zu\n", target, sizeof(*net));
+		for (int i = 0; i < 100; i++)
+		{
+			net->train();
+			if (i % 10 == 0)
+				net->validate();
+		}
+		net->test();
+		fprintf(stderr, "Test Performance for %d: %f -> Network Size: %zu\n", target, net->testPerformance, sizeof(*net));
+	};
+
+	std::vector<std::thread> threads;
+
+	for (int i = 0; i < class_count; i++)
+	{
+		threads.emplace_back(std::thread(lamba, i));
+	}
+
+	for (auto &th : threads)
+	{
+		th.join();
+	}
+
+	return EXIT_SUCCESS;
+}
+
+int main(int argc, char ** argv) {
+	if (argc == 1) {
+		/// Generic Learning
+		data_handler* dh = new data_handler();
+		//dh->read_feature_vector("C:/Users/stein/Desktop/Research Project 2020/Neural Networks/MNIST/Training Data/Training Data/train-images.idx3-ubyte");
+		//dh->read_feature_vector("../Training Data/train-images.idx3-ubyte");
+		dh->read_feature_vector("../Training Data/TestOne.vectors");
+		//dh->read_feature_labels("C:/Users/stein/Desktop/Research Project 2020/Neural Networks/MNIST/Training Data/Training Data/train-labels.idx1-ubyte");
+		dh->read_feature_labels("../Training Data/TestOne.labels");
+		dh->count_classes();
+		dh->normalize();
+		dh->split_data();
+
+		mainKNN(dh);
+		//mainNetwork(dh);
+	}
+	else if (argc == 3) {
+		/// Predict from file
+		// argv[1] == vector file
+		// argv[2] == label file
+
+		/// Load known data
+		data_handler* dh = new data_handler();
+		//dh->read_feature_vector("C:/Users/stein/Desktop/Research Project 2020/Neural Networks/MNIST/Training Data/Training Data/train-images.idx3-ubyte");
+		//dh->read_feature_vector("../Training Data/train-images.idx3-ubyte");
+		dh->read_feature_vector("../Training Data/TestOne.vectors");
+		//dh->read_feature_labels("C:/Users/stein/Desktop/Research Project 2020/Neural Networks/MNIST/Training Data/Training Data/train-labels.idx1-ubyte");
+		dh->read_feature_labels("../Training Data/TestOne.labels");
+		dh->read_predict_feature_vector(argv[1]);
+		dh->read_predict_feature_labels(argv[2]);
+		dh->count_classes();
+		dh->normalize();
+		dh->split_data();
+
+		mainKNN(dh);
+	}
+
+	return 0;
+}
+
+int PredictLiveData() {
+
 
 	return 0;
 }

@@ -23,6 +23,8 @@ class data_handler
 
 	int num_classes;
 	int feature_vector_size;
+	int original_data_size;
+	int predict_data_size;
 	std::map<uint8_t, int> class_map;
 	std::map<std::string, int> classMap;
 
@@ -37,6 +39,8 @@ class data_handler
 	void read_csv(std::string path, std::string delimiter);
 	void read_feature_vector(std::string filePath);
 	void read_feature_labels(std::string filePath);
+	void read_predict_feature_vector(std::string filePath);
+	void read_predict_feature_labels(std::string filePath);
 	void split_data();
 	void count_classes();
 	void normalize();

@@ -7,6 +7,7 @@
 
 Network::Network(std::vector<int> spec, int inputSize, int numClasses)
 {
+	
 	inputLayer = new InputLayer(0, inputSize);
 	for (int i = 0; i < spec.size(); i++)
 	{
@@ -52,7 +53,8 @@ void Network::bprop(data *d)
 			for (int j = 0; j < layer->neurons.size(); j++)
 			{
 				Neuron *n = layer->neurons.at(j);
-				errors.push_back((double)(d->get_class_vector()->at(j)) - n->output);
+				double v = d->get_class_vector()->at(j);
+				errors.push_back(v - n->output);
 			}
 		}
 		else {
@@ -188,48 +190,3 @@ void Network::validate()
 	//fprintf(stderr, "Validation Performance: %.4f\n", numCorrect / count);
 }
 
-int mainNetwork(int argc, char const *argv[])
-{
-	data_handler *dh = new data_handler();
-	//#ifdef MNIST
-	dh->read_feature_vector("../Training Data/train-images.idx3-ubyte");
-	dh->read_feature_labels("../Training Data/train-labels.idx1-ubyte");
-	dh->count_classes();
-
-	dh->normalize();
-	//#else
-	//    dh->readCsv("../Data/iris.data", ",");
-	//#endif
-	dh->split_data();
-	std::vector<int> hiddenLayers = { 2 };
-	auto lamba = [&](int target) {
-		Network * net = new Network(hiddenLayers, dh->get_training_data()->at(0)->getNormalizedFeatureVector()->size(), dh->get_class_count());
-		net->target = target;
-		net->set_training_Data(dh->get_training_data());
-		net->set_test_Data(dh->get_test_data());
-		net->set_validation_Data(dh->get_validation_data());
-		printf("Size of net %d: %zu\n", target, sizeof(*net));
-		for (int i = 0; i < 100; i++)
-		{
-			net->train();
-			if (i % 10 == 0)
-				net->validate();
-		}
-		net->test();
-		fprintf(stderr, "Test Performance for %d: %f -> Network Size: %zu\n", target, net->testPerformance, sizeof(*net));
-	};
-
-	std::vector<std::thread> threads;
-
-	for (int i = 0; i < 10; i++)
-	{
-		threads.emplace_back(std::thread(lamba, i));
-	}
-
-	for (auto &th : threads)
-	{
-		th.join();
-	}
-
-	return EXIT_SUCCESS;
-}

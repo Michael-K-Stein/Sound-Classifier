@@ -22,7 +22,8 @@ private:
 public:
 	int target;
 	double testPerformance;
-	Network(std::vector<int> hiddenLayerSpec, int, int);
+	//Network(std::vector<int> hiddenLayerSpec, int, int);
+	Network(std::vector<int>, int, int);
 	~Network();
 	void fprop(data * data);
 	void bprop(data * data);

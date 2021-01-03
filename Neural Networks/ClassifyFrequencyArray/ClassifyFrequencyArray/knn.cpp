@@ -100,7 +100,7 @@ double knn::calculate_distance(data * query_point, data * input) {
 	for (unsigned i = 0; i < query_point->get_feature_vector_size(); i++) {
 		distance += pow(query_point->get_feature_vector()->at(i) - input->get_feature_vector()->at(i),2);
 	}
-	distance = sqrt(distance);
+	//distance = sqrt(distance); //Not neccessary for comparisons
 /*#elif defined MANHATTAN
 	// Not implemented
 #endif */
@@ -138,14 +138,32 @@ double knn::test_performance() {
 	int count = 0;
 	//int data_index = 0;
 
+	// A map to count the amount of times different mistakes were made.
+	std::map<std::tuple<int, int>, int> mistakes; // < PREDICTION , LABEL , COUNT >
+
 	for (data * query_point : * test_data) {
 		find_knearest(query_point);
 		int prediction = predict();
 		if (prediction == query_point->get_label()) {
 			count++;
 		}
+		else {
+			std::tuple<int, int> mistakeInd = std::tuple<int, int>(prediction, query_point->get_label());
+			if (mistakes.find(mistakeInd) == mistakes.end()) {
+				mistakes[mistakeInd] = 1;
+			}
+			else {
+				mistakes[mistakeInd]++;
+			}
+		}
 		//data_index++;
 		//printf("Current Performance: %.3f %%\n", ((double)count*100.0) / ((double)data_index));
+	}
+
+	// Show mistakes
+	for (std::map<std::tuple<int, int>, int>::iterator it = mistakes.begin(); it != mistakes.end(); it++)
+	{
+		printf("Guessed '%d' for '%d' %d times.\n", std::get<0>(it->first), std::get<1>(it->first), it->second);
 	}
 
 	current_performance = ((double)count*100.0) / ((double)test_data->size());

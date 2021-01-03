@@ -1,7 +1,11 @@
 ﻿  CreateDataSet.cpp
-c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\createdataset\createdataset.cpp(160): warning C4018: '<': signed/unsigned mismatch
-c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\createdataset\createdataset.cpp(166): warning C4018: '<': signed/unsigned mismatch
-c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\createdataset\createdataset.cpp(167): warning C4244: '=': conversion from '_Ty' to 'char', possible loss of data
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\createdataset\createdataset.cpp(182): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\createdataset\createdataset.cpp(207): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\createdataset\createdataset.cpp(157): warning C4101: 'existing_labels': unreferenced local variable
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\createdataset\createdataset.cpp(325): warning C4838: conversion from 'uint8_t' to 'char' requires a narrowing conversion
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\createdataset\createdataset.cpp(373): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\createdataset\createdataset.cpp(379): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\createdataset\createdataset.cpp(380): warning C4244: '=': conversion from '_Ty' to 'char', possible loss of data
           with
           [
               _Ty=double
