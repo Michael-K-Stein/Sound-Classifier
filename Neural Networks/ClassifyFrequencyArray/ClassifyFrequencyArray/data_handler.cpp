@@ -318,7 +318,7 @@ void data_handler::split_data() {
 		while (count < predict_data_size) {
 			uint32_t rand_index = (rand() % predict_data_size) + original_data_size;  // Takes too long
 			if (used_indexes.find(rand_index) == used_indexes.end()) {
-				validation_data->push_back(data_array->at(rand_index));
+				test_data->push_back(data_array->at(rand_index));
 				used_indexes.insert(rand_index);
 				count++;
 			}

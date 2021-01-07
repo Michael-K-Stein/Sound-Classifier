@@ -27,6 +27,7 @@ class knn : public common_data {
 	double calculate_distance(data * query_point, data * input);
 	double validate_performance();
 	double test_performance();
+	int real_predict();
 };
 
 

@@ -171,3 +171,31 @@ double knn::test_performance() {
 	return current_performance;
 }
 
+// Function used for real predictions
+int knn::real_predict() {
+	// A map to predictions and the amout of times they were made
+	std::map<int, int> predictions;
+
+	for (data * query_point : *test_data) {
+		find_knearest(query_point);
+		int prediction = predict();
+		if (predictions.find(prediction) == predictions.end())
+		{
+			predictions[prediction] = 1;
+		}
+		else { predictions[prediction]++; }
+	}
+
+	int top_guessed = predictions.begin()->first;
+	int top_guessed_count = 0;
+
+	printf("Prediction table: \n");
+	for (auto tpl : predictions) {
+		printf("\t%u) %.2f%%\n", tpl.first, tpl.second / test_data->size());
+		if (tpl.second > top_guessed_count) {
+			top_guessed = tpl.first;
+		}
+	}
+
+	return top_guessed;
+}

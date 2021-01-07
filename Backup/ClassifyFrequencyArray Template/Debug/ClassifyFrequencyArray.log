@@ -1,0 +1,174 @@
+﻿  ClassifyFrequencyArray.cpp
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\classifyfrequencyarray.cpp(15): fatal error C1083: Cannot open include file: 'unistd.h': No such file or directory
+  common_data.cpp
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\graphic.h(1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\graphic.h(5): fatal error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+  data.cpp
+  data_handler.cpp
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\graphic.h(1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\graphic.h(5): fatal error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+  FFT.cpp
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.h(21): error C2039: 'vector': is not a member of 'std'
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\valarray(16): note: see declaration of 'std'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.h(21): error C2143: syntax error: missing ';' before '<'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.h(21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.h(21): error C2238: unexpected token(s) preceding ';'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.h(22): error C2039: 'vector': is not a member of 'std'
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\valarray(16): note: see declaration of 'std'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.h(22): error C2143: syntax error: missing ';' before '<'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.h(22): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.h(22): error C2238: unexpected token(s) preceding ';'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.h(30): error C2039: 'vector': is not a member of 'std'
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\valarray(16): note: see declaration of 'std'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.h(30): error C2143: syntax error: missing ';' before '<'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.h(30): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.h(30): error C2238: unexpected token(s) preceding ';'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.h(31): error C2039: 'vector': is not a member of 'std'
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\valarray(16): note: see declaration of 'std'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.h(31): error C2143: syntax error: missing ';' before '<'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.h(31): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.h(31): error C2238: unexpected token(s) preceding ';'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.h(33): error C2039: 'vector': is not a member of 'std'
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\valarray(16): note: see declaration of 'std'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.h(33): error C2143: syntax error: missing ';' before '<'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.h(33): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.h(33): error C2238: unexpected token(s) preceding ';'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.h(35): error C2039: 'vector': is not a member of 'std'
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\valarray(16): note: see declaration of 'std'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.h(35): error C2143: syntax error: missing ';' before '<'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.h(35): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.h(35): error C2238: unexpected token(s) preceding ';'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.h(36): error C2039: 'vector': is not a member of 'std'
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\valarray(16): note: see declaration of 'std'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.h(36): error C2143: syntax error: missing ';' before '<'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.h(36): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.h(36): error C2238: unexpected token(s) preceding ';'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.h(42): error C2039: 'vector': is not a member of 'std'
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\valarray(16): note: see declaration of 'std'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.h(42): error C2143: syntax error: missing ';' before '<'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.h(42): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.h(42): error C2238: unexpected token(s) preceding ';'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.h(43): error C2039: 'vector': is not a member of 'std'
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\valarray(16): note: see declaration of 'std'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.h(43): error C2143: syntax error: missing ';' before '<'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.h(43): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.h(43): error C2238: unexpected token(s) preceding ';'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(5): error C2065: 'ActualValues': undeclared identifier
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(5): error C2039: 'vector': is not a member of 'std'
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\valarray(16): note: see declaration of 'std'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(5): error C2061: syntax error: identifier 'vector'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(16): error C2065: 'peaks': undeclared identifier
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(16): error C2039: 'vector': is not a member of 'std'
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\valarray(16): note: see declaration of 'std'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(16): error C2061: syntax error: identifier 'vector'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(17): error C2039: 'vector': is not a member of 'std'
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\valarray(16): note: see declaration of 'std'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(17): error C2065: 'vector': undeclared identifier
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(17): error C2062: type 'double' unexpected
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(17): error C2065: 'demoPeak': undeclared identifier
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(18): error C2065: 'peaks': undeclared identifier
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(18): error C2065: 'demoPeak': undeclared identifier
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(22): error C2065: 'NormalizedPeaks': undeclared identifier
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(22): error C2039: 'vector': is not a member of 'std'
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\valarray(16): note: see declaration of 'std'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(22): error C2061: syntax error: identifier 'vector'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(23): error C2039: 'vector': is not a member of 'std'
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\valarray(16): note: see declaration of 'std'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(23): error C2065: 'vector': undeclared identifier
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(23): error C2062: type 'double' unexpected
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(23): error C2065: 'demoPeak2': undeclared identifier
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(24): error C2065: 'NormalizedPeaks': undeclared identifier
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(24): error C2065: 'demoPeak2': undeclared identifier
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(67): error C2065: 'splitValues': undeclared identifier
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(67): error C2039: 'vector': is not a member of 'std'
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\valarray(16): note: see declaration of 'std'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(67): error C2061: syntax error: identifier 'vector'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(69): error C2065: 'ActualValues': undeclared identifier
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(72): error C2039: 'vector': is not a member of 'std'
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\valarray(16): note: see declaration of 'std'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(72): error C2065: 'vector': undeclared identifier
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(72): error C2062: type 'double' unexpected
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(74): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(75): error C2065: 'partSamps': undeclared identifier
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(75): error C2065: 'ActualValues': undeclared identifier
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(78): error C2065: 'splitValues': undeclared identifier
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(78): error C2065: 'partSamps': undeclared identifier
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(84): error C2065: 'ActualValues': undeclared identifier
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(87): error C2065: 'ActualValues': undeclared identifier
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(91): error C2065: 'ActualValues': undeclared identifier
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(95): error C2039: 'vector': is not a member of 'std'
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\valarray(16): note: see declaration of 'std'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(95): error C2143: syntax error: missing ';' before '<'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(95): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(95): error C2039: 'FourierTransfer': is not a member of 'FFT'
+  c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.h(12): note: see declaration of 'FFT'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(95): error C2143: syntax error: missing ';' before '{'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(95): error C2447: '{': missing function header (old-style formal list?)
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(147): error C2039: 'vector': is not a member of 'std'
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\valarray(16): note: see declaration of 'std'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(147): error C2143: syntax error: missing ';' before '<'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(147): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(147): error C2086: 'int vector': redefinition
+  c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(95): note: see declaration of 'vector'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(147): error C2039: 'FourierTransfer_Part': is not a member of 'FFT'
+  c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.h(12): note: see declaration of 'FFT'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(147): error C2143: syntax error: missing ';' before '{'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(147): error C2447: '{': missing function header (old-style formal list?)
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(183): error C2039: 'vector': is not a member of 'std'
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\valarray(16): note: see declaration of 'std'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(183): error C2143: syntax error: missing ';' before '<'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(183): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(183): error C2086: 'int vector': redefinition
+  c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(95): note: see declaration of 'vector'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(183): error C2039: 'OrderFrequencyOutputs': is not a member of 'FFT'
+  c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.h(12): note: see declaration of 'FFT'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(183): error C2143: syntax error: missing ';' before '{'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(183): error C2447: '{': missing function header (old-style formal list?)
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(209): error C2039: 'vector': is not a member of 'std'
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\valarray(16): note: see declaration of 'std'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(209): error C2143: syntax error: missing ';' before '<'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(209): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(209): error C2086: 'int vector': redefinition
+  c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(95): note: see declaration of 'vector'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(209): error C2039: 'getNormalizedFrequency': is not a member of 'FFT'
+  c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.h(12): note: see declaration of 'FFT'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(209): error C2143: syntax error: missing ';' before '{'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(209): error C2447: '{': missing function header (old-style formal list?)
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(235): error C2065: 'peaks': undeclared identifier
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(238): error C2065: 'peaks': undeclared identifier
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(239): error C2065: 'peaks': undeclared identifier
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(242): error C2065: 'peaks': undeclared identifier
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(243): error C2065: 'peaks': undeclared identifier
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(254): error C2039: 'vector': is not a member of 'std'
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\valarray(16): note: see declaration of 'std'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(254): error C2062: type 'double' unexpected
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(255): error C2065: 'NormalizedPeaks': undeclared identifier
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(257): error C2065: 'NormalizedPeaks': undeclared identifier
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(260): error C2065: 'NormalizedPeaks': undeclared identifier
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(261): error C2065: 'NormalizedPeaks': undeclared identifier
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(264): error C2065: 'NormalizedPeaks': undeclared identifier
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(265): error C2065: 'NormalizedPeaks': undeclared identifier
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(273): error C2039: 'min': is not a member of 'std'
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\valarray(16): note: see declaration of 'std'
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\fft.cpp(273): error C3861: 'min': identifier not found
+  Graphic.cpp
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\graphic.h(1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\graphic.h(5): fatal error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+  hidden_layer.cpp
+  input_layer.cpp
+  kmeans.cpp
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\graphic.h(1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\graphic.h(5): fatal error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+  knn.cpp
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\graphic.h(1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\graphic.h(5): fatal error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+  layer.cpp
+  network.cpp
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\graphic.h(1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\graphic.h(5): fatal error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+  neuron.cpp
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\neuron.cpp(28): warning C4018: '<': signed/unsigned mismatch
+  Source.cpp
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\graphic.h(1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\graphic.h(5): fatal error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+  Generating Code...

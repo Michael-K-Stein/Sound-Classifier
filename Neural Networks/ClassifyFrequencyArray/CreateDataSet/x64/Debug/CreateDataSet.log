@@ -10,4 +10,11 @@ c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyar
           [
               _Ty=double
           ]
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\createdataset\createdataset.cpp(460): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\createdataset\createdataset.cpp(466): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\createdataset\createdataset.cpp(467): warning C4244: '=': conversion from '_Ty' to 'char', possible loss of data
+          with
+          [
+              _Ty=double
+          ]
   CreateDataSet.vcxproj -> C:\Users\stein\Desktop\Research Project 2020\Neural Networks\ClassifyFrequencyArray\x64\Debug\CreateDataSet.exe
