@@ -1,7 +1,6 @@
 #ifndef __COMMON_HPP
 #define __COMMON_HPP
 
-
 #pragma once
 
 #include <vector>

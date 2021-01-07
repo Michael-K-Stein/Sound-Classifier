@@ -62,6 +62,49 @@ char fn_data_map[128];
 char fn_vectors[128];
 char fn_labels[128];
 
+int CountCommandArgs(char * command) {
+	char * tmpCommand = (char *)malloc((strlen(command) + 1) * sizeof(char));
+	memcpy(tmpCommand, command, strlen(command) + 1);
+
+	int count = 0;
+	const char delim[2] = " ";
+	char * next_tok;
+	char * tok = strtok_s(tmpCommand, delim, &next_tok);
+	while (tok != NULL) {
+		printf("Arg #%d: '%s'\n", count, tok);
+		count++;
+		tok = strtok_s(NULL, delim, &next_tok);
+	}
+
+	free(tmpCommand);
+
+	return count;
+}
+int GetCommandArg(char * command, int index, char ** output) {
+	char * tmpCommand = (char *)malloc((strlen(command) + 1) * sizeof(char));
+	memcpy(tmpCommand, command, strlen(command) + 1);
+
+	int count = 0;
+	const char delim[2] = " ";
+	char * next_tok;
+	char * tok = strtok_s(tmpCommand, delim, &next_tok);
+	while (tok != NULL && count < index) {
+		printf("Arg #%d: '%s'\n", count, tok);
+		count++;
+		tok = strtok_s(NULL, delim, &next_tok);
+	}
+
+	
+
+	if (index > count) { free(tmpCommand); return -1; }
+
+	*output = (char*)malloc((strlen(tok) + 1) * sizeof(char));
+	memcpy(*output, tok, strlen(tok) + 1);
+
+	free(tmpCommand);
+	return 0;
+}
+
 int UpdateFilePaths() {
 	/*fn_label_map = (char*)calloc(128, sizeof(char));
 	fn_data_map = (char*)calloc(128, sizeof(char));
@@ -398,106 +441,131 @@ int AddDataToSet() {
 
 	return 0;
 }
-int Predict() {
-	char predictOutputFile[256];
-	char predictOutputFile_tmp[128];
-	printf("Name your prediction file: \n> ");
-	fgets(predictOutputFile_tmp, sizeof(predictOutputFile_tmp), stdin);
-	fix_fgets(predictOutputFile_tmp);
-	sprintf_s(predictOutputFile, sizeof(predictOutputFile), "%s/%s.vectors", OutputPath, predictOutputFile_tmp);
+int Predict(char * command) {
+	int argc = CountCommandArgs(command);
+	printf("Arg count: %d\n", argc);
+	if (argc == 0) {
+		char predictOutputFile[256];
+		char predictOutputFile_tmp[128];
+		printf("Name your prediction file: \n> ");
+		fgets(predictOutputFile_tmp, sizeof(predictOutputFile_tmp), stdin);
+		fix_fgets(predictOutputFile_tmp);
+		sprintf_s(predictOutputFile, sizeof(predictOutputFile), "%s/%s.vectors", OutputPath, predictOutputFile_tmp);
 
-	std::string WAV_File_Path;
-	std::cout << "# Path for WAV file: " << std::endl;
-	std::cout << get_current_dir() << "\\";
-	WAV_File_Path = get_current_dir() + "\\";
-	char WAV_File_Path_buffer[256];
-	fgets(WAV_File_Path_buffer, sizeof(WAV_File_Path_buffer), stdin);
-	fix_fgets(WAV_File_Path_buffer);
-	for (int i = 0; i < strlen(WAV_File_Path_buffer); i++) {
-		WAV_File_Path += WAV_File_Path_buffer[i];
-	}
-	std::cout << std::endl << std::endl;
-
-	AudioFile<double> * audioFile = new AudioFile<double>();
-
-	if (audioFile->load(WAV_File_Path)) {
-		std::cout << "# Loaded File!" << std::endl;
-		audioFile->printSummary();
-		std::cout << "# CH: " << audioFile->getNumChannels() << " | " << "SAMP: " << audioFile->getNumSamplesPerChannel() * audioFile->getNumChannels() << std::endl;
-
-		FFT * FT = new FFT();
-
-		uint8_t channelInd = 0;
-		for (int sampInd = 0; sampInd < audioFile->getNumSamplesPerChannel(); sampInd++) {
-			FT->AppendToWave(audioFile->samples[channelInd][sampInd]);
+		std::string WAV_File_Path;
+		std::cout << "# Path for WAV file: " << std::endl;
+		std::cout << get_current_dir() << "\\";
+		WAV_File_Path = get_current_dir() + "\\";
+		char WAV_File_Path_buffer[256];
+		fgets(WAV_File_Path_buffer, sizeof(WAV_File_Path_buffer), stdin);
+		fix_fgets(WAV_File_Path_buffer);
+		for (int i = 0; i < strlen(WAV_File_Path_buffer); i++) {
+			WAV_File_Path += WAV_File_Path_buffer[i];
 		}
-		int actInd = 0;
-		std::cout << "\t" << ++actInd << ") " << "Loaded \"" << WAV_File_Path << "\" into Fourier Transform!" << std::endl;
+		std::cout << std::endl << std::endl;
 
-		uint32_t sample_count = audioFile->getNumSamplesPerChannel() / audioFile->getSampleRate();
+		AudioFile<double> * audioFile = new AudioFile<double>();
 
-		FILE * fVect;
-		errno_t errVects;
-		if (!file_exists(predictOutputFile)) {
-			errVects = fopen_s(&fVect, predictOutputFile, "wb");
-			uint32_t intro[4] = { convert_to_big_endian(2051), convert_to_big_endian(sample_count), convert_to_big_endian(4000) };
-			fwrite((char*)intro, sizeof(char), 4 * sizeof(uint32_t), fVect);
-		}
-		else {
-			errVects = fopen_s(&fVect, predictOutputFile, "r+b");
-			uint32_t old_sample_count = 0;
-			fread_s(&old_sample_count, sizeof(old_sample_count), sizeof(uint32_t), 1, fVect);
-			old_sample_count = convert_to_little_endian(old_sample_count);
-			old_sample_count += sample_count;
-			old_sample_count = convert_to_big_endian(old_sample_count);
-			fseek(fVect, sizeof(uint32_t), SEEK_SET);
-			fwrite(&old_sample_count, sizeof(uint32_t), 1, fVect);
-			fseek(fVect, 0, SEEK_END);
-		}
-		if (errVects) { printf("Could not find nor create prediction file!\n"); return -1; }
+		if (audioFile->load(WAV_File_Path)) {
+			std::cout << "# Loaded File!" << std::endl;
+			audioFile->printSummary();
+			std::cout << "# CH: " << audioFile->getNumChannels() << " | " << "SAMP: " << audioFile->getNumSamplesPerChannel() * audioFile->getNumChannels() << std::endl;
 
-		/// Create an array of the frequencies
-		for (int x = 0; x < sample_count; x++) {
+			FFT * FT = new FFT();
 
-			std::vector<Complex> * liveFreq = FT->FourierTransfer_Part(audioFile->getSampleRate(), x);
-
-			char * freqArr = (char *)calloc(FT->MaxFrequency(), sizeof(char));
-
-			for (int freqInd = 0; freqInd < FT->MaxFrequency(); freqInd++) {
-				freqArr[freqInd] = liveFreq->at(freqInd).real();
+			uint8_t channelInd = 0;
+			for (int sampInd = 0; sampInd < audioFile->getNumSamplesPerChannel(); sampInd++) {
+				FT->AppendToWave(audioFile->samples[channelInd][sampInd]);
 			}
+			int actInd = 0;
+			std::cout << "\t" << ++actInd << ") " << "Loaded \"" << WAV_File_Path << "\" into Fourier Transform!" << std::endl;
 
-			fwrite(freqArr, sizeof(char), FT->MaxFrequency(), fVect);
-			free(freqArr);
+			uint32_t sample_count = audioFile->getNumSamplesPerChannel() / audioFile->getSampleRate();
+
+			FILE * fVect;
+			errno_t errVects;
+			if (!file_exists(predictOutputFile)) {
+				errVects = fopen_s(&fVect, predictOutputFile, "wb");
+				uint32_t intro[4] = { convert_to_big_endian(2051), convert_to_big_endian(sample_count), convert_to_big_endian(4000) };
+				fwrite((char*)intro, sizeof(char), 4 * sizeof(uint32_t), fVect);
+			}
+			else {
+				errVects = fopen_s(&fVect, predictOutputFile, "r+b");
+				uint32_t old_sample_count = 0;
+				fread_s(&old_sample_count, sizeof(old_sample_count), sizeof(uint32_t), 1, fVect);
+				old_sample_count = convert_to_little_endian(old_sample_count);
+				old_sample_count += sample_count;
+				old_sample_count = convert_to_big_endian(old_sample_count);
+				fseek(fVect, sizeof(uint32_t), SEEK_SET);
+				fwrite(&old_sample_count, sizeof(uint32_t), 1, fVect);
+				fseek(fVect, 0, SEEK_END);
+			}
+			if (errVects) { printf("Could not find nor create prediction file!\n"); return -1; }
+
+			/// Create an array of the frequencies
+			for (int x = 0; x < sample_count; x++) {
+
+				std::vector<Complex> * liveFreq = FT->FourierTransfer_Part(audioFile->getSampleRate(), x);
+
+				char * freqArr = (char *)calloc(FT->MaxFrequency(), sizeof(char));
+
+				for (int freqInd = 0; freqInd < FT->MaxFrequency(); freqInd++) {
+					freqArr[freqInd] = liveFreq->at(freqInd).real();
+				}
+
+				fwrite(freqArr, sizeof(char), FT->MaxFrequency(), fVect);
+				free(freqArr);
+			}
+			fclose(fVect);
+
+			delete FT;
 		}
-		fclose(fVect);
+		delete audioFile;
 
-		delete FT;
-	}
-	delete audioFile;
-
-	printf("# Created prediction file!!\n");
+		printf("# Created prediction file!!\n");
 
 
-	char path[2048];
-	sprintf_s(path, sizeof(path), "ClassifyFrequencyArray.exe \"%s\" \"%s\" \"%s\"", OutputPath, DataSetLabel, predictOutputFile);
+		char path[2048];
+		sprintf_s(path, sizeof(path), "ClassifyFrequencyArray.exe \"%s\" \"%s\" \"%s\"", OutputPath, DataSetLabel, predictOutputFile);
 
-	int prediction_output = system(path);
+		int prediction_output = system(path);
 
-	FILE * fLabelMap;
-	errno_t errLabelMap = fopen_s(&fLabelMap, fn_label_map, "r+b");
-	if (errLabelMap) { printf("# Could not open label map file!\n"); return -1; }
+		FILE * fLabelMap;
+		errno_t errLabelMap = fopen_s(&fLabelMap, fn_label_map, "r+b");
+		if (errLabelMap) { printf("# Could not open label map file!\n"); return -1; }
 
-	char label_pair[MaximumLabelLength + 2];
-	while (fread_s(label_pair, (MaximumLabelLength + 2) * sizeof(char), sizeof(char), MaximumLabelLength + 1, fLabelMap)) {
-		uint8_t label_key = label_pair[0];
-		if (label_key == prediction_output) {
-			printf("The prediction for this file is: \n\t%d | %s\n", prediction_output, label_pair + 1);
+		char label_pair[MaximumLabelLength + 2];
+		while (fread_s(label_pair, (MaximumLabelLength + 2) * sizeof(char), sizeof(char), MaximumLabelLength + 1, fLabelMap)) {
+			uint8_t label_key = label_pair[0];
+			if (label_key == prediction_output) {
+				printf("The prediction for this file is: \n\t%d | %s\n", prediction_output, label_pair + 1);
+			}
 		}
 	}
+	else if (argc == 1) {
+		char * predictOutputFile;
+		if (GetCommandArg(command, 0, &predictOutputFile) != 0) { printf("# Could not find argument!\n"); return -1; }
+		char path[2048];
+		sprintf_s(path, sizeof(path), "ClassifyFrequencyArray.exe \"%s\" \"%s\" \"%s\"", OutputPath, DataSetLabel, predictOutputFile);
 
-	
+		int prediction_output = system(path);
 
+		FILE * fLabelMap;
+		errno_t errLabelMap = fopen_s(&fLabelMap, fn_label_map, "r+b");
+		if (errLabelMap) { printf("# Could not open label map file!\n"); return -1; }
+
+		char label_pair[MaximumLabelLength + 2];
+		while (fread_s(label_pair, (MaximumLabelLength + 2) * sizeof(char), sizeof(char), MaximumLabelLength + 1, fLabelMap)) {
+			uint8_t label_key = label_pair[0];
+			if (label_key == prediction_output) {
+				printf("The prediction for this file is: \n\t%d | %s\n", prediction_output, label_pair + 1);
+			}
+		}
+		
+	}
+	else {
+	printf("# Unrecognized argument count!\n");
+	}
 	return 0;
 }
 int ExitProgram() {
@@ -553,7 +621,7 @@ int ProccessCommands() {
 	if (cmpcommand(input, "list classifications") || cmpcommand(input, "view classifications") || cmpcommand(input, "view class") || cmpcommand(input, "list class") || cmpcommand(input, "view classes") || cmpcommand(input, "list classes")) { return ViewClassifications(); }
 	if (cmpcommand(input, "list files") || cmpcommand(input, "list data") || cmpcommand(input, "view files") || cmpcommand(input, "view data")) { return ViewDataFiles(); }
 	if (cmpcommand(input, "add file") || cmpcommand(input, "add data")) { return AddDataToSet(); }
-	if (cmpcommand(input, "predict")) { return Predict(); }
+	if (cmpcommand(input, "predict")) { return Predict(input + strlen("predict") + 1); }
 	if (cmpcommand(input, "exit") || cmpcommand(input, "close")) { return ExitProgram(); }
 
 	return 1;

@@ -24,7 +24,8 @@ class knn : public common_data {
 	void set_k(int val);
 
 	int predict();
-	double calculate_distance(data * query_point, data * input);
+	uint32_t calculate_distance(data * query_point, data * input);
+	uint32_t calculate_distance_fast(data * query_point, data * input);
 	double validate_performance();
 	double test_performance();
 	int real_predict();

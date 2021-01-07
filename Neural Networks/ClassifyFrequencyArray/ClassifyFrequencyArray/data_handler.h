@@ -1,6 +1,8 @@
 #ifndef __DATA_HANDLER_H
 #define __DATA_HANDLER_H
 
+#define FAST_DISTANCE
+
 #include <fstream>
 #include "stdint.h"
 #include "data.h"
@@ -52,6 +54,8 @@ class data_handler
 	std::vector<data *> * get_training_data();
 	std::vector<data *> * get_test_data();
 	std::vector<data *> * get_validation_data();
+
+	static void print_loading(bool print_dots, int amt, int cap);
 
 	private:
 	uint32_t max_image_array = 10000; // To keep the program from hogging the RAM

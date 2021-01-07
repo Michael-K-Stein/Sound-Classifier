@@ -1,5 +1,19 @@
 #include "data_handler.h"
 
+uint8_t print_loading_prev_val = 0;
+void data_handler::print_loading(bool print_dots, int amt, int cap) {
+	if (print_dots) {
+		printf("\rLoading");
+		for (int i = 0; i < print_loading_prev_val; i++) {
+			printf(".");
+		}
+		print_loading_prev_val = (print_loading_prev_val + 1) % 3;
+	}
+	else {
+		printf("\rLoading %.2f", (float)amt * 100.0 / (float)cap);
+	}
+}
+
 data_handler::data_handler()
 {
 	data_array = new std::vector<data *>;
@@ -72,7 +86,9 @@ void data_handler::read_feature_vector(std::string filePath) {
 				}
 			}
 			free(element);
-
+#ifdef FAST_DISTANCE
+			d->create_feature_array();
+#endif
 			data_array->push_back(d);
 		}
 
@@ -162,6 +178,9 @@ void data_handler::read_predict_feature_vector(std::string filePath) {
 			}
 			free(element);
 
+#ifdef FAST_DISTANCE
+			d->create_feature_array();
+#endif
 			data_array->push_back(d);
 		}
 
@@ -233,6 +252,7 @@ void data_handler::normalize()
 
 	for (int i = 1; i < data_array->size(); i++)
 	{
+		print_loading(false, i, data_array->size());
 		d = data_array->at(i);
 		for (int j = 0; j < d->get_feature_vector_size(); j++)
 		{
@@ -242,9 +262,10 @@ void data_handler::normalize()
 		}
 	}
 	// normalize data array
-
+	printf("\r                \r");
 	for (int i = 0; i < data_array->size(); i++)
 	{
+		print_loading(false, i, data_array->size());
 		data_array->at(i)->setNormalizedFeatureVector(new std::vector<double>());
 		data_array->at(i)->set_class_vector(get_class_count());
 		for (int j = 0; j < data_array->at(i)->get_feature_vector_size(); j++)
@@ -254,6 +275,7 @@ void data_handler::normalize()
 				data_array->at(i)->append_to_feature_vector((double)(data_array->at(i)->get_feature_vector()->at(j) - mins[j]) / (maxs[j] - mins[j]));
 		}
 	}
+	printf("\r                \r");
 }
 
 
@@ -268,6 +290,7 @@ void data_handler::split_data() {
 
 		uint32_t count = 0;
 		while (count < train_size) {
+			print_loading(true, 0, 1);
 			//uint32_t rand_index = count;
 			uint32_t rand_index = rand() % data_array->size();  // Takes too long
 			if (used_indexes.find(rand_index) == used_indexes.end()) {
@@ -281,6 +304,7 @@ void data_handler::split_data() {
 
 		count = 0;
 		while (count < test_size) {
+			print_loading(true, 0, 1);
 			uint32_t rand_index = rand() % data_array->size();  // Takes too long
 			//uint32_t rand_index = train_size + count;
 			if (used_indexes.find(rand_index) == used_indexes.end()) {
@@ -294,6 +318,7 @@ void data_handler::split_data() {
 
 		count = 0;
 		while (count < valid_size) {
+			print_loading(true, 0, 1);
 			uint32_t rand_index = rand() % data_array->size();  // Takes too long
 			//uint32_t rand_index = train_size + test_size + count;
 			if (used_indexes.find(rand_index) == used_indexes.end()) {
@@ -304,8 +329,10 @@ void data_handler::split_data() {
 		}
 	}
 	else {
+		
 		uint32_t count = 0;
 		while (count < original_data_size) {
+			print_loading(true, 0, 1);
 			uint32_t rand_index = rand() % original_data_size;  // Takes too long
 			if (used_indexes.find(rand_index) == used_indexes.end()) {
 				training_data->push_back(data_array->at(rand_index));
@@ -316,6 +343,7 @@ void data_handler::split_data() {
 
 		count = 0;
 		while (count < predict_data_size) {
+			print_loading(true, 0, 1);
 			uint32_t rand_index = (rand() % predict_data_size) + original_data_size;  // Takes too long
 			if (used_indexes.find(rand_index) == used_indexes.end()) {
 				test_data->push_back(data_array->at(rand_index));
@@ -324,6 +352,7 @@ void data_handler::split_data() {
 			}
 		}
 	}
+	printf("\r                \r");
 	printf("Training Data Size: %lu.\n", training_data->size());
 	printf("Test Data Size: %lu.\n", test_data->size());
 	printf("Validation Data Size: %lu.\n", validation_data->size());

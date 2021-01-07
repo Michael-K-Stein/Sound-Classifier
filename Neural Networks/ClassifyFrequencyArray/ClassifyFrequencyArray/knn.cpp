@@ -16,14 +16,18 @@ knn::~knn() {}
 
 void knn::find_knearest(data * query_point) {
 	neighbors = new std::vector<data *>;
-	double min = std::numeric_limits<double>::max();
-	double previous_min = min;
+	uint32_t min = std::numeric_limits<uint32_t>::max();
+	uint32_t previous_min = min;
 	int index = 0;
 
 	for (int i = 0; i < k; i++) {
 		if (i == 0) {
 			for (int j = 0; j < training_data->size(); j++) {
-				double distance = calculate_distance(query_point, training_data->at(j));
+#ifdef FAST_DISTANCE
+				uint32_t distance = calculate_distance_fast(query_point, training_data->at(j));
+#else
+				uint32_t distance = calculate_distance(query_point, training_data->at(j));
+#endif // 
 				training_data->at(j)->set_distance(distance);
 				if (distance < min) {
 					min = distance;
@@ -32,11 +36,11 @@ void knn::find_knearest(data * query_point) {
 			}
 			neighbors->push_back(training_data->at(index));
 			previous_min = min;
-			min = std::numeric_limits<double>::max();
+			min = std::numeric_limits<uint32_t>::max();
 		}
 		else {
 			for (int j = 0; j < training_data->size(); j++) {
-				double distance = training_data->at(j)->get_distance(); // calculate_distance(query_point, training_data->at(j));
+				uint32_t distance = training_data->at(j)->get_distance(); // calculate_distance(query_point, training_data->at(j));
 				if (distance > previous_min && distance < min) {
 					min = distance;
 					index = j;
@@ -44,7 +48,7 @@ void knn::find_knearest(data * query_point) {
 			}
 			neighbors->push_back(training_data->at(index));
 			previous_min = min;
-			min = std::numeric_limits<double>::max();
+			min = std::numeric_limits<uint32_t>::max();
 		}
 	}
 }
@@ -89,16 +93,43 @@ int knn::predict() {
 	return best;
 }
 
-double knn::calculate_distance(data * query_point, data * input) {
-	double distance = 0.0;
+uint32_t knn::calculate_distance(data * query_point, data * input) {
+	uint32_t distance = 0.0;
 	if (query_point->get_feature_vector_size() != input->get_feature_vector_size()) {
 		printf("Vector size mismatch");
 		exit(1);
 	}
 //#ifdef EUCLID
 
-	for (unsigned i = 0; i < query_point->get_feature_vector_size(); i++) {
-		distance += pow(query_point->get_feature_vector()->at(i) - input->get_feature_vector()->at(i),2);
+	std::vector<uint8_t> * vect1 = query_point->get_feature_vector();
+	std::vector<uint8_t> * vect2 = input->get_feature_vector();
+
+	uint16_t size = query_point->get_feature_vector_size();
+
+	for (uint16_t i = 0; i < size; i++) {
+		distance += pow(vect1->at(i) - vect2->at(i),2);
+	}
+	//distance = sqrt(distance); //Not neccessary for comparisons
+/*#elif defined MANHATTAN
+	// Not implemented
+#endif */
+	return distance;
+}
+uint32_t knn::calculate_distance_fast(data * query_point, data * input) {
+	uint32_t distance = 0.0;
+	/*if (query_point->get_feature_vector_size() != input->get_feature_vector_size()) {
+		printf("Vector size mismatch");
+		exit(1);
+	}*/
+	//#ifdef EUCLID
+
+	uint8_t * arr1 = query_point->get_feature_array();
+	uint8_t * arr2 = input->get_feature_array();
+
+	uint16_t size = query_point->get_feature_vector_size();
+
+	for (uint16_t i = 0; i < size; i++) {
+		distance += pow(arr1[i] - arr2[i], 2);
 	}
 	//distance = sqrt(distance); //Not neccessary for comparisons
 /*#elif defined MANHATTAN
@@ -176,7 +207,10 @@ int knn::real_predict() {
 	// A map to predictions and the amout of times they were made
 	std::map<int, int> predictions;
 
+	int pos = 0;
+	int size = test_data->size();
 	for (data * query_point : *test_data) {
+		data_handler::print_loading(false, pos, size);
 		find_knearest(query_point);
 		int prediction = predict();
 		if (predictions.find(prediction) == predictions.end())
@@ -184,16 +218,20 @@ int knn::real_predict() {
 			predictions[prediction] = 1;
 		}
 		else { predictions[prediction]++; }
+		pos++;
 	}
+
+	printf("\r                \r");
 
 	int top_guessed = predictions.begin()->first;
 	int top_guessed_count = 0;
 
 	printf("Prediction table: \n");
 	for (auto tpl : predictions) {
-		printf("\t%u) %.2f%%\n", tpl.first, tpl.second / test_data->size());
+		printf("\t%u) %.2f%%\n", tpl.first, (float)tpl.second*100/ (float)test_data->size());
 		if (tpl.second > top_guessed_count) {
 			top_guessed = tpl.first;
+			top_guessed_count = tpl.second;
 		}
 	}
 

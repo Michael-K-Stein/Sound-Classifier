@@ -2,7 +2,6 @@
 #include "kmeans.h"
 #include "network.h"
 
-
 int mainKNN(data_handler *dh) {
 	knn * knearest = new knn();
 	knearest->set_training_Data(dh->get_training_data());
@@ -131,7 +130,7 @@ int mainKNN_Predict(data_handler *dh) {
 	knearest->set_test_Data(dh->get_test_data());
 	knearest->set_validation_Data(dh->get_validation_data());
 
-	knearest->set_k(17);
+	knearest->set_k(1);
 	int prediction = knearest->real_predict();
 
 	printf("Final prediction: %d\n", prediction);

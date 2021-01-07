@@ -11,6 +11,7 @@ class data
 {
 
 	std::vector<uint8_t> * feature_vector;
+	uint8_t * feature_array;
 	std::vector<double> * double_feature_vector;
 	std::vector<double> *normalizedFeatureVector;
 	std::vector<int> * class_vector;
@@ -31,12 +32,15 @@ class data
 	void set_label (uint8_t);
 	void set_enumerated_label(int);
 	void set_distance(double);
+	// Call before using 'fast' distance function
+	void create_feature_array();
 
 	double get_distance();
 	int get_feature_vector_size();
 	uint8_t get_label();
 	uint8_t get_enumerated_label();
 	std::vector<uint8_t> * get_feature_vector();
+	uint8_t * get_feature_array();
 	std::vector<double> * get_double_feature_vector();
 	std::vector<double> * getNormalizedFeatureVector();
 	std::vector<int> * get_class_vector();

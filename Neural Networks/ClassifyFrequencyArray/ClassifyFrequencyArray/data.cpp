@@ -27,6 +27,19 @@ void data::set_double_feature_vector(std::vector<double> * vect) {
 	double_feature_vector = vect;
 }
 
+void data::create_feature_array() {
+	if (feature_array) { free(feature_array); }
+	feature_array = (uint8_t*)malloc(sizeof(uint8_t) * get_feature_vector_size());
+
+	for (int i = 0; i < get_feature_vector_size(); i++) {
+		feature_array[i] = feature_vector->at(i);
+	}
+
+}
+uint8_t* data::get_feature_array() {
+	return feature_array;
+}
+
 void data::set_class_vector(int count) {
 	class_vector = new std::vector<int>();
 	for (int i = 0; i < count; i++)
