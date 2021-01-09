@@ -563,6 +563,30 @@ int Predict(char * command) {
 		}
 		
 	}
+	else if (argc == 2) {
+		char * optionCommand;
+		if (GetCommandArg(command, 0, &optionCommand) != 0) { printf("# Could not find argument!\n"); return -1; }
+		if (strcmp(optionCommand, "-f") == 0) {
+			char * predictOutputFile;
+			if (GetCommandArg(command, 1, &predictOutputFile) != 0) { printf("# Could not find argument!\n"); return -1; }
+			char path[2048];
+			sprintf_s(path, sizeof(path), "ClassifyFrequencyArray.exe \"%s\" \"%s\" \"%s\" \"fast\"", OutputPath, DataSetLabel, predictOutputFile);
+
+			int prediction_output = system(path);
+
+			FILE * fLabelMap;
+			errno_t errLabelMap = fopen_s(&fLabelMap, fn_label_map, "r+b");
+			if (errLabelMap) { printf("# Could not open label map file!\n"); return -1; }
+
+			char label_pair[MaximumLabelLength + 2];
+			while (fread_s(label_pair, (MaximumLabelLength + 2) * sizeof(char), sizeof(char), MaximumLabelLength + 1, fLabelMap)) {
+				uint8_t label_key = label_pair[0];
+				if (label_key == prediction_output) {
+					printf("The prediction for this file is: \n\t%d | %s\n", prediction_output, label_pair + 1);
+				}
+			}
+		}
+	}
 	else {
 	printf("# Unrecognized argument count!\n");
 	}

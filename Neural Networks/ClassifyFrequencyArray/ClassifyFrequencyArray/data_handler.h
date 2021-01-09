@@ -44,6 +44,7 @@ class data_handler
 	void read_predict_feature_vector(std::string filePath);
 	void read_predict_feature_labels(std::string filePath);
 	void split_data();
+	void split_data_fast();
 	void count_classes();
 	void normalize();
 

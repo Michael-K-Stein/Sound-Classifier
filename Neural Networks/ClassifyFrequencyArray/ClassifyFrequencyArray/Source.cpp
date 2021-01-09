@@ -203,6 +203,41 @@ int main(int argc, char ** argv) {
 
 		return mainKNN_Predict(dh); // Notice that this is unconventional use of exit codes to pass data
 	}
+	else if (argc == 5) {
+		for (int i = 0; i < argc; i++) {
+			printf("%d | %s\n", i, argv[i]);
+		}
+
+		//argv[1] == Folder - output path
+		//argv[2] == Dataset name
+		char fn_vectors[128];
+		char fn_labels[128];
+		sprintf_s(fn_vectors, 128, "%s/%s.vectors", argv[1], argv[2]);
+		sprintf_s(fn_labels, 128, "%s/%s.labels", argv[1], argv[2]);
+
+		printf("Vectors: %s\nLabels: %s\n\n", fn_vectors, fn_labels);
+
+		/// Predict from file
+		// argv[3] == vector file
+
+		/// Load known data
+		data_handler * dh = new data_handler();
+		dh->read_feature_vector(fn_vectors);
+		dh->read_feature_labels(fn_labels);
+		/// Load prediction vectors
+		dh->read_predict_feature_vector(argv[3]);
+		dh->count_classes();
+		dh->normalize();
+
+		if (strcmp(argv[4], "fast") == 0) {
+			dh->split_data_fast();
+		}
+		else {
+			dh->split_data();
+		}
+
+		return mainKNN_Predict(dh); // Notice that this is unconventional use of exit codes to pass data
+	}
 
 	return 0;
 }
