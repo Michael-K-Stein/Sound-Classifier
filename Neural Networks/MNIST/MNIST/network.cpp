@@ -5,7 +5,7 @@
 #include <thread>
 
 
-Network::Network(std::vector<int> spec, int inputSize, int numClasses)
+/*Network::Network(std::vector<int> spec, int inputSize, int numClasses)
 {
 	inputLayer = new InputLayer(0, inputSize);
 	for (int i = 0; i < spec.size(); i++)
@@ -76,9 +76,9 @@ void Network::bprop(data *d)
 
 void Network::updateWeights(data *data)
 {
+	std::vector<double> inputs = *data->getNormalizedFeatureVector();
 	for (int i = 0; i < layers.size(); i++)
 	{
-		std::vector<double> inputs;
 		if (i != 0)
 		{
 			for (Neuron *n : layers.at(i - 1)->neurons)
@@ -93,10 +93,11 @@ void Network::updateWeights(data *data)
 		{
 			for (int j = 0; j < inputs.size(); j++)
 			{
-				n->weights[j] += (eta * n->delta * inputs.at(j));
+				n->weights.at(j) += (eta * n->delta * inputs.at(j));
 			}
 			n->bias += n->delta * eta;
 		}
+		inputs.clear();
 	}
 }
 
@@ -104,7 +105,7 @@ void Network::train()
 {
 	for (data *data : *this->training_data)
 	{
-		if (data->get_label() != target) continue;
+		//if (data->get_label() != target) continue;
 		fprop(data);
 		bprop(data);
 		updateWeights(data);
@@ -118,7 +119,7 @@ void Network::test()
 	double count = 0.0;
 	for (data *data : *this->test_data)
 	{
-		if (data->get_label() != target) continue;
+		//if (data->get_label() != target) continue;
 		count++;
 		fprop(data);
 		std::vector<double> outputs;
@@ -155,7 +156,7 @@ void Network::validate()
 	double count = 0.0;
 	for (data *data : *this->validation_data)
 	{
-		if (data->get_label() != target) continue;
+		//if (data->get_label() != target) continue;
 		count++;
 		fprop(data);
 		std::vector<double> outputs;
@@ -188,48 +189,172 @@ void Network::validate()
 	//fprintf(stderr, "Validation Performance: %.4f\n", numCorrect / count);
 }
 
-int mainNetwork(int argc, char const *argv[])
+*/
+
+
+Network::Network(std::vector<int> spec, int inputSize, int numClasses, double learningRate, int thread_id)
 {
-	data_handler *dh = new data_handler();
-	//#ifdef MNIST
-	dh->read_feature_vector("../Training Data/train-images.idx3-ubyte");
-	dh->read_feature_labels("../Training Data/train-labels.idx1-ubyte");
-	dh->count_classes();
+	for (int i = 0; i < spec.size(); i++)
+	{
+		if (i == 0)
+			layers.push_back(new Layer(inputSize, spec.at(i), thread_id));
+		else
+			layers.push_back(new Layer(layers.at(i - 1)->neurons.size(), spec.at(i), thread_id));
 
-	dh->normalize();
-	//#else
-	//    dh->readCsv("../Data/iris.data", ",");
-	//#endif
-	dh->split_data();
-	std::vector<int> hiddenLayers = { 2 };
-	auto lamba = [&](int target) {
-		Network * net = new Network(hiddenLayers, dh->get_training_data()->at(0)->getNormalizedFeatureVector()->size(), dh->get_class_count());
-		net->target = target;
-		net->set_training_Data(dh->get_training_data());
-		net->set_test_Data(dh->get_test_data());
-		net->set_validation_Data(dh->get_validation_data());
-		printf("Size of net %d: %zu\n", target, sizeof(*net));
-		for (int i = 0; i < 100; i++)
+	}
+	layers.push_back(new Layer(layers.at(layers.size() - 1)->neurons.size(), numClasses, thread_id));
+	this->learningRate = learningRate;
+}
+
+Network::~Network() {}
+
+double Network::activate(std::vector<double> weights, std::vector<double> input)
+{
+	double activation = weights.back(); // bias term
+	for (int i = 0; i < weights.size() - 1; i++)
+	{
+		activation += weights[i] * input[i];
+	}
+	return activation;
+}
+
+double Network::transfer(double activation)
+{
+	return 1.0 / (1.0 + exp(-activation));
+}
+
+double Network::transferDerivative(double output)
+{
+	return output * (1 - output);
+}
+
+std::vector<double> Network::fprop(data *data)
+{
+	std::vector<double> inputs = *data->getNormalizedFeatureVector();
+	for (int i = 0; i < layers.size(); i++)
+	{
+		Layer *layer = layers.at(i);
+		std::vector<double> newInputs;
+		for (Neuron *n : layer->neurons)
 		{
-			net->train();
-			if (i % 10 == 0)
-				net->validate();
+			double activation = this->activate(n->weights, inputs);
+			n->output = this->transfer(activation);
+			newInputs.push_back(n->output);
 		}
-		net->test();
-		fprintf(stderr, "Test Performance for %d: %f -> Network Size: %zu\n", target, net->testPerformance, sizeof(*net));
-	};
+		inputs = newInputs;
+	}
+	return inputs; // output layer outputs
+}
 
-	std::vector<std::thread> threads;
-
-	for (int i = 0; i < 10; i++)
+void Network::bprop(data *d)
+{
+	for (int i = layers.size() - 1; i >= 0; i--)
 	{
-		threads.emplace_back(std::thread(lamba, i));
+		Layer *layer = layers.at(i);
+		std::vector<double> errors;
+		if (i != layers.size() - 1)
+		{
+			for (int j = 0; j < layer->neurons.size(); j++)
+			{
+				double error = 0.0;
+				for (Neuron *n : layers.at(i + 1)->neurons)
+				{
+					error += (n->weights.at(j) * n->delta);
+				}
+				errors.push_back(error);
+			}
+		}
+		else {
+			for (int j = 0; j < layer->neurons.size(); j++)
+			{
+				Neuron *n = layer->neurons.at(j);
+				errors.push_back((double)d->get_class_vector()->at(j) - n->output); // expected - actual
+			}
+		}
+		for (int j = 0; j < layer->neurons.size(); j++)
+		{
+			Neuron *n = layer->neurons.at(j);
+			n->delta = errors.at(j) * this->transferDerivative(n->output); //gradient / derivative part of back prop.
+		}
+	}
+}
+
+void Network::updateWeights(data *data)
+{
+	std::vector<double> inputs = *data->getNormalizedFeatureVector();
+	for (int i = 0; i < layers.size(); i++)
+	{
+		if (i != 0)
+		{
+			for (Neuron *n : layers.at(i - 1)->neurons)
+			{
+				inputs.push_back(n->output);
+			}
+		}
+		for (Neuron *n : layers.at(i)->neurons)
+		{
+			for (int j = 0; j < inputs.size(); j++)
+			{
+				n->weights.at(j) += this->learningRate * n->delta * inputs.at(j);
+			}
+			n->weights.back() += this->learningRate * n->delta;
+		}
+		inputs.clear();
+	}
+}
+
+int Network::predict(data * data)
+{
+	std::vector<double> outputs = fprop(data);
+	return std::distance(outputs.begin(), std::max_element(outputs.begin(), outputs.end()));
+}
+
+void Network::train(int numEpochs)
+{
+	for (int i = 0; i < numEpochs; i++)
+	{
+		double sumError = 0.0;
+		for (data *data : *this->training_data)
+		{
+			std::vector<double> outputs = fprop(data);
+			std::vector<int> * expected = data->get_class_vector();
+			double tempErrorSum = 0.0;
+			for (int j = 0; j < outputs.size(); j++)
+			{
+				tempErrorSum += pow((double)expected->at(j) - outputs.at(j), 2);
+			}
+			sumError += tempErrorSum;
+			bprop(data);
+			updateWeights(data);
+		}
+		printf("Iteration: %d \t Error=%.4f\n", i, sumError);
+	}
+}
+
+double Network::test()
+{
+	double numCorrect = 0.0;
+	double count = 0.0;
+	for (data *data : *this->test_data)
+	{
+		count++;
+		int index = predict(data);
+		if (data->get_class_vector()->at(index) == 1) numCorrect++;
 	}
 
-	for (auto &th : threads)
-	{
-		th.join();
-	}
+	testPerformance = (numCorrect / count);
+	return testPerformance;
+}
 
-	return EXIT_SUCCESS;
+void Network::validate()
+{
+	double numCorrect = 0.0;
+	double count = 0.0;
+	for (data *d : *this->validation_data)
+	{
+		count++;
+		int index = predict(d);
+		if (d->get_class_vector()->at(index) == 1) numCorrect++;
+	}
+	printf("Validation Performance: %.4f\n", numCorrect / count);
 }

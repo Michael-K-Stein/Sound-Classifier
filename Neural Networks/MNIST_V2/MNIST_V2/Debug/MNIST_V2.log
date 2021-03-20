@@ -1,0 +1,30 @@
+﻿  network.cpp
+c:\users\stein\source\repos\mnist_v2\mnist_v2\network.cpp(18): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\source\repos\mnist_v2\mnist_v2\network.cpp(35): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\source\repos\mnist_v2\mnist_v2\network.cpp(51): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\source\repos\mnist_v2\mnist_v2\network.cpp(71): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\source\repos\mnist_v2\mnist_v2\network.cpp(79): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\source\repos\mnist_v2\mnist_v2\network.cpp(87): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\source\repos\mnist_v2\mnist_v2\network.cpp(102): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\source\repos\mnist_v2\mnist_v2\network.cpp(110): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\source\repos\mnist_v2\mnist_v2\network.cpp(118): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\source\repos\mnist_v2\mnist_v2\network.cpp(128): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\source\repos\mnist_v2\mnist_v2\network.cpp(152): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\source\repos\mnist_v2\mnist_v2\network.cpp(164): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\source\repos\mnist_v2\mnist_v2\network.cpp(182): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\source\repos\mnist_v2\mnist_v2\network.cpp(198): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\source\repos\mnist_v2\mnist_v2\network.cpp(231): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\source\repos\mnist_v2\mnist_v2\network.cpp(242): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\source\repos\mnist_v2\mnist_v2\network.cpp(253): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\source\repos\mnist_v2\mnist_v2\network.cpp(285): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\source\repos\mnist_v2\mnist_v2\network.cpp(367): warning C4244: 'initializing': conversion from '_Rep' to 'double', possible loss of data
+          with
+          [
+              _Rep=__int64
+          ]
+c:\users\stein\source\repos\mnist_v2\mnist_v2\network.cpp(371): warning C4244: 'initializing': conversion from '_Rep' to 'double', possible loss of data
+          with
+          [
+              _Rep=__int64
+          ]
+  MNIST_V2.vcxproj -> C:\Users\stein\source\repos\MNIST_V2\Debug\MNIST_V2.exe

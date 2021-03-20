@@ -6,6 +6,7 @@ class InputLayer : public Layer {
 
 public:
 	InputLayer(int prev, int curr) : Layer(prev, curr) {}
+	InputLayer(int prev, int curr, bool importing) : Layer(prev, curr, importing) {}
 	void setLayerOutputs(data *d);
 };
 #endif

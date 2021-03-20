@@ -1,24 +1,26 @@
 #include "neuron.h"
 #include <random>
+#include <time.h>
 
-double generateRandomNumder(double min, double max)
+double generateRandomNumder(double min, double max, int thread_id)
 {
+	srand(time(NULL) + thread_id*17);
 	double random = (double)rand() / RAND_MAX;
 	return min + random * (max - min);
 }
 
-Neuron::Neuron(int previousLayerSize, int currentLayerSize)
+Neuron::Neuron(int previousLayerSize, int currentLayerSize, int thread_id)
 {
-	initializeWeights(previousLayerSize, currentLayerSize);
+	initializeWeights(previousLayerSize, currentLayerSize, thread_id);
 }
 
-void Neuron::initializeWeights(int previousLayerSize, int currentLayerSize)
+void Neuron::initializeWeights(int previousLayerSize, int currentLayerSize, int thread_id)
 {
 	std::default_random_engine generator;
 	std::normal_distribution<double> distribution(0.0, 1.0);
 	for (int i = 0; i < previousLayerSize; i++)
 	{
-		weights.push_back(generateRandomNumder(-0.5, 0.5));
+		weights.push_back(generateRandomNumder(-0.5, 0.5, thread_id));
 	}
 }
 

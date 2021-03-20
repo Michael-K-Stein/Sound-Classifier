@@ -14,6 +14,7 @@ class data
 	uint8_t * feature_array;
 	std::vector<double> * double_feature_vector;
 	std::vector<double> *normalizedFeatureVector;
+	double *normalizedFeatureArray;
 	std::vector<int> * class_vector;
 	uint8_t label;
 	int enum_label; // A: 1; B: 2
@@ -26,6 +27,7 @@ class data
 	void set_feature_vector(std::vector<uint8_t> *);
 	void set_double_feature_vector(std::vector<double> *);
 	void setNormalizedFeatureVector(std::vector<double>*);
+	void setNormalizedFeatureArray(double*);
 	void set_class_vector(int count);
 	void append_to_feature_vector(uint8_t);
 	void append_to_feature_vector(double);
@@ -43,6 +45,7 @@ class data
 	uint8_t * get_feature_array();
 	std::vector<double> * get_double_feature_vector();
 	std::vector<double> * getNormalizedFeatureVector();
+	double * getNormalizedFeatureArray();
 	std::vector<int> * get_class_vector();
 
 };

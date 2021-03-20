@@ -109,14 +109,14 @@ uint32_t knn::calculate_distance(data * query_point, data * input) {
 	for (uint16_t i = 0; i < size; i++) {
 		distance += pow(vect1->at(i) - vect2->at(i),2);
 	}
-	//distance = sqrt(distance); //Not neccessary for comparisons
+	//distance = sqrt(distance); //Not necessary for comparisons
 /*#elif defined MANHATTAN
 	// Not implemented
 #endif */
 	return distance;
 }
 uint32_t knn::calculate_distance_fast(data * query_point, data * input) {
-	uint32_t distance = 0.0;
+	uint32_t distance = 0;
 	/*if (query_point->get_feature_vector_size() != input->get_feature_vector_size()) {
 		printf("Vector size mismatch");
 		exit(1);
@@ -131,7 +131,7 @@ uint32_t knn::calculate_distance_fast(data * query_point, data * input) {
 	for (uint16_t i = 0; i < size; i++) {
 		distance += pow(arr1[i] - arr2[i], 2);
 	}
-	//distance = sqrt(distance); //Not neccessary for comparisons
+	//distance = sqrt(distance); //Not necessary for comparisons
 /*#elif defined MANHATTAN
 	// Not implemented
 #endif */

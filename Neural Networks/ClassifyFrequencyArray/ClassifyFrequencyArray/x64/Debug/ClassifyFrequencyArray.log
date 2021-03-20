@@ -1,9 +1,4 @@
-﻿  Source.cpp
-c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\graphic.h(1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\kmeans.h(33): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\source.cpp(91): warning C4267: 'initializing': conversion from 'size_t' to 'uint32_t', possible loss of data
-c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\source.cpp(113): warning C4018: '<': signed/unsigned mismatch
-  data_handler.cpp
+﻿  data_handler.cpp
 c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\graphic.h(1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\data_handler.cpp(55): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
 c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\data_handler.cpp(73): warning C4018: '<': signed/unsigned mismatch
@@ -32,13 +27,21 @@ c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyar
   c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\data_handler.cpp(357): note: consider using '%zu' in the format string
 c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\data_handler.cpp(358): warning C4477: 'printf' : format string '%lu' requires an argument of type 'unsigned long', but variadic argument 1 has type 'unsigned __int64'
   c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\data_handler.cpp(358): note: consider using '%zu' in the format string
-c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\data_handler.cpp(363): warning C4018: '<': signed/unsigned mismatch
-c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\data_handler.cpp(374): warning C4018: '<': signed/unsigned mismatch
-c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\data_handler.cpp(384): warning C4477: 'printf' : format string '%lu' requires an argument of type 'unsigned long', but variadic argument 1 has type 'unsigned __int64'
-  c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\data_handler.cpp(384): note: consider using '%zu' in the format string
-c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\data_handler.cpp(385): warning C4477: 'printf' : format string '%lu' requires an argument of type 'unsigned long', but variadic argument 1 has type 'unsigned __int64'
-  c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\data_handler.cpp(385): note: consider using '%zu' in the format string
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\data_handler.cpp(361): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\data_handler.cpp(365): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\data_handler.cpp(376): warning C4018: '<': signed/unsigned mismatch
 c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\data_handler.cpp(386): warning C4477: 'printf' : format string '%lu' requires an argument of type 'unsigned long', but variadic argument 1 has type 'unsigned __int64'
   c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\data_handler.cpp(386): note: consider using '%zu' in the format string
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\data_handler.cpp(387): warning C4477: 'printf' : format string '%lu' requires an argument of type 'unsigned long', but variadic argument 1 has type 'unsigned __int64'
+  c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\data_handler.cpp(387): note: consider using '%zu' in the format string
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\data_handler.cpp(388): warning C4477: 'printf' : format string '%lu' requires an argument of type 'unsigned long', but variadic argument 1 has type 'unsigned __int64'
+  c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\data_handler.cpp(388): note: consider using '%zu' in the format string
+  knn.cpp
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\graphic.h(1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\knn.cpp(43): warning C4244: 'initializing': conversion from 'double' to 'uint32_t', possible loss of data
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\knn.cpp(97): warning C4244: 'initializing': conversion from 'double' to 'uint32_t', possible loss of data
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\knn.cpp(110): warning C4244: '+=': conversion from 'double' to 'uint32_t', possible loss of data
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\knn.cpp(132): warning C4244: '+=': conversion from 'double' to 'uint32_t', possible loss of data
+c:\users\stein\desktop\research project 2020\neural networks\classifyfrequencyarray\classifyfrequencyarray\knn.cpp(211): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   Generating Code...
   ClassifyFrequencyArray.vcxproj -> C:\Users\stein\Desktop\Research Project 2020\Neural Networks\ClassifyFrequencyArray\x64\Debug\ClassifyFrequencyArray.exe

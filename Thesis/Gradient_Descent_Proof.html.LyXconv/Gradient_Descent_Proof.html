@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title></title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (https://tug.org/tex4ht/)"> 
+<meta name="originator" content="TeX4ht (https://tug.org/tex4ht/)"> 
+<!-- html --> 
+<meta name="src" content="Gradient_Descent_Proof.tex"> 
+<link rel="stylesheet" type="text/css" href="Gradient_Descent_Proof.css"> 
+</head><body 
+>
+<!--l. 11--><p class="noindent" >Let&#8217;s call the cost function<span 
+class="cmmi-10">F</span><span 
+class="cmr-10">(</span><span 
+class="cmmi-10">x</span><span 
+class="cmr-10">) </span>and assume it is defined and differentiable for all
+values.
+<!--l. 14--><p class="indent" >   Let <span 
+class="cmsy-10">&#x2207;</span><span 
+class="cmmi-10">F </span>be the derivative of <span 
+class="cmmi-10">F</span>.
+<!--l. 16--><p class="indent" >   Assume point <span 
+class="cmmi-10">a</span><sub><span 
+class="cmmi-7">n</span></sub> is our current location on the cost function, representing the
+weights and biases of the network.
+<!--l. 19--><p class="indent" >   <span 
+class="cmr-10">&#x03D2;</span>being our learning rate such that: <span 
+class="cmr-10">&#x03D2; </span><span 
+class="cmsy-10">&#x2208; </span><span 
+class="msbm-10">&#x211D;</span><sub><span 
+class="cmr-7">+</span></sub> resolves to the next point
+<span 
+class="cmmi-10">a</span><sub><span 
+class="cmmi-7">n</span><span 
+class="cmr-7">+1</span></sub>being:
+<!--l. 22--><p class="indent" >   <span 
+class="cmmi-10">a</span><sub><span 
+class="cmmi-7">n</span><span 
+class="cmr-7">+1</span></sub> <span 
+class="cmr-10">= </span><span 
+class="cmmi-10">a</span><sub><span 
+class="cmmi-7">n</span></sub> <span 
+class="cmsy-10">- </span><span 
+class="cmr-10">&#x03D2;</span><span 
+class="cmsy-10">&#x2207;</span><span 
+class="cmmi-10">F</span><span 
+class="cmr-10">(</span><span 
+class="cmmi-10">a</span><sub><span 
+class="cmmi-7">n</span></sub><span 
+class="cmr-10">)</span>
+<!--l. 24--><p class="indent" >   and therefore we have a monotonic sequence such that:
+<!--l. 26--><p class="indent" >   <span 
+class="cmmi-10">F</span><span 
+class="cmr-10">(</span><span 
+class="cmmi-10">a</span><sub><span 
+class="cmr-7">1</span></sub><span 
+class="cmr-10">) </span><span 
+class="cmsy-10">&#x2265; </span><span 
+class="cmmi-10">F</span><span 
+class="cmr-10">(</span><span 
+class="cmmi-10">a</span><sub><span 
+class="cmr-7">2</span></sub><span 
+class="cmr-10">) </span><span 
+class="cmsy-10">&#x2265; </span><span 
+class="cmmi-10">F</span><span 
+class="cmr-10">(</span><span 
+class="cmmi-10">a</span><sub><span 
+class="cmr-7">3</span></sub><span 
+class="cmr-10">) </span><span 
+class="cmsy-10">&#x2265; </span><span 
+class="cmmi-10">... </span><span 
+class="cmsy-10">&#x2265; </span><span 
+class="cmmi-10">F</span><span 
+class="cmr-10">(</span><span 
+class="cmmi-10">a</span><sub><span 
+class="cmmi-7">n</span></sub><span 
+class="cmr-10">)</span>
+<!--l. 28--><p class="indent" >   meaning that<span 
+class="cmmi-10">F</span><span 
+class="cmr-10">(</span><span 
+class="cmmi-10">a</span><sub><span 
+class="cmmi-7">n</span></sub><span 
+class="cmr-10">) </span>will be a local minimum of the cost function,
+<!--l. 30--><p class="indent" >   and as such, our weights and biases array - which is represented by <span 
+class="cmmi-10">a</span><sub><span 
+class="cmmi-7">n</span></sub>- will be
+semi-idealized to the problem
+<!--l. 33--><p class="indent" >   <img 
+src="Gradient_Descent_Proof0x.png" alt="=&#x21D2;"  class="Longrightarrow" >The neural network has learnt to &#8220;solve&#8221; the given problem.  
+</body></html> 
+
+
+

@@ -6,7 +6,7 @@
 
 class OutputLayer : public Layer {
 public:
-	OutputLayer(int prev, int current) : Layer(prev, current) {}
+	OutputLayer(int prev, int current, int thread_id) : Layer(prev, current, thread_id) {}
 	void feedForward(Layer);
 	void backProp(data *data);
 	void updateWeights(double, Layer *);

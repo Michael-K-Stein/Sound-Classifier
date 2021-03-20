@@ -14,9 +14,17 @@ std::vector<double> * data::getNormalizedFeatureVector()
 {
 	return normalizedFeatureVector;
 }
+double * data::getNormalizedFeatureArray()
+{
+	return normalizedFeatureArray;
+}
 void data::setNormalizedFeatureVector(std::vector<double>* vect)
 {
 	normalizedFeatureVector = vect;
+}
+void data::setNormalizedFeatureArray(double* vect)
+{
+	normalizedFeatureArray = vect;
 }
 
 void data::set_feature_vector(std::vector<uint8_t> * vect) {
@@ -29,10 +37,13 @@ void data::set_double_feature_vector(std::vector<double> * vect) {
 
 void data::create_feature_array() {
 	if (feature_array) { free(feature_array); }
+	if (normalizedFeatureArray) { free(normalizedFeatureArray); }
 	feature_array = (uint8_t*)malloc(sizeof(uint8_t) * get_feature_vector_size());
+	normalizedFeatureArray = (double*)malloc(sizeof(double) * get_feature_vector_size());
 
 	for (int i = 0; i < get_feature_vector_size(); i++) {
 		feature_array[i] = feature_vector->at(i);
+		normalizedFeatureArray[i] = (double)feature_array[i]; // feature_vector->at(i);
 	}
 
 }

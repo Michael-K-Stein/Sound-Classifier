@@ -13,6 +13,7 @@ class Layer {
 		std::vector<Neuron *> neurons;
 		std::vector<double> layerOutput;
 		Layer(int, int);
+		Layer(int, int, bool);
 		Layer();
 		~Layer();
 		std::vector<double> getLayerOutputs();

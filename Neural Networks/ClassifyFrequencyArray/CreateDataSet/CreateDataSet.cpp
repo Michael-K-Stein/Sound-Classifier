@@ -1,5 +1,3 @@
-#include <SFML/Graphics.hpp>
-
 #include <iostream>
 #include <sys/stat.h>
 #include <time.h>
@@ -24,6 +22,7 @@ inline bool file_exists(const std::string& name) {
 	struct stat buffer;
 	return (stat(name.c_str(), &buffer) == 0);
 }
+
 int getFileSize(FILE * f) { // This will move the file pointer to SEEK_SET + 0
 	fseek(f, 0, SEEK_END);
 	int size = ftell(f);
@@ -42,12 +41,16 @@ uint32_t convert_to_little_endian(uint32_t b) {
 	return (uint32_t)((bytes[0] << 24) | (bytes[1] << 16) | (bytes[2] << 8) | (bytes[3]));
 }
 
+// Change the last character of a string into a null byte (if it's a newline).
 void fix_fgets(char * inp) {
 	if (inp[strlen(inp) - 1] == '\n') { inp[strlen(inp) - 1] = 0x0; }
 }
+
+// Check if an input matches a command
 bool cmpcommand(char * inp, const char * command) {
 	if (memcmp(inp, command, strlen(command)) == 0) {
 		char fin_char = inp[strlen(command)];
+		// the format specified is that a command ends with one of the following four characters.
 		if (fin_char == ' ' || fin_char == '\t' || fin_char == '\n' || fin_char == '\0') {
 			return true;
 		}
@@ -55,6 +58,7 @@ bool cmpcommand(char * inp, const char * command) {
 	return false;
 }
 
+// Global strings (character arrays)
 char DataSetLabel[128] = { 0 };
 char OutputPath[128] = { 0 };
 char fn_label_map[128];
@@ -62,12 +66,13 @@ char fn_data_map[128];
 char fn_vectors[128];
 char fn_labels[128];
 
+// Count the amount of arguments given in an input command (as ' ' delimiter)
 int CountCommandArgs(char * command) {
 	char * tmpCommand = (char *)malloc((strlen(command) + 1) * sizeof(char));
 	memcpy(tmpCommand, command, strlen(command) + 1);
 
 	int count = 0;
-	const char delim[2] = " ";
+	const char delim[2] = " "; // delimiter
 	char * next_tok;
 	char * tok = strtok_s(tmpCommand, delim, &next_tok);
 	while (tok != NULL) {
@@ -80,6 +85,8 @@ int CountCommandArgs(char * command) {
 
 	return count;
 }
+
+// Get command input argument at index as place it into output (also allocate memory for output)
 int GetCommandArg(char * command, int index, char ** output) {
 	char * tmpCommand = (char *)malloc((strlen(command) + 1) * sizeof(char));
 	memcpy(tmpCommand, command, strlen(command) + 1);
@@ -105,6 +112,7 @@ int GetCommandArg(char * command, int index, char ** output) {
 	return 0;
 }
 
+// Update file paths using the user specified outputpath and the dataset global name
 int UpdateFilePaths() {
 	/*fn_label_map = (char*)calloc(128, sizeof(char));
 	fn_data_map = (char*)calloc(128, sizeof(char));
@@ -136,6 +144,8 @@ int ChangeDataSetName() {
 	printf("# The data set will output to (vectors file example): '%s'\n", fn_vectors);
 	return 0;
 }
+
+// Count how many labels exist in the label map file.
 int getExistingLabelsCount(uint8_t * existing_labels, FILE * fLabelMap) {
 	int existing_labels_count = 0;
 	char label_pair[MaximumLabelLength + 2];
@@ -146,6 +156,8 @@ int getExistingLabelsCount(uint8_t * existing_labels, FILE * fLabelMap) {
 	}
 	return existing_labels_count;
 }
+
+// Prints the classes and their labels, which are stored in the label map file.
 int ViewClassifications() {
 	printf("# The following classifications exist in the data set: \n\n");
 
@@ -194,6 +206,8 @@ int ViewClassifications() {
 
 	return 0;
 }
+
+// Prints the file paths of each file in the dataset sorted by their labels.
 int ViewDataFiles() {
 	printf("# The following files are in the data set: \n\n");
 
@@ -306,6 +320,8 @@ int AddDataToSet() {
 		audioFile->printSummary();
 		std::cout << "# CH: " << audioFile->getNumChannels() << " | " << "SAMP: " << audioFile->getNumSamplesPerChannel() * audioFile->getNumChannels() << std::endl;
 
+		audioFile->ConcactChannels();
+
 		FFT * FT = new FFT();
 
 		uint8_t channelInd = 0;
@@ -333,8 +349,8 @@ int AddDataToSet() {
 		if (!file_exists(fn_vectors)) {
 			errno_t errVects = fopen_s(&fVect, fn_vectors, "wb");
 			errno_t errLabels = fopen_s(&fLabel, fn_labels, "wb");
-			uint32_t intro[4] = { convert_to_big_endian(2051), convert_to_big_endian(sample_count), convert_to_big_endian(4000) };
-			uint32_t introLabels[2] = { convert_to_big_endian(2049), convert_to_big_endian(sample_count) };
+			uint32_t intro[3] = { convert_to_big_endian(2612), convert_to_big_endian(sample_count), convert_to_big_endian(4000) };
+			uint32_t introLabels[2] = { convert_to_big_endian(2211), convert_to_big_endian(sample_count) };
 			fwrite((char*)intro, sizeof(char), 4 * sizeof(uint32_t), fVect);
 			fwrite((char*)introLabels, sizeof(char), 2 * sizeof(uint32_t), fLabel);
 		}
@@ -441,6 +457,30 @@ int AddDataToSet() {
 
 	return 0;
 }
+
+// Initialize a new dataset
+int Initialize() {
+	FILE * fLabelMap;
+	errno_t errLabelMap;
+	FILE * fDataMap;
+	errno_t errDataMap;
+	errLabelMap = fopen_s(&fLabelMap, fn_label_map, "wb");
+	errDataMap = fopen_s(&fDataMap, fn_data_map, "wb");
+	fclose(fLabelMap);
+	fclose(fDataMap);
+
+	return 0;
+}
+
+// predict the label of a file using the Classifier
+/*
+	The predict function can take arguments such as:
+	1) a file path.
+		The first input can be the relative path to a vectors file which you want to use instead of processing a wav file into a vectors file.
+	2) the '-f' argument.
+		This is passed into the classifier as 'fast' which tells the program to only check some of the data points (arbitrarily) and not all of them.
+		This obviously results in faster execution time (10x faster - since we take only a tenth of the vectors), but there is a penalty to the accuracy of the results. Though the final prediction is still usually correct.
+*/
 int Predict(char * command) {
 	int argc = CountCommandArgs(command);
 	printf("Arg count: %d\n", argc);
@@ -466,6 +506,7 @@ int Predict(char * command) {
 
 		AudioFile<double> * audioFile = new AudioFile<double>();
 
+		// Parse audio file into FFT and export it as vectors into a vectors file
 		if (audioFile->load(WAV_File_Path)) {
 			std::cout << "# Loaded File!" << std::endl;
 			audioFile->printSummary();
@@ -486,8 +527,8 @@ int Predict(char * command) {
 			errno_t errVects;
 			if (!file_exists(predictOutputFile)) {
 				errVects = fopen_s(&fVect, predictOutputFile, "wb");
-				uint32_t intro[4] = { convert_to_big_endian(2051), convert_to_big_endian(sample_count), convert_to_big_endian(4000) };
-				fwrite((char*)intro, sizeof(char), 4 * sizeof(uint32_t), fVect);
+				uint32_t intro[3] = { convert_to_big_endian(2612), convert_to_big_endian(sample_count), convert_to_big_endian(4000) };
+				fwrite((char*)intro, sizeof(char), 3 * sizeof(uint32_t), fVect);
 			}
 			else {
 				errVects = fopen_s(&fVect, predictOutputFile, "r+b");
@@ -541,6 +582,8 @@ int Predict(char * command) {
 				printf("The prediction for this file is: \n\t%d | %s\n", prediction_output, label_pair + 1);
 			}
 		}
+
+		fclose(fLabelMap);
 	}
 	else if (argc == 1) {
 		char * predictOutputFile;
@@ -562,6 +605,7 @@ int Predict(char * command) {
 			}
 		}
 		
+		fclose(fLabelMap);
 	}
 	else if (argc == 2) {
 		char * optionCommand;
@@ -585,6 +629,7 @@ int Predict(char * command) {
 					printf("The prediction for this file is: \n\t%d | %s\n", prediction_output, label_pair + 1);
 				}
 			}
+			fclose(fLabelMap);
 		}
 	}
 	else {
@@ -604,6 +649,7 @@ int Help(bool ext) {
 	printf("You can use the following commands:\n");
 	printf("\t> help\t\t\t| To see this menu.\n");
 	printf("\t> help extended\t\t| To see a full list of commands.\n");
+	printf("\t> init\t\t\t| Initialize dataset files. You must do this first when creating a new dataset!\n");
 	printf("\t> change data set name\t| To change the name given to output files.\n");
 	if (ext) {
 		printf("\t> change dataset name\t| To change the name given to output files.\n");
@@ -628,11 +674,13 @@ int Help(bool ext) {
 	if (ext) {
 		printf("\t> add data\t\t| To add another file into the dataset.\n");
 	}
+	printf("\t> predict\t\t| Predict the genre of a wav file.\n");
 	printf("\t> exit\t\t\t| To close the program.\n");
 
 	return 0;
 }
 
+// Gets user input and compares it to valid commands
 int ProccessCommands() {
 	printf("> ");
 	char input[1024];
@@ -646,6 +694,7 @@ int ProccessCommands() {
 	if (cmpcommand(input, "list files") || cmpcommand(input, "list data") || cmpcommand(input, "view files") || cmpcommand(input, "view data")) { return ViewDataFiles(); }
 	if (cmpcommand(input, "add file") || cmpcommand(input, "add data")) { return AddDataToSet(); }
 	if (cmpcommand(input, "predict")) { return Predict(input + strlen("predict") + 1); }
+	if (cmpcommand(input, "init") || cmpcommand(input, "initialize")) { return Initialize(); }
 	if (cmpcommand(input, "exit") || cmpcommand(input, "close")) { return ExitProgram(); }
 
 	return 1;

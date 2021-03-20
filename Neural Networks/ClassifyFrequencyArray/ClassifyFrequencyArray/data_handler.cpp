@@ -358,11 +358,13 @@ void data_handler::split_data() {
 	printf("Validation Data Size: %lu.\n", validation_data->size());
 }
 void data_handler::split_data_fast() {
+	srand(time(NULL));
+
 	std::unordered_set <int> used_indexes;
 	uint32_t count = 0;
 	while (count < original_data_size) {
 		print_loading(true, 0, 1);
-		uint32_t rand_index = rand() % original_data_size;  // Takes too long
+		uint32_t rand_index = rand() % original_data_size;
 		if (used_indexes.find(rand_index) == used_indexes.end()) {
 			training_data->push_back(data_array->at(rand_index));
 			used_indexes.insert(rand_index);
@@ -373,7 +375,7 @@ void data_handler::split_data_fast() {
 	count = 0;
 	while (count < (int)(predict_data_size / 10)) {
 		print_loading(true, 0, 1);
-		uint32_t rand_index = (rand() % predict_data_size) + original_data_size;  // Takes too long
+		uint32_t rand_index = (rand() % predict_data_size) + original_data_size;
 		if (used_indexes.find(rand_index) == used_indexes.end()) {
 			test_data->push_back(data_array->at(rand_index));
 			used_indexes.insert(rand_index);

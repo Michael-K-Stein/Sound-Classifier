@@ -12,7 +12,7 @@ class Layer {
 		int currentLayerSize;
 		std::vector<Neuron *> neurons;
 		std::vector<double> layerOutput;
-		Layer(int, int);
+		Layer(int, int, int thread_id);
 		Layer();
 		~Layer();
 		std::vector<double> getLayerOutputs();

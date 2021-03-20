@@ -62,7 +62,7 @@ int mainKMEANS() {
 	double best_performance = 0;
 	int best_k = 1;
 
-	for (int k = /*dh->get_class_count()*/462; k < dh->get_training_data()->size() * 0.1; k++) {
+	for (int k = /*dh->get_class_count()*/462; k < 463 /*dh->get_training_data()->size() * 0.1*/; k++) {
 
 		kmeans * kMeans = new kmeans(k);
 		kMeans->set_training_Data(dh->get_training_data());
@@ -91,9 +91,60 @@ int mainKMEANS() {
 	return 0;
 }
 
+int mainNetwork()
+{
+	data_handler *dh = new data_handler();
+	//#ifdef MNIST
+	dh->read_feature_vector("../Training Data/train-images.idx3-ubyte");
+	dh->read_feature_labels("../Training Data/train-labels.idx1-ubyte");
+	dh->count_classes();
+
+	dh->normalize();
+	//#else
+	//    dh->readCsv("../Data/iris.data", ",");
+	//#endif
+	dh->split_data();
+	std::vector<int> hiddenLayers = { 10 };
+	auto lamba = [&](int th) {
+		Network * net = new Network(hiddenLayers, dh->get_training_data()->at(0)->getNormalizedFeatureVector()->size(), dh->get_class_count(), 0.05, th);
+		//net->target = target;
+		net->set_training_Data(dh->get_training_data());
+		net->set_test_Data(dh->get_test_data());
+		net->set_validation_Data(dh->get_validation_data());
+		//printf("Size of net %d: %zu\n", target, sizeof(*net));
+		//for (int i = 0; i < 3; i++)
+		//{
+			net->train(15);
+		//	if (i % 3 == 0)
+			net->validate();
+		//}
+		net->test();
+		fprintf(stderr, "Test Performance for thread #%d: %f\n", th, net->testPerformance);
+	};
+
+	std::vector<std::thread> threads;
+
+	for (int i = 0; i < 2; i++)
+	{
+		threads.emplace_back(std::thread(lamba, i));
+	}
+
+	for (auto &th : threads)
+	{
+		th.join();
+	}
+
+	return EXIT_SUCCESS;
+}
+
+
 int main() {
 
-	mainKNN();
+	//mainKMEANS();
+
+	//mainKNN();
+
+	mainNetwork();
 
 	return 0;
 }

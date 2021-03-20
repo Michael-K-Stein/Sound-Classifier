@@ -5,7 +5,7 @@
 
 class HiddenLayer : public Layer {
 public:
-	HiddenLayer(int prev, int current) : Layer(prev, current) {}
+	HiddenLayer(int prev, int current, int thread_id) : Layer(prev, current, thread_id) {}
 	void feedForward(Layer prev);
 	void backProp(Layer next);
 	void updateWeights(double, Layer *);

@@ -13,9 +13,9 @@ public:
 	double delta;
 	double output;
 	double activation;
-	Neuron(int, int);
+	Neuron(int, int, int thread_id);
 
-	void initializeWeights(int, int);
+	void initializeWeights(int, int, int thread_id);
 	double activate(std::vector<double>);
 	double transfer(double value);
 	double transferDerivative(double value);
