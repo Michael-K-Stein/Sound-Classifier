@@ -42,6 +42,12 @@
     <ClCompile Include="Neural_Network\network.cpp">
       <Filter>Neural_Network</Filter>
     </ClCompile>
+    <ClCompile Include="CommandLineFunctions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FFT.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Neural_Network\Data\data.h">
@@ -61,6 +67,15 @@
     </ClInclude>
     <ClInclude Include="Neural_Network\network.h">
       <Filter>Neural_Network</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandLineFunctions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FFT.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

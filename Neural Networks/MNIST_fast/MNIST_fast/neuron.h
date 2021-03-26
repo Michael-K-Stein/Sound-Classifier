@@ -23,5 +23,8 @@ public:
 	double activate(int inputs_size, double * inputs); // c
 
 	void c_only();
+
+	uint64_t raw_size();
+	uint32_t export_neuron(char * buffer);
 };
 

@@ -289,6 +289,53 @@ double Network::train_c() {
 
 	return sum_error;
 }
+
+double Network::train_c(int target) {
+	double sum_error = 0.0;
+	int output_vector_size = this->training_data->at(0)->get_class_array_size();
+	double * deriv_error = (double *)calloc(output_vector_size, sizeof(double));
+
+	for (Data * d : *this->training_data)
+	{
+		if (d->get_label() != target) { continue; } // Skip anything which does not match the target label
+
+
+		double * outputs;
+		fprop_c(d, &outputs);
+
+		int * expected = d->get_class_array();
+		double tmp_sum_error = 0.0;
+		for (int j = 0; j < output_vector_size; j++)
+		{
+			double exp = (double)expected[j];
+			double out = outputs[j];
+			tmp_sum_error += pow(exp - out, 2);
+			deriv_error[j] += exp - out;
+		}
+		sum_error += tmp_sum_error;
+
+		for (int j = 0; j < output_vector_size; j++)
+		{
+			deriv_error[j] /= this->training_data->size();
+			deriv_error[j] *= 2;
+		}
+
+		bprop_c(deriv_error);
+		update_weights_c(d);
+
+		for (int j = 0; j < output_vector_size; j++)
+		{
+			deriv_error[j] = 0;
+		}
+
+		free(outputs);
+	}
+
+	free(deriv_error);
+
+	return sum_error;
+}
+
 double Network::validate_c() {
 	double num_correct = 0.0;
 	double count = 0.0;
@@ -339,6 +386,53 @@ int Network::predict_c(Data * data) {
 	return max_ind;
 }
 
+int Network::real_predict()
+{
+	// A map to predictions and the amout of times they were made
+	std::map<int, double> predictions;
+
+	double numCorrect = 0.0;
+	double count = 0.0;
+	int size = prediction_data->size();
+	for (Data *data : *this->prediction_data)
+	{
+		Data_Handler::print_loading(false, count, size);
+		count++;
+		double * outputs;
+		int outputs_size = fprop_c(data, &outputs);
+
+		for (int i = 0; i < outputs_size; i++) {
+			if (count == 0) {
+				predictions[i] = outputs[i];
+			}
+			else {
+				predictions[i] += outputs[i];
+			}
+		}
+	}
+
+	printf("\r                \r");
+
+	double total = 0;
+	for (auto tpl : predictions) {
+		total += tpl.second;
+	}
+
+	int top_guessed = predictions.begin()->first;
+	double top_guessed_count = predictions.begin()->second;
+
+	printf("Prediction table: \n");
+	for (auto tpl : predictions) {
+		printf("\t%u) %.2f%%\n", tpl.first, (float)(tpl.second * 100.0 / total));
+		if (tpl.second > top_guessed_count) {
+			top_guessed = tpl.first;
+			top_guessed_count = tpl.second;
+		}
+	}
+
+	return top_guessed;
+}
+
 void Network::c_only() {
 	layers_size = layers.size();
 	layers_array = (Layer **)malloc(layers_size * sizeof(Layer *));
@@ -348,16 +442,6 @@ void Network::c_only() {
 
 	layers.clear();
 
-	for (int i = 0; i < training_data->size(); i++) {
-		training_data->at(i)->c_only();
-	}
-	for (int i = 0; i < validation_data->size(); i++) {
-		validation_data->at(i)->c_only();
-	}
-	for (int i = 0; i < test_data->size(); i++) {
-		test_data->at(i)->c_only();
-	}
-
 	for (int i = 0; i < layers_size; i++) {
 		Layer * l = layers_array[i];
 		l->c_only();
@@ -366,7 +450,7 @@ void Network::c_only() {
 	printf("Network is now C only!\n");
 }
 
-void Network::export_network(char ** buffer) {
+int Network::export_network(char ** buffer) {
 	printf("Now exporting...\n");
 	unsigned long long int total_size = 0;
 
@@ -444,11 +528,12 @@ void Network::export_network(char ** buffer) {
 		printf("Total size does not match!\n");
 	}
 	else {
-		FILE * f;
+		/*FILE * f;
 		errno_t err = fopen_s(&f, "Network_Output.net", "wb");
 		fwrite(*buffer, sizeof(char), total_size, f);
-		fclose(f);
-		printf("Successfully exported network!\n");
+		fclose(f);*/
+		printf("Successfully exported network to buffer!\n");
+		return total_size;
 	}
 }
 

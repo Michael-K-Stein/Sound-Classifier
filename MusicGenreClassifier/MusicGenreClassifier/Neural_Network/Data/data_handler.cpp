@@ -5,6 +5,7 @@ Data_Handler::Data_Handler() {
 	training_data = new std::vector<Data *>;
 	test_data = new std::vector<Data *>;
 	validation_data = new std::vector<Data *>;
+	prediction_data = new std::vector<Data *>;
 }
 Data_Handler::~Data_Handler() {
 }
@@ -128,7 +129,134 @@ void Data_Handler::read_input_label_file(std::string file_path) {
 	}
 }
 
+void Data_Handler::read_feature_vector(std::string filePath) {
+	uint32_t		header[3]; // Magic | Num Samples | Sample Size
+	unsigned char	bytes[4];
+	FILE *f;
+	errno_t err = fopen_s(&f, filePath.c_str(), "rb");
+	if (f) {
+		for (int i = 0; i < 3; i++) {
+			if (fread(bytes, sizeof(bytes), 1, f)) {
+				header[i] = format(bytes);
+			}
+		}
+		printf("Done getting input file header.\n");
+		uint32_t sample_size = header[2];
+
+		uint32_t sample_count = std::min(header[1], max_data_vector_size);
+
+		for (int i = 0; i < sample_count; i++)
+		{
+			Data *d = new Data();
+			d->set_feature_vector(new std::vector<uint8_t>());
+			uint8_t * element = (uint8_t *)calloc(sample_size, sizeof(uint8_t));
+			fread(element, 1, sample_size, f);
+			for (int j = 0; j < sample_size; j++)
+			{
+				if (true) {
+					d->append_to_feature_vector(element[j]);
+				}
+				else {
+					printf("Error reading from file.\n");
+				}
+			}
+			free(element);
+			data_vector->push_back(d);
+		}
+
+		printf("Successfully read and stored %lu feature vectors.\n", data_vector->size());
+	}
+	else {
+		printf("Could not find file.\n");
+	}
+}
+
+void Data_Handler::read_feature_labels(std::string filePath) {
+	uint32_t		header[2]; // Magic | Num Samples
+	unsigned char	bytes[4];
+	FILE *f;
+	errno_t err = fopen_s(&f, filePath.c_str(), "rb");
+	if (f) {
+		for (int i = 0; i < 2; i++) {
+			if (fread(bytes, sizeof(bytes), 1, f)) {
+				header[i] = format(bytes);
+			}
+		}
+		printf("Done getting label file header.\n");
+
+		uint32_t sample_count = std::min(header[1], max_data_vector_size);
+
+		for (int i = 0; i < sample_count; i++) {
+			Data *d = new Data();
+			uint8_t element[1];
+
+			if (fread(element, sizeof(element), 1, f)) {
+				data_vector->at(i)->set_label(element[0]);
+			}
+			else {
+				printf("Error reading from file.\n");
+				exit(1);
+			}
+		}
+		printf("Successfully read and stored label vectors.\n");
+	}
+	else {
+		printf("Could not find file.\n");
+	}
+}
+
+void Data_Handler::read_predict_feature_vector(std::string filePath) {
+	prediction_data->clear();
+
+	uint32_t		header[3]; // Magic | Num Samples | Sample Size
+	unsigned char	bytes[4];
+	FILE *f;
+	errno_t err = fopen_s(&f, filePath.c_str(), "rb");
+	if (f) {
+		for (int i = 0; i < 3; i++) {
+			if (fread(bytes, sizeof(bytes), 1, f)) {
+				header[i] = format(bytes);
+			}
+		}
+		printf("Done getting predict file header.\n");
+		uint32_t sample_size = header[2];
+
+		uint32_t sample_count = std::min(header[1], max_data_vector_size);
+
+		for (int i = 0; i < sample_count; i++)
+		{
+			Data * d = new Data();
+			d->set_feature_vector(new std::vector<uint8_t>());
+			uint8_t * element = (uint8_t *)calloc(sample_size, sizeof(uint8_t));
+			fread(element, 1, sample_size, f);
+			for (int j = 0; j < sample_size; j++)
+			{
+				if (true) {
+					d->append_to_feature_vector(element[j]);
+				}
+				else {
+					printf("Error reading from predict file.\n");
+				}
+			}
+			free(element);
+
+			prediction_data->push_back(d);
+		}
+
+		predict_data_size = prediction_data->size();
+		printf("Successfully read and stored %lu feature vectors from predict file.\n", predict_data_size);
+	}
+	else {
+		printf("Could not find predict file.\n");
+	}
+}
+
 void Data_Handler::split_data() {
+
+	training_data->clear();
+	validation_data->clear();
+	test_data->clear();
+
 	std::unordered_set<int> used_indexes;
 	int train_size = data_vector->size() * TRAIN_SET_PERCENT;
 	int validation_size = data_vector->size() * VALID_SET_PERCENT;
@@ -190,10 +318,10 @@ void Data_Handler::count_classes() {
 	class_counts = count;
 	for (Data * data : *data_vector) {
 		data->set_class_vector(class_counts);
-		data->set_class_array(class_counts);
+		//data->set_class_array(class_counts);
 	}
 
-	printf("Successfully Extraced %d Unique Classes.\n", class_counts);
+	printf("Successfully Extracted %d Unique Classes.\n", class_counts);
 }
 void Data_Handler::normalize_data() {
 	std::vector<double> mins, maxs;
@@ -220,6 +348,7 @@ void Data_Handler::normalize_data() {
 	// normalize data array
 	for (int i = 0; i < data_vector->size(); i++)
 	{
+		Data_Handler::print_loading(false, i, data_vector->size());
 		data_vector->at(i)->set_normalized_feature_vector(new std::vector<double>());
 		data_vector->at(i)->set_class_vector(class_counts);
 		for (int j = 0; j < data_vector->at(i)->get_feature_vector_size(); j++)
@@ -231,6 +360,47 @@ void Data_Handler::normalize_data() {
 			}
 			else {
 				data_vector->at(i)->append_to_feature_vector((double)(data_vector->at(i)->get_feature_vector()->at(j) - mins[j]) / (maxs[j] - mins[j]));
+			}
+		}
+	}
+	printf("\r                     \r");
+}
+void Data_Handler::normalize_prediction_data() {
+	std::vector<double> mins, maxs;
+	// fill min and max lists
+
+	Data * d = prediction_data->at(0);
+	for (uint8_t val : *(d->get_feature_vector()))
+	{
+		mins.push_back(val);
+		maxs.push_back(val);
+	}
+
+	for (int i = 1; i < prediction_data->size(); i++)
+	{
+		d = prediction_data->at(i);
+		for (int j = 0; j < d->get_feature_vector_size(); j++)
+		{
+			double value = (double)d->get_feature_vector()->at(j);
+			if (value < mins.at(j)) mins[j] = value;
+			if (value > maxs.at(j)) maxs[j] = value;
+		}
+	}
+
+	// normalize data array
+	for (int i = 0; i < prediction_data->size(); i++)
+	{
+		prediction_data->at(i)->set_normalized_feature_vector(new std::vector<double>());
+		prediction_data->at(i)->set_class_vector(class_counts);
+		for (int j = 0; j < prediction_data->at(i)->get_feature_vector_size(); j++)
+		{
+			// add normalized value to normalized_feature_vector
+			if (maxs[j] - mins[j] == 0)
+			{
+				prediction_data->at(i)->append_to_feature_vector(0.0);
+			}
+			else {
+				prediction_data->at(i)->append_to_feature_vector((double)(prediction_data->at(i)->get_feature_vector()->at(j) - mins[j]) / (maxs[j] - mins[j]));
 			}
 		}
 	}
@@ -248,10 +418,12 @@ int Data_Handler::get_data_vector_size() {
 int Data_Handler::get_training_data_size() { return training_data->size(); }
 int Data_Handler::get_test_data_size() { return test_data->size(); }
 int Data_Handler::get_validation_data_size() { return validation_data->size(); }
+int Data_Handler::get_prediction_data_size() { return prediction_data->size(); }
 
 std::vector<Data *> * Data_Handler::get_training_data() { return training_data; }
 std::vector<Data *> * Data_Handler::get_validation_data() { return validation_data; }
 std::vector<Data *> * Data_Handler::get_test_data() { return test_data; }
+std::vector<Data *> * Data_Handler::get_prediction_data() { return prediction_data; }
 std::map<uint8_t, int> Data_Handler::get_class_map() { return class_from_int; }
 
 uint32_t Data_Handler::format(const unsigned char* bytes)
@@ -263,7 +435,15 @@ uint32_t Data_Handler::format(const unsigned char* bytes)
 }
 
 void Data_Handler::c_only() {
-	for (int i = 0; i < training_data->size(); i++) {
+
+	for (int i = 0; i < data_vector->size(); i++) {
+		Data_Handler::print_loading(false, i, data_vector->size());
+		data_vector->at(i)->c_only();
+	}
+
+	printf("\r                    \r");
+
+	/*for (int i = 0; i < training_data->size(); i++) {
 		training_data->at(i)->c_only();
 	}
 	for (int i = 0; i < validation_data->size(); i++) {
@@ -271,5 +451,19 @@ void Data_Handler::c_only() {
 	}
 	for (int i = 0; i < test_data->size(); i++) {
 		test_data->at(i)->c_only();
+	}*/
+}
+
+uint8_t print_loading_prev_val = 0;
+void Data_Handler::print_loading(bool print_dots, int amt, int cap) {
+	if (print_dots) {
+		printf("\rLoading");
+		for (int i = 0; i < print_loading_prev_val; i++) {
+			printf(".");
+		}
+		print_loading_prev_val = (print_loading_prev_val + 1) % 3;
+	}
+	else {
+		printf("\rLoading %.2f", (float)amt * 100.0 / (float)cap);
 	}
 }

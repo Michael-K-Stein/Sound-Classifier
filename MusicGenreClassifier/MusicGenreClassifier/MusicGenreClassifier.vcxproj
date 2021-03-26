@@ -151,6 +151,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CommandLineFunctions.cpp" />
+    <ClCompile Include="FFT.cpp" />
     <ClCompile Include="MusicGenreClassifier.cpp" />
     <ClCompile Include="Neural_Network\Data\common_data.cpp" />
     <ClCompile Include="Neural_Network\Data\data.cpp" />
@@ -160,6 +162,9 @@
     <ClCompile Include="Neural_Network\neuron.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AudioFile.h" />
+    <ClInclude Include="CommandLineFunctions.h" />
+    <ClInclude Include="FFT.h" />
     <ClInclude Include="Neural_Network\Data\common_data.h" />
     <ClInclude Include="Neural_Network\Data\data.h" />
     <ClInclude Include="Neural_Network\Data\data_handler.h" />

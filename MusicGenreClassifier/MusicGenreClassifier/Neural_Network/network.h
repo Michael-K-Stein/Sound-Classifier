@@ -38,6 +38,7 @@ public:
 	double test(); // return percentage correct
 
 	double train_c(); // returns error - c
+	double train_c(int target); // Train only datasamples with this label | returns error - c
 	double validate_c(); // return percentage correct - c
 	double test_c(); // return percentage correct - c
 
@@ -46,6 +47,8 @@ public:
 	int predict(Data * data);
 	int predict_c(Data * data);
 
-	void export_network(char ** buffer);
+	int real_predict();
+
+	int export_network(char ** buffer); // returns the size of buffer
 	void import_network(char * buffer);
 };

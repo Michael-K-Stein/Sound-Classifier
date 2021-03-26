@@ -1,3 +1,16 @@
-﻿  MNIST_fast.cpp
-c:\users\stein\desktop\research project 2020\neural networks\mnist_fast\mnist_fast\mnist_fast.cpp(14): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+﻿  network.cpp
+c:\users\stein\desktop\research project 2020\neural networks\mnist_fast\mnist_fast\network.cpp(5): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\desktop\research project 2020\neural networks\mnist_fast\mnist_fast\network.cpp(23): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\desktop\research project 2020\neural networks\mnist_fast\mnist_fast\network.cpp(74): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\desktop\research project 2020\neural networks\mnist_fast\mnist_fast\network.cpp(89): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\desktop\research project 2020\neural networks\mnist_fast\mnist_fast\network.cpp(137): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\desktop\research project 2020\neural networks\mnist_fast\mnist_fast\network.cpp(148): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\desktop\research project 2020\neural networks\mnist_fast\mnist_fast\network.cpp(201): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\desktop\research project 2020\neural networks\mnist_fast\mnist_fast\network.cpp(347): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\desktop\research project 2020\neural networks\mnist_fast\mnist_fast\network.cpp(350): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\desktop\research project 2020\neural networks\mnist_fast\mnist_fast\network.cpp(353): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\desktop\research project 2020\neural networks\mnist_fast\mnist_fast\network.cpp(398): warning C4244: 'argument': conversion from 'unsigned __int64' to 'size_t', possible loss of data
+c:\users\stein\desktop\research project 2020\neural networks\mnist_fast\mnist_fast\network.cpp(445): warning C4244: 'argument': conversion from 'unsigned __int64' to 'size_t', possible loss of data
+c:\users\stein\desktop\research project 2020\neural networks\mnist_fast\mnist_fast\network.cpp(448): warning C4244: 'return': conversion from 'unsigned __int64' to 'int', possible loss of data
+c:\users\stein\desktop\research project 2020\neural networks\mnist_fast\mnist_fast\network.cpp(450): warning C4715: 'network::export_network': not all control paths return a value
   MNIST_fast.vcxproj -> C:\Users\stein\Desktop\Research Project 2020\Neural Networks\MNIST_fast\Debug\MNIST_fast.exe

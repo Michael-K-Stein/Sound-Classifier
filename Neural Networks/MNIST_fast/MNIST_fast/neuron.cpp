@@ -43,3 +43,13 @@ void neuron::c_only() {
 		weights.clear();
 	}
 }
+
+uint64_t neuron::raw_size() {
+	return (weights_array_size * sizeof(weights_array[0]));
+}
+
+uint32_t neuron::export_neuron(char * buffer) {
+	memcpy(buffer, weights_array, (weights_array_size * sizeof(weights_array[0])));
+
+	return (weights_array_size * sizeof(weights_array[0]));
+}

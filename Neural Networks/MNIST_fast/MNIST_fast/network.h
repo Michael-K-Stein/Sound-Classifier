@@ -45,5 +45,6 @@ public:
 	int predict(data * data);
 	int predict_c(data * data);
 
+	int export_network(char ** buffer); // returns the size of buffer
 };
 

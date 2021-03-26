@@ -9,6 +9,9 @@ void Common_data::set_validation_data(std::vector<Data *> * vect) {
 void Common_data::set_test_data(std::vector<Data *> * vect) {
 	test_data = vect;
 }
+void Common_data::set_prediction_data(std::vector<Data *> * vect) {
+	prediction_data = vect;
+}
 
 std::vector<Data *> * Common_data::get_validation_data() {
 	return validation_data;

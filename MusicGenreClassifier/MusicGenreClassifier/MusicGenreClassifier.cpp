@@ -1,6 +1,4 @@
-#include <iostream>
-
-#include "Neural_network/network.h"
+#include "CommandLineFunctions.h"
 
 #include <chrono>
 #include <utility>
@@ -9,9 +7,30 @@ typedef std::chrono::high_resolution_clock::time_point TimeVar;
 #define duration(a) std::chrono::duration_cast<std::chrono::nanoseconds>(a).count()
 #define timeNow() std::chrono::high_resolution_clock::now()
 
+int StartUp() {
+	std::cout << "=== === === === ===" << std::endl;
+	std::cout << "Started WAV Analyzer" << std::endl;
+	std::cout << "  Data Set Editor" << std::endl;
+	std::cout << "=== === === === ===" << std::endl;
+	std::cout << std::endl << std::endl;
+
+	ChangeOutputPath();
+	ChangeDataSetName();
+
+	while (true) {
+		if (ProccessCommands() == 1) {
+			printf("# Command Failed!\n");
+		}
+	}
+
+	return 0;
+}
+
 int main()
 {
-	srand(time(NULL));
+	StartUp();
+
+	/*srand(time(NULL));
 
 	Data_Handler * _data_handler = new Data_Handler();
 	_data_handler->read_input_data_file("C:\\Users\\stein\\Desktop\\Research Project 2020\\Neural Networks\\MNIST\\Training Data\\train-images.idx3-ubyte");
@@ -21,7 +40,7 @@ int main()
 
 	Network * netw;
 
-	if (/* import */ 1) { 
+	if (1) { 
 		/// IMPORT
 		FILE * f;
 		errno_t err = fopen_s(&f, "Network_Output.net", "rb");
@@ -65,6 +84,7 @@ int main()
 	printf("Test performance: %.4f%%\n", 100.0 * netw->test_c());
 	printf("Now training...\n");
 
+	double old_perf = 0;
 
 	for (int i = 0; i < 100000; i++) {
 
@@ -78,9 +98,12 @@ int main()
 			//TimeVar t2 = timeNow();
 			printf("Validation performance: %.4f%%\n", 100.0 * netw->validate_c());
 			
-			char * buffer;
-			netw->export_network(&buffer);
-			free(buffer);
+			if (netw->test_performance > old_perf) {
+				char * buffer;
+				netw->export_network(&buffer);
+				free(buffer);
+				old_perf = netw->test_performance;
+			}
 
 			//double validate_time = duration(timeNow() - t2);
 			//printf("Validating time: %.2f nanoseconds\n", validate_time);
@@ -91,7 +114,7 @@ int main()
 			printf("Test Performance: %.4f%%\n", 100.0 * netw->test_c());
 		}
 	}
-	printf("Test Performance: %.4f%%\n", 100.0 * netw->test_c());
+	printf("Test Performance: %.4f%%\n", 100.0 * netw->test_c());*/
 
 	return 0;
 }

@@ -78,7 +78,7 @@ void Data::update_normalized_feature_array() {
 	normalized_feature_array_size = normalized_feature_vector->size();
 	normalized_feature_array = (double *)malloc(normalized_feature_array_size * sizeof(double));
 
-	for (int i = 0; i < normalized_feature_vector->size(); i++) {
+	for (int i = 0; i < normalized_feature_array_size; i++) {
 		normalized_feature_array[i] = normalized_feature_vector->at(i);
 	}
 }
@@ -95,8 +95,9 @@ void Data::c_only() {
 	update_normalized_feature_array();
 
 	if (class_array != NULL) { free(class_array); }
-	class_array = (int *)malloc(class_vector->size() * sizeof(int));
-	for (int i = 0; i < class_vector->size(); i++) {
+	class_array_size = class_vector->size();
+	class_array = (int *)malloc(class_array_size * sizeof(int));
+	for (int i = 0; i < class_array_size; i++) {
 		class_array[i] = class_vector->at(i);
 	}
 

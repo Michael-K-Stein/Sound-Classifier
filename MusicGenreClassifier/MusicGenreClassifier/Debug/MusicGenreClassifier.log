@@ -1,5 +1,17 @@
-﻿  MusicGenreClassifier.cpp
-c:\users\stein\desktop\research project 2020\musicgenreclassifier\musicgenreclassifier\musicgenreclassifier.cpp(14): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\stein\desktop\research project 2020\musicgenreclassifier\musicgenreclassifier\musicgenreclassifier.cpp(31): warning C4244: 'argument': conversion from 'unsigned __int64' to 'size_t', possible loss of data
-c:\users\stein\desktop\research project 2020\musicgenreclassifier\musicgenreclassifier\musicgenreclassifier.cpp(33): warning C4244: 'argument': conversion from 'unsigned __int64' to 'size_t', possible loss of data
+﻿  data_handler.cpp
+c:\users\stein\desktop\research project 2020\musicgenreclassifier\musicgenreclassifier\neural_network\data\data_handler.cpp(54): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\desktop\research project 2020\musicgenreclassifier\musicgenreclassifier\neural_network\data\data_handler.cpp(59): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\desktop\research project 2020\musicgenreclassifier\musicgenreclassifier\neural_network\data\data_handler.cpp(148): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\desktop\research project 2020\musicgenreclassifier\musicgenreclassifier\neural_network\data\data_handler.cpp(154): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\desktop\research project 2020\musicgenreclassifier\musicgenreclassifier\neural_network\data\data_handler.cpp(189): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\desktop\research project 2020\musicgenreclassifier\musicgenreclassifier\neural_network\data\data_handler.cpp(226): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\desktop\research project 2020\musicgenreclassifier\musicgenreclassifier\neural_network\data\data_handler.cpp(232): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\desktop\research project 2020\musicgenreclassifier\musicgenreclassifier\neural_network\data\data_handler.cpp(261): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\stein\desktop\research project 2020\musicgenreclassifier\musicgenreclassifier\neural_network\data\data_handler.cpp(262): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\stein\desktop\research project 2020\musicgenreclassifier\musicgenreclassifier\neural_network\data\data_handler.cpp(263): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\stein\desktop\research project 2020\musicgenreclassifier\musicgenreclassifier\neural_network\data\data_handler.cpp(337): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\desktop\research project 2020\musicgenreclassifier\musicgenreclassifier\neural_network\data\data_handler.cpp(349): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\desktop\research project 2020\musicgenreclassifier\musicgenreclassifier\neural_network\data\data_handler.cpp(379): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\desktop\research project 2020\musicgenreclassifier\musicgenreclassifier\neural_network\data\data_handler.cpp(391): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\desktop\research project 2020\musicgenreclassifier\musicgenreclassifier\neural_network\data\data_handler.cpp(439): warning C4018: '<': signed/unsigned mismatch
   MusicGenreClassifier.vcxproj -> C:\Users\stein\Desktop\Research Project 2020\MusicGenreClassifier\Debug\MusicGenreClassifier.exe

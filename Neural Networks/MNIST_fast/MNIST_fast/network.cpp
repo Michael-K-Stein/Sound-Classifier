@@ -308,7 +308,7 @@ double network::test_c() {
 		int index = predict_c(d);
 		if (d->get_class_array()[index] == 1) { num_correct++; }
 	}
-
+	this->test_performance = num_correct / count;
 	return num_correct / count;
 }
 
@@ -360,4 +360,91 @@ void network::c_only() {
 	}
 
 	printf("Network is now C only!\n");
+}
+
+int network::export_network(char ** buffer) {
+	printf("Now exporting...\n");
+	unsigned long long int total_size = 0;
+
+	total_size += sizeof(total_size);
+
+	total_size += sizeof(double); // network_accuracy
+
+	uint32_t layer_size = 0;
+	uint32_t prev_layer_size = layers_array[0]->neurons_array[0]->weights_array_size - 1;
+
+	total_size += sizeof(layers_size);
+
+	total_size += sizeof(prev_layer_size);
+
+	for (int i = 0; i < layers_size; i++)
+	{
+		layer_size = layers_array[i]->current_layer_size;
+
+		total_size += 1 * sizeof(layer_size); // layer_size
+
+		for (int j = 0; j < layers_array[i]->neurons_size; j++) {
+			neuron * n = layers_array[i]->neurons_array[j];
+			total_size += n->raw_size();
+		}
+
+		prev_layer_size = layer_size;
+
+		total_size += 1 * sizeof(prev_layer_size); // prev_layer_size
+	}
+
+	printf("Export size: %llu\n", total_size);
+
+	*buffer = (char *)calloc(total_size, sizeof(char));
+
+
+
+	uint32_t current_size_index = 0;
+
+	memcpy(*buffer, &total_size, sizeof(total_size));
+	current_size_index += sizeof(total_size);
+
+	double network_accuracy = this->test_performance;
+	memcpy(*buffer + current_size_index, &network_accuracy, sizeof(network_accuracy));
+	current_size_index += sizeof(network_accuracy);
+
+	layer_size = 0;
+	prev_layer_size = layers_array[0]->neurons_array[0]->weights_array_size - 1;
+
+	uint32_t layer_sizes = layers_size;
+	memcpy(*buffer + current_size_index, &layer_sizes, sizeof(layer_sizes));
+	current_size_index += 1 * sizeof(layer_sizes); // layer_sizes
+
+	memcpy(*buffer + current_size_index, &prev_layer_size, sizeof(prev_layer_size));
+	current_size_index += 1 * sizeof(uint32_t); // prevlayerSize
+
+	for (int i = 0; i < layers_size; i++)
+	{
+		layer_size = layers_array[i]->current_layer_size;
+
+		memcpy(*buffer + current_size_index, &layer_size, sizeof(layer_size));
+		current_size_index += 1 * sizeof(uint32_t); // layerSize
+
+		for (int j = 0; j < layers_array[i]->neurons_size; j++) {
+			neuron * n = layers_array[i]->neurons_array[j];
+			current_size_index += n->export_neuron((*buffer) + current_size_index);
+		}
+
+		prev_layer_size = layer_size;
+
+		memcpy(*buffer + current_size_index, &prev_layer_size, sizeof(prev_layer_size));
+		current_size_index += 1 * sizeof(uint32_t); // prevlayerSize
+	}
+
+	if (current_size_index != total_size) {
+		printf("Total size does not match!\n");
+	}
+	else {
+		FILE * f;
+		errno_t err = fopen_s(&f, "MNIST_Network_Output3.net", "wb");
+		fwrite(*buffer, sizeof(char), total_size, f);
+		fclose(f);
+		printf("Successfully exported network to buffer!\n");
+		return total_size;
+	}
 }

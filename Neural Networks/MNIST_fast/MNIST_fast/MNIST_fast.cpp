@@ -24,7 +24,7 @@ int main()
 		hidden_layers,
 		_data_handler->get_training_data()->at(0)->get_feature_vector_size(),
 		_data_handler->get_class_count(),
-		0.25);
+		0.20);
 
 	netw->set_training_data(_data_handler->get_training_data());
 	netw->set_validation_data(_data_handler->get_validation_data());
@@ -41,7 +41,7 @@ int main()
 	printf("Now training...\n");
 
 	
-
+	double old_perf = 0;
 	for (int i = 0; i < 100000; i++) {
 
 		//TimeVar t1 = timeNow();
@@ -55,11 +55,19 @@ int main()
 			printf("Validation performance: %.4f%%\n", 100.0 * netw->validate_c());
 			//double validate_time = duration(timeNow() - t2);
 			//printf("Validating time: %.2f nanoseconds\n", validate_time);
+
+			
 		}
 
 
-		if (i % 25 == 0) {
+		if (i % 3 == 0) {
 			printf("Test Performance: %.4f%%\n", 100.0 * netw->test_c());
+			if (netw->test_performance > old_perf) {
+				char * buffer;
+				netw->export_network(&buffer);
+				free(buffer);
+				old_perf = netw->test_performance;
+			}
 		}
 	}
 	printf("Test Performance: %.4f%%\n", 100.0 * netw->test_c());
