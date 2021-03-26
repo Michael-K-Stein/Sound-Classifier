@@ -1,0 +1,5 @@
+﻿  MusicGenreClassifier.cpp
+c:\users\stein\desktop\research project 2020\musicgenreclassifier\musicgenreclassifier\musicgenreclassifier.cpp(14): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\stein\desktop\research project 2020\musicgenreclassifier\musicgenreclassifier\musicgenreclassifier.cpp(31): warning C4244: 'argument': conversion from 'unsigned __int64' to 'size_t', possible loss of data
+c:\users\stein\desktop\research project 2020\musicgenreclassifier\musicgenreclassifier\musicgenreclassifier.cpp(33): warning C4244: 'argument': conversion from 'unsigned __int64' to 'size_t', possible loss of data
+  MusicGenreClassifier.vcxproj -> C:\Users\stein\Desktop\Research Project 2020\MusicGenreClassifier\Debug\MusicGenreClassifier.exe

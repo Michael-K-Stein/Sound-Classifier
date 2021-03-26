@@ -3,47 +3,29 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.1267
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicGenreClassifier", "MusicGenreClassifier\MusicGenreClassifier.csproj", "{1F377D3F-3410-4735-8B96-853D6CEA71BF}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CreateDataSet", "CreateDataSet\CreateDataSet.vcxproj", "{4F2F66A6-2F31-421C-901D-AE3D72CEF61D}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MusicGenreClassifier", "MusicGenreClassifier\MusicGenreClassifier.vcxproj", "{CB56A7F9-2368-4CBA-8F38-D752873FDB64}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
-		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1F377D3F-3410-4735-8B96-853D6CEA71BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1F377D3F-3410-4735-8B96-853D6CEA71BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1F377D3F-3410-4735-8B96-853D6CEA71BF}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{1F377D3F-3410-4735-8B96-853D6CEA71BF}.Debug|x64.Build.0 = Debug|Any CPU
-		{1F377D3F-3410-4735-8B96-853D6CEA71BF}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{1F377D3F-3410-4735-8B96-853D6CEA71BF}.Debug|x86.Build.0 = Debug|Any CPU
-		{1F377D3F-3410-4735-8B96-853D6CEA71BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1F377D3F-3410-4735-8B96-853D6CEA71BF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1F377D3F-3410-4735-8B96-853D6CEA71BF}.Release|x64.ActiveCfg = Release|Any CPU
-		{1F377D3F-3410-4735-8B96-853D6CEA71BF}.Release|x64.Build.0 = Release|Any CPU
-		{1F377D3F-3410-4735-8B96-853D6CEA71BF}.Release|x86.ActiveCfg = Release|Any CPU
-		{1F377D3F-3410-4735-8B96-853D6CEA71BF}.Release|x86.Build.0 = Release|Any CPU
-		{4F2F66A6-2F31-421C-901D-AE3D72CEF61D}.Debug|Any CPU.ActiveCfg = Debug|Win32
-		{4F2F66A6-2F31-421C-901D-AE3D72CEF61D}.Debug|x64.ActiveCfg = Debug|x64
-		{4F2F66A6-2F31-421C-901D-AE3D72CEF61D}.Debug|x64.Build.0 = Debug|x64
-		{4F2F66A6-2F31-421C-901D-AE3D72CEF61D}.Debug|x86.ActiveCfg = Debug|Win32
-		{4F2F66A6-2F31-421C-901D-AE3D72CEF61D}.Debug|x86.Build.0 = Debug|Win32
-		{4F2F66A6-2F31-421C-901D-AE3D72CEF61D}.Release|Any CPU.ActiveCfg = Release|Win32
-		{4F2F66A6-2F31-421C-901D-AE3D72CEF61D}.Release|x64.ActiveCfg = Release|x64
-		{4F2F66A6-2F31-421C-901D-AE3D72CEF61D}.Release|x64.Build.0 = Release|x64
-		{4F2F66A6-2F31-421C-901D-AE3D72CEF61D}.Release|x86.ActiveCfg = Release|Win32
-		{4F2F66A6-2F31-421C-901D-AE3D72CEF61D}.Release|x86.Build.0 = Release|Win32
+		{CB56A7F9-2368-4CBA-8F38-D752873FDB64}.Debug|x64.ActiveCfg = Debug|x64
+		{CB56A7F9-2368-4CBA-8F38-D752873FDB64}.Debug|x64.Build.0 = Debug|x64
+		{CB56A7F9-2368-4CBA-8F38-D752873FDB64}.Debug|x86.ActiveCfg = Debug|Win32
+		{CB56A7F9-2368-4CBA-8F38-D752873FDB64}.Debug|x86.Build.0 = Debug|Win32
+		{CB56A7F9-2368-4CBA-8F38-D752873FDB64}.Release|x64.ActiveCfg = Release|x64
+		{CB56A7F9-2368-4CBA-8F38-D752873FDB64}.Release|x64.Build.0 = Release|x64
+		{CB56A7F9-2368-4CBA-8F38-D752873FDB64}.Release|x86.ActiveCfg = Release|Win32
+		{CB56A7F9-2368-4CBA-8F38-D752873FDB64}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {FC7C15B6-9CB5-48B8-9627-C2C4FA3C3F6D}
+		SolutionGuid = {68CD8018-7F2C-49BF-98C3-89BF2CA45E5C}
 	EndGlobalSection
 EndGlobal

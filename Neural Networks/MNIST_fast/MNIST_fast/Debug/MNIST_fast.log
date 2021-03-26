@@ -1,0 +1,3 @@
+﻿  MNIST_fast.cpp
+c:\users\stein\desktop\research project 2020\neural networks\mnist_fast\mnist_fast\mnist_fast.cpp(14): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  MNIST_fast.vcxproj -> C:\Users\stein\Desktop\Research Project 2020\Neural Networks\MNIST_fast\Debug\MNIST_fast.exe
