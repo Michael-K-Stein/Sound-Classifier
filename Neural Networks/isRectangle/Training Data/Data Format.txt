@@ -1,4 +1,0 @@
-Number of Images | Row Size | Column Size
-
-Example:
-0000000000001001	0000000000010001	0000000000010001

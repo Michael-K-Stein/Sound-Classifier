@@ -1,0 +1,43 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(391,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (MusicGenreClassifier.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  CommandLineFunctions.cpp
+c:\users\stein\desktop\research project 2020\audioclassifier\audioclassifier\commandlinefunctions.cpp(199): warning C4101: 'existing_labels': unreferenced local variable
+c:\users\stein\desktop\research project 2020\audioclassifier\audioclassifier\commandlinefunctions.cpp(299): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\desktop\research project 2020\audioclassifier\audioclassifier\commandlinefunctions.cpp(372): warning C4838: conversion from 'uint8_t' to 'char' requires a narrowing conversion
+c:\users\stein\desktop\research project 2020\audioclassifier\audioclassifier\commandlinefunctions.cpp(420): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\desktop\research project 2020\audioclassifier\audioclassifier\commandlinefunctions.cpp(426): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\desktop\research project 2020\audioclassifier\audioclassifier\commandlinefunctions.cpp(427): warning C4244: '=': conversion from '_Ty' to 'char', possible loss of data
+          with
+          [
+              _Ty=double
+          ]
+c:\users\stein\desktop\research project 2020\audioclassifier\audioclassifier\commandlinefunctions.cpp(490): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\desktop\research project 2020\audioclassifier\audioclassifier\commandlinefunctions.cpp(535): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\desktop\research project 2020\audioclassifier\audioclassifier\commandlinefunctions.cpp(541): warning C4018: '<': signed/unsigned mismatch
+c:\users\stein\desktop\research project 2020\audioclassifier\audioclassifier\commandlinefunctions.cpp(542): warning C4244: '=': conversion from '_Ty' to 'char', possible loss of data
+          with
+          [
+              _Ty=double
+          ]
+c:\users\stein\desktop\research project 2020\audioclassifier\audioclassifier\commandlinefunctions.cpp(648): warning C4244: 'argument': conversion from 'unsigned __int64' to 'size_t', possible loss of data
+c:\users\stein\desktop\research project 2020\audioclassifier\audioclassifier\commandlinefunctions.cpp(650): warning C4244: 'argument': conversion from 'unsigned __int64' to 'size_t', possible loss of data
+c:\users\stein\desktop\research project 2020\audioclassifier\audioclassifier\audiofile.h(929): warning C4018: '<': signed/unsigned mismatch
+  c:\users\stein\desktop\research project 2020\audioclassifier\audioclassifier\audiofile.h(927): note: while compiling class template member function 'void AudioFile<double>::ConcactChannels(void)'
+  c:\users\stein\desktop\research project 2020\audioclassifier\audioclassifier\commandlinefunctions.cpp(311): note: see reference to function template instantiation 'void AudioFile<double>::ConcactChannels(void)' being compiled
+  c:\users\stein\desktop\research project 2020\audioclassifier\audioclassifier\commandlinefunctions.cpp(304): note: see reference to class template instantiation 'AudioFile<double>' being compiled
+c:\users\stein\desktop\research project 2020\audioclassifier\audioclassifier\audiofile.h(862): warning C4018: '<': signed/unsigned mismatch
+  c:\users\stein\desktop\research project 2020\audioclassifier\audioclassifier\audiofile.h(853): note: while compiling class template member function 'int AudioFile<double>::getIndexOfChunk(std::vector<uint8_t,std::allocator<_Ty>> &,const std::string &,int,AudioFile<double>::Endianness)'
+          with
+          [
+              _Ty=uint8_t
+          ]
+  c:\users\stein\desktop\research project 2020\audioclassifier\audioclassifier\audiofile.h(486): note: see reference to function template instantiation 'int AudioFile<double>::getIndexOfChunk(std::vector<uint8_t,std::allocator<_Ty>> &,const std::string &,int,AudioFile<double>::Endianness)' being compiled
+          with
+          [
+              _Ty=uint8_t
+          ]
+  c:\users\stein\desktop\research project 2020\audioclassifier\audioclassifier\audiofile.h(298): note: while compiling class template member function 'bool AudioFile<double>::isStereo(void) const'
+  c:\users\stein\desktop\research project 2020\audioclassifier\audioclassifier\audiofile.h(928): note: see reference to function template instantiation 'bool AudioFile<double>::isStereo(void) const' being compiled
+  c:\users\stein\desktop\research project 2020\audioclassifier\audioclassifier\audiofile.h(264): note: while compiling class template member function 'AudioFile<double>::AudioFile(void)'
+  c:\users\stein\desktop\research project 2020\audioclassifier\audioclassifier\commandlinefunctions.cpp(304): note: see reference to function template instantiation 'AudioFile<double>::AudioFile(void)' being compiled
+c:\users\stein\desktop\research project 2020\audioclassifier\audioclassifier\commandlinefunctions.cpp(874): warning C4715: 'ShowNoHelpMenu': not all control paths return a value
+  AudioClassifier.vcxproj -> C:\Users\stein\Desktop\Research Project 2020\AudioClassifier\Debug\AudioClassifier.exe
