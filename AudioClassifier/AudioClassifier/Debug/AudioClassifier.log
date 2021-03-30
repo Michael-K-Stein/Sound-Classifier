@@ -39,5 +39,7 @@ c:\users\stein\desktop\research project 2020\audioclassifier\audioclassifier\aud
   c:\users\stein\desktop\research project 2020\audioclassifier\audioclassifier\audiofile.h(928): note: see reference to function template instantiation 'bool AudioFile<double>::isStereo(void) const' being compiled
   c:\users\stein\desktop\research project 2020\audioclassifier\audioclassifier\audiofile.h(264): note: while compiling class template member function 'AudioFile<double>::AudioFile(void)'
   c:\users\stein\desktop\research project 2020\audioclassifier\audioclassifier\commandlinefunctions.cpp(304): note: see reference to function template instantiation 'AudioFile<double>::AudioFile(void)' being compiled
+  layer.cpp
+  Generating Code...
 c:\users\stein\desktop\research project 2020\audioclassifier\audioclassifier\commandlinefunctions.cpp(874): warning C4715: 'ShowNoHelpMenu': not all control paths return a value
   AudioClassifier.vcxproj -> C:\Users\stein\Desktop\Research Project 2020\AudioClassifier\Debug\AudioClassifier.exe
