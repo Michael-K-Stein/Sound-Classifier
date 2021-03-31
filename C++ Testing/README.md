@@ -41,7 +41,8 @@ class Student {
 			}
 			return;
 		}
-};```
+};
+```
 
   In this example we already see how encapsulation protects data, and places functions in an intuitive location regarding the data they use. In the case we see here, by using encapsulation, we reduce and simplify the code, as we have these protective ‘if’ statements only once, rather than making sure we are not accidentally ruining the student’s name each time we use it.
 
@@ -75,7 +76,8 @@ class Penguin : public Bird {
 	public:
 		void Swim();
 		void Fly() = delete; // Penguins cannot fly
-};```
+};
+```
 
   We have here the hierarchy from a general animal to a penguin, where a penguin has all the attributes and information of a base animal, and also some of the features of a bird - without the flying. Using inheritance, we avoid writing definitions and implementations of standard functions like “Walk()” in each class of animal. Say we implemented a class for each of the ~400 dog breeds. It would be incredibly redundant to implement 400 walk functions, while if we inherited each ‘dog_breed’ class from a base ‘dog’ class, we would only implement this function - and many others - once.
 
@@ -98,7 +100,8 @@ double Sum(int length_of_array, double * num_array) {
 		sum += num_array[i];
 	}
 	return sum;
-}```
+}
+```
 
   Now when we need to use some implementation of the ‘Sum’ function, we do not need to worry about which one to choose, as the compiler will select the proper one for each call according to that call's parameters.
 	The second type, dynamic polymorphism, allows us to refer to objects of different derived classes the same way, given the derive from a common function. We can use this feature to iterate over an array of animals (see Encapsulation) and call their common “Walk()” function.
@@ -118,7 +121,8 @@ animals[3] = dog;
 
 for (int i = 0; i < 4; i++) {
 	animals[i]->Walk();
-}```
+}
+```
 
 
 
