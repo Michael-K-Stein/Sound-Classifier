@@ -9,12 +9,12 @@ The only real difference between the various solutions to the problems is the re
 ![image12](https://user-images.githubusercontent.com/36902556/113140607-50b4a180-9231-11eb-861b-0a1c3ccadbe8.png)
 
 Using this Audio Classifier, we are able to classify:
-Different genres of music:
+### Different genres of music:
 The first test was to see if we can differentiate between genres of music. The result was that we can classify with a little over 78% accuracy ‘Classical Music’, ‘Electronic Dance Music’, ‘Jazz’, and ‘Rock’. This test was done with a network of 4000 -> 420 -> 32 -> 4, and took around 11 training iterations on a dataset of 23,707 feature vectors.
 Network File: MNIST_Network_Output3.net
-Different people speaking:
+### Different people speaking:
 The next test was to differentiate between people’s voices. As explained in the Theoretical Background, this is almost identical to our previous problem. Hence, we used the exact same program, with the exact same network configuration to give us an accuracy of over 96% when differentiating between ‘Angela Merkel’, ‘Martin Luther King Jr’, ‘John F Kennedy’, and ‘Bucky Roberts’, after around 30 training cycles of 2,838 data samples.
 Network File: FourV_96.net
-Different instruments:
+### Different instruments:
 Now let’s try instruments! Testing with these following classifications and files Piano, Guitar, Violin, returned a test accuracy of ~98% on a very simple network of 4000 -> 30 -> 3 with 7547 feature vectors.
 Network file: Instr98.net
