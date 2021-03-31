@@ -352,14 +352,14 @@ int main()
 }
 ```
 
-##Improved Neural Network
-	This version of the neural network is simply the previous version except with all the improvements listed in Evolvement - Practical Research. The main difference is that we used C code almost exclusively, instead of std::vector - which is a C++ class.
-###Final Result
+## Improved Neural Network
+This version of the neural network is simply the previous version except with all the improvements listed in Evolvement - Practical Research. The main difference is that we used C code almost exclusively, instead of std::vector - which is a C++ class.
+### Final Result
 
-	As you can see, this version of the network reduced training time from ~674923436000 nanoseconds (674.92 seconds) to ~2661079700 nanoseconds (2.66 seconds); a 99.61% time reduction.
-	This improvement means we can compile and train a more complex network with more data samples in significantly less time.
-	Training the network for about an hour yielded a test performance of just over 80% with a simple network of one hidden layer with 32 neurons, which was plenty of proof to show that the network is in-fact learning. Thus, we conclude our proof-of-concept machine learning phase, and move to our actual goal.
-###Code
+As you can see, this version of the network reduced training time from ~674923436000 nanoseconds (674.92 seconds) to ~2661079700 nanoseconds (2.66 seconds); a 99.61% time reduction.
+This improvement means we can compile and train a more complex network with more data samples in significantly less time.
+Training the network for about an hour yielded a test performance of just over 80% with a simple network of one hidden layer with 32 neurons, which was plenty of proof to show that the network is in-fact learning. Thus, we conclude our proof-of-concept machine learning phase, and move to our actual goal.
+### Code
 ```C++
 data.h + data.cpp
 
