@@ -1,18 +1,18 @@
-Sound Classifier
+# Sound Classifier
 
-<h1>How Sophisticated Can A Non-Organic Object’s Musical Hearing Become Utilizing Neural Networks?</h1>
+## How Sophisticated Can A Non-Organic Object’s Musical Hearing Become Utilizing Neural Networks?
 
 
 
-A Computer Science Research Project
+#### A Computer Science Research Project
 
-By Michael Kuperfish Steinberg
+#### By Michael Kuperfish Steinberg
 
 HaKfar HaYarok 2020
 
 Advisor: Yooda Or
 
-Theoretical Background
+# Theoretical Background
 
 Theoretical Background
 	Recognizing people by their voice, differentiating between music genres, animal sounds, and understanding the random noises from the kitchen are all standard tasks our human brain does automatically. These are all achieved by our impeccable ability to find patterns. So how do we grant a computer this ability?
